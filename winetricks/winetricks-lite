@@ -8064,41 +8064,7 @@ execute_command()
     esac
 }
 
-if ! test "$WINETRICKS_LIB"
-then
-    # If user specifies menu on commandline, execute that command, but don't commit to commandline mode
-    # FIXME: this code is duplicated several times; unify it
-    if echo "$WINETRICKS_CATEGORIES" | grep -w "$1" > /dev/null
-    then
-        WINETRICKS_CURMENU=$1
-        shift
-    fi
-
-    case "$1" in
-    die) w_die "we who are about to die salute you." ;;
-    "") winetricks_usage ;;
-    *)
-        # Commandline case
-        winetricks_detect_sudo
-        # User gave commandline arguments, so just run those verbs and exit
-        for verb
-        do
-            case $verb in
-            *.verb)
-                # Load the verb file
-                case $verb in
-                */*) . $verb ;;
-                *) . ./$verb ;;
-                esac
-                # And forget that the verb comes from a file
-                verb="`echo $verb | sed 's,.*/,,;s,.verb,,'`"
-                ;;
-            esac
-            execute_command "$verb"
-        done
-        ;;
-
-    esac
-
-fi
-
+for verb
+do
+    execute_command "$verb"
+done
