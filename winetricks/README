@@ -1,0 +1,5 @@
+winetricks-lite is a stripped down version of winetricks, intended to be
+(mostly) compatible, with a few notable changes:
+* no GUI support, command line only
+* no Windows support
+* no custom app/game support
