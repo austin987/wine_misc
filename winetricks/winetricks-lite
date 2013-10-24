@@ -1326,7 +1326,6 @@ w_workaround_wine_bug()
     uk*) w_warn "Обхід помилки ${1} $_W_msg" ;;
     *)   w_warn "Working around wine bug ${1} $_W_msg" ;;
     esac
-    winetricks_stats_log_command w_workaround_wine_bug-$1
     return 0
 }
 
@@ -1488,7 +1487,6 @@ w_do_call()
 
         # We'd like to get rid of W_PACKAGE, but for now, just set it as late as possible.
         W_PACKAGE=$1
-        winetricks_stats_log_command $*
         w_try load_$cmd $arg
 
         # User-specific postinstall hook.
@@ -8426,103 +8424,6 @@ load_winxp()
 
 #---- Main Program ----
 
-winetricks_stats_save()
-{
-    # Save opt-in status
-    if test "$WINETRICKS_STATS_REPORT"
-    then
-        echo "$WINETRICKS_STATS_REPORT" > "$W_CACHE"/track_usage
-    fi
-}
-
-winetricks_stats_init()
-{
-    # Load opt-in status if not already set by a commandline option
-    if test ! "$WINETRICKS_STATS_REPORT" && test -f "$W_CACHE"/track_usage
-    then
-        WINETRICKS_STATS_REPORT=`cat "$W_CACHE"/track_usage`
-    fi
-
-    if test ! "$WINETRICKS_STATS_REPORT"
-    then
-        # No opt-in status found.  If GUI active, ask user whether they would like to opt in.
-        case $WINETRICKS_GUI in
-        zenity)
-            case $LANG in
-            *)
-                title="One-time question about helping Winetricks development"
-                question="Would you like to help winetricks development by letting winetricks report statistics?  You can turn reporting off at any time with the command 'winetricks --optout'"
-                thanks="Thanks!  You won't be asked this question again.  Remember, you can turn reporting off at any time with the command 'winetricks --optout'"
-                declined="OK, winetricks will *not* report statistics.  You won't be asked this question again."
-                ;;
-            esac
-            if $WINETRICKS_GUI --question --text "$question" --title "$title"
-            then
-                $WINETRICKS_GUI --info --text "$thanks"
-                WINETRICKS_STATS_REPORT=1
-            else
-                $WINETRICKS_GUI --info --text "$declined"
-                WINETRICKS_STATS_REPORT=0
-            fi
-            echo $WINETRICKS_STATS_REPORT > "$W_CACHE"/track_usage
-            ;;
-        esac
-    fi
-    winetricks_stats_save
-}
-
-# Retrieve a short string with the operating system name and version
-winetricks_os_description()
-{
-    (
-    case "$OS" in
-    "Windows_NT")
-        echo windows ;;
-    *)  echo "$WINETRICKS_WINE_VERSION" ;;
-    esac
-    ) | tr '\012' ' '
-}
-
-winetricks_stats_report()
-{
-    # If user has opted in to usage tracking, report what he used (if anything)
-    case "$WINETRICKS_STATS_REPORT" in
-    1) ;;
-    *) return;;
-    esac
-    test -f "$WINETRICKS_WORKDIR"/breadcrumbs || return
-
-    WINETRICKS_STATS_BREADCRUMBS=`cat "$WINETRICKS_WORKDIR"/breadcrumbs | tr '\012' ' '`
-    echo "You opted in, so reporting '$WINETRICKS_STATS_BREADCRUMBS' to the winetricks maintainer so he knows which winetricks verbs get used and which don't.  Use --optout to disable future reports."
-
-    report="os=`winetricks_os_description`&winetricks=$WINETRICKS_VERSION&breadcrumbs=$WINETRICKS_STATS_BREADCRUMBS"
-    report="`echo $report | sed 's/ /%20/g'`"
-    # Just do a HEAD request with the raw commandline.
-    # Yes, this can be fooled by caches.  That's ok.
-    if [ -x "`which wget 2>/dev/null`" ]
-    then
-        wget --spider "http://kegel.com/data/winetricks-usage?$report" > /dev/null 2>&1 || true
-    elif [ -x "`which curl 2>/dev/null`" ]
-    then
-        curl -I "http://kegel.com/data/winetricks-usage?$report" > /dev/null 2>&1 || true
-    fi
-}
-
-winetricks_stats_log_command()
-{
-    # log what we execute for possible later statistics reporting
-    echo "$*" >> "$WINETRICKS_WORKDIR"/breadcrumbs
-
-    # and for the user's own reference later, when figuring out what he did
-    case "$OS" in
-    "Windows_NT") _W_LOGDIR="$W_WINDIR_UNIX"/Temp ;;
-    *) _W_LOGDIR="$WINEPREFIX" ;;
-    esac
-    mkdir -p "$_W_LOGDIR"
-    echo "$*" >> "$_W_LOGDIR"/winetricks.log
-    unset _W_LOGDIR
-}
-
 # Launch a new terminal window if in gui, or
 # spawn a shell in the current window if commandline.
 # New shell contains proper WINEPREFIX and WINE environment variables.
@@ -8666,9 +8567,6 @@ execute_command()
 
 if ! test "$WINETRICKS_LIB"
 then
-    # If user opted out, save that preference now.
-    winetricks_stats_save
-
     # If user specifies menu on commandline, execute that command, but don't commit to commandline mode
     # FIXME: this code is duplicated several times; unify it
     if echo "$WINETRICKS_CATEGORIES" | grep -w "$1" > /dev/null
@@ -8734,7 +8632,6 @@ then
             then
                 WINETRICKS_CURMENU=$verbs
             else
-                winetricks_stats_init
                 # Otherwise user picked one or more real verbs.
                 case "$verbs" in
                 prefix=*)
@@ -8764,7 +8661,6 @@ then
         done
         ;;
     *)
-        winetricks_stats_init
         # Commandline case
         winetricks_detect_sudo
         # User gave commandline arguments, so just run those verbs and exit
@@ -8787,6 +8683,5 @@ then
 
     esac
 
-    winetricks_stats_report
 fi
 
