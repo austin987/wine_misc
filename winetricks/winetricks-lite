@@ -1273,15 +1273,6 @@ w_do_call()
         W_PACKAGE=$1
         w_try load_$cmd $arg
 
-        # User-specific postinstall hook.
-        # Source it so the script can call w_download() if needed.
-        postfile="$WINETRICKS_POST/$1/$1-postinstall.sh"
-        if test -f "$postfile"
-        then
-            chmod +x "$postfile"
-            . "$postfile"
-        fi
-
         # Clean up after this verb
         test "$W_OPT_NOCLEAN" = 1 || rm -rf "$W_TMP"
 
@@ -1924,15 +1915,9 @@ winetricks_init()
     else
         XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
     fi
-    if test "$WINETRICKS_DIR"
-    then
-        # For backwards compatibility
-        W_CACHE="${W_CACHE:-$WINETRICKS_DIR/cache}"
-        WINETRICKS_POST="${WINETRICKS_POST:-$WINETRICKS_DIR/postinstall}"
-    else
-        W_CACHE="${W_CACHE:-$XDG_CACHE_HOME/winetricks}"
-        WINETRICKS_POST="${WINETRICKS_POST:-$XDG_DATA_HOME/winetricks/postinstall}"
-    fi
+
+    W_CACHE="${W_CACHE:-$XDG_CACHE_HOME/winetricks}"
+
     test -d "$W_CACHE" || mkdir -p "$W_CACHE"
     WINETRICKS_AUTH="${WINETRICKS_AUTH:-$XDG_DATA_HOME/winetricks/auth}"
 
