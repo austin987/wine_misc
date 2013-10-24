@@ -7298,35 +7298,6 @@ execute_command()
     *=default) w_do_call default $cmd;;
     *=disabled) w_do_call disabled $cmd;;
 
-    # Hacks for backwards compatibility
-    cc580) w_call comctl32 ;;
-    comdlg32.ocx) w_call comdlg32ocx ;;
-    dotnet1) w_call dotnet11 ;;
-    dotnet2) w_call dotnet20 ;;
-    firefox3) w_call firefox35 ;;  # the one that works
-    flash11) w_call flash ;;
-    fm20) w_call controlpad ;;   # art2kmin also comes with fm20.dll
-    fontsmooth-bgr) w_call fontsmooth=bgr ;;
-    fontsmooth-disable) w_call fontsmooth=disable ;;
-    fontsmooth-gray) w_call fontsmooth=gray ;;
-    fontsmooth-rgb) w_call fontsmooth=rgb ;;
-    glsl-disable) w_call glsl=disabled ;;
-    glsl-enable) w_call glsl=enabled ;;
-    ie6_full) w_call ie6 ;;
-    jscript) w_call wsh56js ;;            # FIXME: use wsh57 instead?
-    npm-repack) w_call npm=repack ;;
-    oss) w_call sound=oss ;;
-    psm=off) w_call psm=disabled ;;
-    psm=on) w_call psm=enabled ;;
-    python) w_call python26 ;;
-    python-comtypes) w_call python26_comtypes ;;
-    vbrun60) w_call vb6run ;;
-    vcrun2005sp1) w_call vcrun2005 ;;
-    vcrun2008sp1) w_call vcrun2008 ;;
-    vsm-hard) w_call vsm=hardware ;;
-    wsh56) w_call wsh57 ;;
-    xlive) w_call gfw ;;
-
     # Normal verbs, with metadata and load_ functions
     *)
         if winetricks_metadata_exists $1
