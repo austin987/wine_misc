@@ -8588,78 +8588,7 @@ then
         # This will read the volname from the given image and put it to stdout.
         winetricks_volname ${1#volnameof=}
         ;;
-    "")
-        if test x"$DISPLAY" = x""
-        then
-            echo "DISPLAY not set, not defaulting to gui"
-            winetricks_usage
-            exit 0
-        fi
-        # GUI case
-        # No non-option arguments given, so read them from GUI, and loop until user quits
-        winetricks_detect_gui
-        winetricks_detect_sudo
-        while true
-        do
-            case $WINETRICKS_CURMENU in
-            main) verbs=`winetricks_mainmenu` ;;
-            prefix)
-                verbs=`winetricks_prefixmenu`;
-                # Cheezy hack: choosing type of package in prefix menu == whether to isolate.
-                case "$verbs" in
-                apps|benchmarks|games) WINETRICKS_OPT_SHAREDPREFIX=0 ;;
-                *)     WINETRICKS_OPT_SHAREDPREFIX=1 ;;
-                esac
-                # Cheezy hack #2: choosing 'attended' or 'unattended' leaves you in same menu
-                case "$verbs" in
-                attended) winetricks_set_unattended 0 ; continue;;
-                unattended) winetricks_set_unattended 1 ; continue;;
-                esac
-                ;;
-            settings) verbs=`winetricks_settings_menu` ;;
-            *) verbs="`winetricks_showmenu`" ;;
-            esac
-
-            if test "$verbs" = ""
-            then
-                # "user didn't pick anything, back up a level in the menu"
-                case "$WINETRICKS_CURMENU"-"$WINETRICKS_OPT_SHAREDPREFIX" in
-                apps-0|benchmarks-0|games-0|main-*) WINETRICKS_CURMENU=prefix ;;
-                prefix-*) break ;;
-                *)    WINETRICKS_CURMENU=main ;;
-                esac
-            elif echo "$WINETRICKS_CATEGORIES" | grep -w "$verbs" > /dev/null
-            then
-                WINETRICKS_CURMENU=$verbs
-            else
-                # Otherwise user picked one or more real verbs.
-                case "$verbs" in
-                prefix=*)
-                    # prefix menu is special, it only returns one verb, and the
-                    # verb can contain spaces
-                    execute_command "$verbs"
-                    # after picking a prefix, want to land in main.
-                    WINETRICKS_CURMENU=main ;;
-                *)
-                    for verb in $verbs
-                    do
-                        execute_command "$verb"
-                    done
-                    case "$WINETRICKS_CURMENU"-"$WINETRICKS_OPT_SHAREDPREFIX" in
-                    prefix-*|apps-0|benchmarks-0|games-0)
-                        # After installing isolated app, return to prefix picker
-                        WINETRICKS_CURMENU=prefix
-                        ;;
-                    *)
-                        # Otherwise go to main menu.
-                        WINETRICKS_CURMENU=main
-                        ;;
-                    esac
-                    ;;
-                esac
-            fi
-        done
-        ;;
+    "") winetricks_usage ;;
     *)
         # Commandline case
         winetricks_detect_sudo
