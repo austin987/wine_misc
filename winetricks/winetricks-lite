@@ -313,54 +313,6 @@ w_verify_sha1sum()
     unset _W_vs_wantsum _W_vs_file _W_vs_gotsum
 }
 
-# wget outputs progress messages that look like this:
-#      0K .......... .......... .......... .......... ..........  0%  823K 40s
-# This function replaces each such line with the pair of lines
-# 0%
-# # Downloading... 823K (40s)
-# It uses minimal buffering, so each line is output immediately
-# and the user can watch progress as it happens.
-
-winetricks_parse_wget_progress()
-{
-    # Parse a percentage, a size, and a time into $1, $2 and $3
-    # then use them to create the output line.
-    perl -p -e \
-       '$| = 1; s/^.* +([0-9]+%) +([0-9,.]+[GMKB]) +([0-9hms,.]+).*$/\1\n# Downloading... \2 (\3)/'
-}
-
-# Execute wget, and if in gui mode, also show a graphical progress bar
-winetricks_wget_progress()
-{
-    case $WINETRICKS_GUI in
-    zenity)
-        # Usa a subshell so if the user clicks 'Cancel',
-        # the --auto-kill kills the subshell, not the current shell
-        (
-            wget "$@" 2>&1 |
-            winetricks_parse_wget_progress | \
-            $WINETRICKS_GUI --progress --width 400 --title="$_W_file" --auto-kill --auto-close
-        )
-        err=$?
-        if test $err -gt 128
-        then
-            # 129 is 'killed by SIGHUP'
-            # Sadly, --auto-kill only applies to parent process,
-            # which was the subshell, not all the elements of the pipeline...
-            # have to go find and kill the wget.
-            # If we ran wget in the background, we could kill it more directly, perhaps...
-            if pid=`ps augxw | grep ."$_W_file" | grep -v grep | awk '{print $2}'`
-            then
-                echo User aborted download, killing wget
-                kill $pid
-            fi
-        fi
-        return $err
-        ;;
-    *) wget "$@" ;;
-    esac
-}
-
 # Download a file
 # Usage: w_download_to packagename url [sha1sum [filename [cookie jar]]]
 # Caches downloads in winetrickscache/$packagename
@@ -462,8 +414,7 @@ w_download_to()
            # [*] --read-timeout is useful on the adobe server that doesn't
            # close the connection unless you tell it to (control-C or closing
            # the socket)
-           winetricks_wget_progress \
-               -O "$_W_file" -nd \
+           wget -O "$_W_file" -nd \
                -c --read-timeout=300 --retry-connrefused \
                --header "Accept-Encoding: gzip,deflate" \
                ${_W_cookiejar:+--load-cookies "$_W_cookiejar"} \
