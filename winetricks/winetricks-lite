@@ -146,33 +146,6 @@ ftp_microsoft_com=64.4.17.176
 
 #---- Public Functions ----
 
-# Ask permission to continue
-w_askpermission()
-{
-    echo "------------------------------------------------------"
-    echo "$@"
-    echo "------------------------------------------------------"
-
-    if test $W_OPT_UNATTENDED
-    then
-        _W_timeout="--timeout 5"
-    fi
-
-    case $WINETRICKS_GUI in
-    zenity) $WINETRICKS_GUI $_W_timeout --question --title=winetricks --text="`echo $@ | sed 's,\\\\,\\\\\\\\,g'`" --no-wrap;;
-    kdialog) $WINETRICKS_GUI --title winetricks --warningcontinuecancel "$@" ;;
-    none) printf %s "Press Y or N, then Enter: " ; read response ; test "$response" = Y || test "$response" = y;;
-    esac
-
-    if test $? -ne 0
-    then
-        w_die "Operation cancelled, quitting."
-        exec false
-    fi
-
-    unset _W_timeout
-}
-
 # Display info message.  Time out quickly if user doesn't click.
 w_info()
 {
@@ -340,60 +313,6 @@ w_try_7z()
     fi
 
     w_try 7z "$@"
-}
-
-w_read_key()
-{
-    if test ! "$W_OPT_UNATTENDED"
-    then
-        W_KEY=dummy_to_make_autohotkey_happy
-        return 0
-    fi
-
-    mkdir -p "$W_CACHE/$W_PACKAGE"
-
-    # backwards compatibile location
-    # Auth doesn't belong in cache, since restoring it requires user input
-    _W_keyfile="$W_CACHE/$W_PACKAGE/key.txt"
-    if ! test -f "$_W_keyfile"
-    then
-        _W_keyfile="$WINETRICKS_AUTH/$W_PACKAGE/key.txt"
-    fi
-    if ! test -f "$_W_keyfile"
-    then
-        # read key from user
-        case $LANG in
-        da*) _W_keymsg="Angiv venligst registrerings-nøglen for pakken '$_PACKAGE'"
-            _W_nokeymsg="Ingen nøgle angivet"
-            ;;
-        de*) _W_keymsg="Bitte einen Key für Pakete '$W_PACKAGE' eingeben"
-            _W_nokeymsg="Keinen Key eingegeben?"
-            ;;
-        pl*) _W_keymsg="Proszę podać klucz dla programu '$W_PACKAGE'"
-            _W_nokeymsg="Nie podano klucza"
-            ;;
-        uk*) _W_keymsg="Будь ласка, введіть ключ для додатка '$W_PACKAGE'"
-            _W_nokeymsg="Ключ не надано"
-            ;;
-        *)  _W_keymsg="Please enter the key for app '$W_PACKAGE'"
-            _W_nokeymsg="No key given"
-            ;;
-        esac
-        case $WINETRICKS_GUI in
-        *zenity) W_KEY=`zenity --entry --text "$_W_keymsg"` ;;
-        *kdialog) W_KEY=`kdialog --inputbox "$_W_keymsg"` ;;
-        *xmessage) w_die "sorry, can't read key from gui with xmessage" ;;
-        none) printf %s "$_W_keymsg": ; read W_KEY ;;
-        esac
-        if test "$W_KEY" = ""
-        then
-            w_die "$_W_nokeymsg"
-        fi
-        echo "$W_KEY" > "$_W_keyfile"
-    fi
-    W_RAW_KEY=`cat "$_W_keyfile"`
-    W_KEY=`echo $W_RAW_KEY | tr -d '[:blank:][=-=]'`
-    unset _W_keyfile _W_keymsg _W_nokeymsg
 }
 
 # Convert a Windows path to a Unix path quickly.
@@ -3072,32 +2991,6 @@ winetricks_set_wineprefix()
         W_SYSTEM32_DLLS="$W_WINDIR_UNIX/system32"
         W_SYSTEM32_DLLS_WIN="C:\\windows\\system32"
     fi
-}
-
-winetricks_annihilate_wineprefix()
-{
-    w_skip_windows "No wineprefix to delete on windows" && return
-
-    w_askpermission "Delete $WINEPREFIX, its apps, icons, and menu items?"
-    rm -rf "$WINEPREFIX"/*
-    rm -rf "$WINEPREFIX"
-
-    # Also remove menu items.
-    find $XDG_DATA_HOME/applications/wine -type f -name '*.desktop' -exec grep -q -l "$WINEPREFIX" '{}' ';' -exec rm '{}' ';'
-
-    # Also remove desktop items.
-    # Desktop might be synonym for home directory, so only go one level
-    # deep to avoid extreme slowdown if user has lots of files
-    (
-    if ! test "$XDG_DESKTOP_DIR" && test -f $XDG_CONFIG_HOME/user-dirs.dirs
-    then
-        . $XDG_CONFIG_HOME/user-dirs.dirs
-    fi
-    find "$XDG_DESKTOP_DIR" -maxdepth 1 -type f -name '*.desktop' -exec grep -q -l "$WINEPREFIX" '{}' ';' -exec rm '{}' ';'
-    )
-
-    # FIXME: recover more nicely.  At moment, have to restart to avoid trouble.
-    exit 0
 }
 
 winetricks_init()
@@ -8919,7 +8812,6 @@ execute_command()
     showbroken) W_OPT_SHOWBROKEN=1 ;;
     hidebroken) W_OPT_SHOWBROKEN=0 ;;
     prefix=*) winetricks_set_wineprefix "$arg" ;;
-    annihilate) winetricks_annihilate_wineprefix ;;
     folder) w_open_folder "$WINEPREFIX" ;;
     winecfg) "$WINE" winecfg ;;
     regedit) "$WINE" regedit ;;
