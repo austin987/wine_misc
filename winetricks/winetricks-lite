@@ -145,67 +145,12 @@ ftp_microsoft_com=64.4.17.176
 
 #---- Public Functions ----
 
-# Display info message.  Time out quickly if user doesn't click.
-w_info()
-{
-    echo "------------------------------------------------------"
-    echo "$@"
-    echo "------------------------------------------------------"
-
-    _W_timeout="--timeout 3"
-
-    case $WINETRICKS_GUI in
-    zenity) $WINETRICKS_GUI $_W_timeout --info --title=winetricks --text="`echo $@ | sed 's,\\\\,\\\\\\\\,g'`" --no-wrap;;
-    kdialog) $WINETRICKS_GUI --title winetricks --msgbox "$@" ;;
-    none) ;;
-    esac
-
-    unset _W_timeout
-}
-
 # Display warning message to stderr (since it is called inside redirected code)
 w_warn()
 {
     echo "------------------------------------------------------" >&2
     echo "$@" >&2
     echo "------------------------------------------------------" >&2
-
-    if test $W_OPT_UNATTENDED
-    then
-        _W_timeout="--timeout 5"
-    fi
-
-    case $WINETRICKS_GUI in
-    zenity) $WINETRICKS_GUI $_W_timeout --error --title=winetricks --text="`echo $@ | sed 's,\\\\,\\\\\\\\,g'`";;
-    kdialog) $WINETRICKS_GUI --title winetricks --error "$@" ;;
-    none) ;;
-    esac
-
-    unset _W_timeout
-}
-
-# Display warning message to stderr (since it is called inside redirected code)
-# And give gui user option to cancel (for when used in a loop)
-# If user cancels, exit status is 1
-w_warn_cancel()
-{
-    echo "------------------------------------------------------" >&2
-    echo "$@" >&2
-    echo "------------------------------------------------------" >&2
-
-    if test $W_OPT_UNATTENDED
-    then
-        _W_timeout="--timeout 5"
-    fi
-
-    # Zenity has no cancel button, but will set status to 1 if you click the go-away X
-    case $WINETRICKS_GUI in
-    zenity) $WINETRICKS_GUI $_W_timeout --error --title=winetricks --text="`echo $@ | sed 's,\\\\,\\\\\\\\,g'`";;
-    kdialog) $WINETRICKS_GUI --title winetricks --warningcontinuecancel "$@" ;;
-    none) ;;
-    esac
-
-    # can't unset, it clears status
 }
 
 # Display fatal error message and terminate script
@@ -682,7 +627,7 @@ w_download_manual_to()
 
     case "$media" in
     "download")
-        w_info "FAIL: bug: media type is download, but w_download_manual was called.  Programmer, please change verb's media type to manual_download."
+        w_warn "FAIL: bug: media type is download, but w_download_manual was called.  Programmer, please change verb's media type to manual_download."
         ;;
     esac
 
@@ -2683,7 +2628,7 @@ winetricks_init()
             WINETRICKS_ORIGINAL_WINEPREFIX="$WINEPREFIX"
             #if test WINETRICKS_OPT_SHAREDPREFIX=0
             #then
-            #    w_info "To install apps into $WINEPREFIX, give the --no-isolate option"
+            #    w_warn "To install apps into $WINEPREFIX, give the --no-isolate option"
             #fi
         else
             WINETRICKS_ORIGINAL_WINEPREFIX="$HOME/.wine"
@@ -4053,7 +3998,7 @@ load_dotnet30sp1()
 
     "$WINE" $file1 ${W_OPT_UNATTENDED:+/q}
     status=$?
-    w_info $file1 exited with status $status
+    w_warn $file1 exited with status $status
 }
 
 #----------------------------------------------------------------
