@@ -1734,7 +1734,6 @@ Options:
     --force           Don't check whether packages were already installed
     --no-clean        Don't delete temp directories (useful during debugging)
 -q, --unattended      Don't ask any questions, just install automatically
--r, --ddrescue        Retry hard when caching scratched discs
     --showbroken      Even show verbs that are currently broken in wine
 -v, --verbose         Echo all commands as they are executed
 -h, --help            Display this message and exit
@@ -1766,9 +1765,6 @@ winetricks_handle_option()
     -h|--help) winetricks_usage ; exit 0 ;;
     --no-clean) W_OPT_NOCLEAN=1 ;;
     --force) WINETRICKS_FORCE=1;;
-    --showbroken) W_OPT_SHOWBROKEN=1 ;;
-    --optin) WINETRICKS_STATS_REPORT=1;;
-    --optout) WINETRICKS_STATS_REPORT=0;;
     -*) w_die "unknown option $1" ;;
     *) return 1 ;;
     esac
@@ -1789,23 +1785,6 @@ then
 
     winetricks_init
 fi
-
-winetricks_install_app()
-{
-    case $LANG in
-    da*) fail_msg="Installationen af pakken $1 fejlede" ;;
-    de*) fail_msg="Installieren von Pakete $1 gescheitert" ;;
-    pl*) fail_msg="Niepowodzenie przy instalacji paczki $1" ;;
-    uk*) fail_msg="Помилка встановлення пакунка $1" ;;
-    *)   fail_msg="Failed to install package $1" ;;
-    esac
-
-    # FIXME: initialize a new wineprefix for this app, set lots of global variables
-    if ! w_do_call $1 $2
-    then
-        w_die "$fail_msg"
-    fi
-}
 
 #---- Builtin Verbs ----
 
@@ -1882,7 +1861,7 @@ helper_win7sp1()
 
 #---------------------------------------------------------
 
-w_metadata  adobeair dlls \
+w_metadata adobeair dlls \
     title="Adobe AIR 2.7" \
     publisher="Adobe" \
     year="2011" \
