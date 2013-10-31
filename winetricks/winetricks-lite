@@ -466,72 +466,6 @@ w_download()
     w_download_to $W_PACKAGE "$@"
 }
 
-# Download one or more files via bittorrent
-# Usage: w_download_torrent [foo.torrent]
-# Caches downloads in $W_CACHE/$W_PACKAGE, torrent files are assumed to be there
-# If no foo.torrent is given, will add ALL .torrent files in $W_CACHE/$W_PACKAGE
-w_download_torrent()
-{
-    # FIXME: figure out how to extract the filename from the .torrent file
-    # so callers don't need to check if the files are already downloaded.
-
-    w_call utorrent
-
-    UT_WINPATH="$W_CACHE_WIN\\$W_PACKAGE"
-    cd "$W_CACHE/$W_PACKAGE"
-
-    if [ "$2"x != ""x ] # foo.torrent parameter supplied
-    then
-        w_try "$WINE" utorrent "/DIRECTORY" "$UT_WINPATH" "$UT_WINPATH\\$2" &
-    else # grab all torrents
-        for torrent in `ls *.torrent`
-        do
-            w_try "$WINE" utorrent "/DIRECTORY" "$UT_WINPATH" "$UT_WINPATH\\$torrent" &
-        done
-    fi
-
-    # Start uTorrent, have it wait until all downloads are finished
-    w_ahk_do "
-        SetTitleMatchMode, 2
-        winwait, Torrent
-        Loop
-        {
-            sleep 6000
-            ifwinexist, Torrent, default
-            {
-                ;should uTorrent be the default torrent app?
-                controlclick, Button1, Torrent, default  ; yes
-                continue
-            }
-            ifwinexist, Torrent, already
-            {
-                ;torrent already registered, fine
-                controlclick, Button1, Torrent, default  ; yes
-                continue
-            }
-            ifwinexist, Torrent, Bandwidth
-            {
-                ;Cancels bandwidth test on first run of uTorrent
-                controlclick, Button5, Torrent, Bandwidth
-                continue
-            }
-            ifwinexist, Torrent, version
-            {
-                ;Decline upgrade to newer version
-                controlclick, Button3, Torrent, version
-                controlclick, Button2, Torrent, version
-                continue
-            }
-            break
-        }
-        ;Sets parameter to close uTorrent once all downloads are complete
-        winactivate, Torrent 2.0
-        send !o
-        send a{Down}{Enter}
-        winwaitclose, Torrent 2.0
-    "
-}
-
 w_download_manual_to()
 {
     _W_packagename="$1"
@@ -1132,28 +1066,6 @@ w_metadata()
         w_die "bug: w_metadata $_W_md_cmd corrupt, might need forward slashes?"
     fi
     unset _W_md_cmd
-}
-
-# Function for verbs to register their main executable [or, if name is given,
-# other executables]
-# Example:
-#   w_declare_exe "$W_PROGRAMS_X86_WIN\\WorldOfGooDemo" WorldOfGoo.exe [name]
-w_declare_exe()
-{
-    _W_dir="$1"
-    _W_exe="$2"
-    if test "$3"
-    then
-        _W_name="$3"
-    else
-        _W_name="$W_PACKAGE"
-    fi
-    cat > "$W_DRIVE_C/run-$_W_name.bat" <<__EOF__
-${W_PROGRAMS_DRIVE}:
-cd "$_W_dir"
-$_W_exe %*
-__EOF__
-    unset _W_dir _W_exe _W_name
 }
 
 # Call a verb, don't let it affect environment
@@ -5589,7 +5501,6 @@ load_7zip()
     w_download http://downloads.sourceforge.net/project/sevenzip/7-Zip/4.65/7z465.exe c36012e960fa3932cd23f30ac5b0fe722740243a
     cd "$W_CACHE"/7zip
     w_try "$WINE" 7z465.exe $W_UNATTENDED_SLASH_S
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\7-Zip" "7z.exe"
 }
 
 #----------------------------------------------------------------
@@ -5625,8 +5536,6 @@ load_cmake()
     w_download http://www.cmake.org/files/v2.8/cmake-2.8.11.2-win32-x86.exe d79af5715c0ad48d78bb731cce93b5ad89b16512
     cd "$W_CACHE"/cmake
     w_try "$WINE" cmake-2.8.11.2-win32-x86.exe $W_UNATTENDED_SLASH_S
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\CMake 2.8\\bin" "cmake-gui.exe"
 }
 
 #----------------------------------------------------------------
@@ -5679,8 +5588,6 @@ load_controlpad()
     then
         w_die "Install failed.  Please report,  If you just wanted fm20.dll, try installing art2min instead."
     fi
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\ActiveX Control Pad" "PED.EXE"
 }
 
 #----------------------------------------------------------------
@@ -5744,8 +5651,6 @@ load_firefox()
     w_download "http://download.mozilla.org/?product=firefox-11.0&os=win&lang=en-US" f6b5d4dfa6f9f16758c6aee0dcb0a20ba0bb27e9 "$file1"
     cd "$W_CACHE"/firefox
     w_try "$WINE" "$file1" ${W_OPT_UNATTENDED:+ -ms}
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\Mozilla Firefox" firefox.exe
 }
 
 #----------------------------------------------------------------
@@ -6051,8 +5956,6 @@ load_mspaint()
     # http://helpforlinux.blogspot.com/2008/12/run-ms-paint-in-linux.html
     w_download http://download.microsoft.com/download/winntwks40/paint/1/nt4/en-us/paintnt.exe a22c4e367ef9d2cd23f0a8ae8d9ebff5bc1e8a0b
     w_try_unzip "$W_CACHE"/mspaint/paintnt.exe -d "$W_WINDIR_UNIX"
-
-    w_declare_exe "$W_WINDIR_UNIX" "mspaint.exe"
 }
 
 #----------------------------------------------------------------
@@ -6174,8 +6077,6 @@ load_steam()
     then
         w_override_dlls disabled dwrite
     fi
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\Steam" "Steam.exe"
 }
 
 #----------------------------------------------------------------
@@ -6199,8 +6100,6 @@ load_wme9()
 
     cd "$W_CACHE"/wme9
     w_try "$WINE" WMEncoder.exe $W_UNATTENDED_SLASH_Q
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\Windows Media Components\\Encoder" "wmenc.exe"
 }
 
 #----------------------------------------------------------------
@@ -6268,8 +6167,6 @@ load_wmp9()
     load_wm9codecs
 
     w_unset_winver
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\Windows Media Player" "wmplayer.exe"
 }
 
 #----------------------------------------------------------------
@@ -6301,8 +6198,6 @@ load_wmp10()
     load_wm9codecs
 
     w_unset_winver
-
-    w_declare_exe "$W_PROGRAMS_X86_WIN\\Windows Media Player" "wmplayer.exe"
 }
 
 #----------------------------------------------------------------
