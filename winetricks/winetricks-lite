@@ -136,8 +136,6 @@ WINETRICKS_VERSION=20130919
 XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 
-W_PREFIXES_ROOT="${WINE_PREFIXES:-$XDG_DATA_HOME/wineprefixes}"
-
 # ftp.microsoft.com resolves to two different IP addresses, one of which is broken
 ftp_microsoft_com=64.4.17.176
 
@@ -1241,24 +1239,6 @@ w_do_call()
             w_die "No such verb $1"
         fi
 
-        # If needed, set the app's wineprefix
-        case "$OS" in
-        Windows_NT)
-            ;;
-        *)
-            case "$category"-"$WINETRICKS_OPT_SHAREDPREFIX" in
-            apps-0|benchmarks-0|games-0)
-                winetricks_set_wineprefix "$cmd"
-                # If it's a new wineprefix, give it metadata
-                if test ! -f "$WINEPREFIX"/wrapper.cfg
-                then
-                    echo ww_name=\"$title\" > "$WINEPREFIX"/wrapper.cfg
-                fi
-                ;;
-            esac
-            ;;
-        esac
-
         test "$W_OPT_NOCLEAN" = 1 || rm -rf "$W_TMP"
         mkdir -p "$W_TMP"
 
@@ -1445,21 +1425,12 @@ winetricks_is_installed()
         _W_file_unix="`w_pathconv -u "$_W_file"`"
         if test -f "$_W_file_unix"
         then
-            unset _W_file _W_file_unix _W_prefix
+            unset _W_file _W_file_unix
             return 0  # installed
         fi
         ;;
     *)
-        # Compute wineprefix for this app
-        case "$category"-"$WINETRICKS_OPT_SHAREDPREFIX" in
-        apps-0|benchmarks-0|games-0)
-            _W_prefix="$W_PREFIXES_ROOT/$1"
-            ;;
-        *)
-            _W_prefix="$WINEPREFIX"
-            ;;
-        esac
-        if test -d "$_W_prefix/dosdevices"
+        if test -d "$WINEPREFIX/dosdevices"
         then
           # 'win7 vcrun2005' creates diffrent file than 'winxp vcrun2005'
           # so let it specify multiple, separated by |
@@ -1467,11 +1438,11 @@ winetricks_is_installed()
           IFS='|'
           for _W_file_ in $_W_file
           do
-            _W_file_unix="`WINEPREFIX="$_W_prefix" w_pathconv -u "$_W_file_"`"
+            _W_file_unix="`WINEPREFIX="$WINEPREFIX" w_pathconv -u "$_W_file_"`"
             if test -f "$_W_file_unix" && ! grep -q "Wine placeholder DLL" "$_W_file_unix"
             then
                 IFS="$_W_IFS"
-                unset _W_file _W_file_ _W_file_unix _W_prefix _W_IFS
+                unset _W_file _W_file_ _W_file_unix _W_IFS
                 return 0  # installed
             fi
           done
@@ -1479,7 +1450,7 @@ winetricks_is_installed()
         fi
         ;;
     esac
-    unset _W_file _W_prefix  # leak _W_file_unix for caller.  Is this wise?
+    unset _W_file # leak _W_file_unix for caller.  Is this wise?
     unset _W_IFS _W_file_
     return 1  # not installed
 }
@@ -1626,14 +1597,8 @@ winetricks_set_unattended()
 # If bottlename is omitted, the default bottle (~/.wine) is used.
 winetricks_set_wineprefix()
 {
-    if ! test "$1"
-    then
-        WINEPREFIX="$WINETRICKS_ORIGINAL_WINEPREFIX"
-    else
-        WINEPREFIX="$W_PREFIXES_ROOT/$1"
-    fi
+    WINEPREFIX="$WINETRICKS_ORIGINAL_WINEPREFIX"
     export WINEPREFIX
-    #echo "WINEPREFIX is now $WINEPREFIX" >&2
     mkdir -p "`dirname "$WINEPREFIX"`"
 
     # Run wine here to force creation of the wineprefix so it's there when we want to make the cache symlink a bit later.
@@ -1847,10 +1812,6 @@ winetricks_init()
         if test "$WINEPREFIX"
         then
             WINETRICKS_ORIGINAL_WINEPREFIX="$WINEPREFIX"
-            #if test WINETRICKS_OPT_SHAREDPREFIX=0
-            #then
-            #    w_warn "To install apps into $WINEPREFIX, give the --no-isolate option"
-            #fi
         else
             WINETRICKS_ORIGINAL_WINEPREFIX="$HOME/.wine"
         fi
@@ -1936,7 +1897,6 @@ Executes given verbs.  Each verb installs an application or changes a setting.
 Options:
     --force           Don't check whether packages were already installed
     --no-clean        Don't delete temp directories (useful during debugging)
-    --no-isolate      Don't install each app or game in its own bottle
 -q, --unattended      Don't ask any questions, just install automatically
 -r, --ddrescue        Retry hard when caching scratched discs
     --showbroken      Even show verbs that are currently broken in wine
@@ -1956,7 +1916,6 @@ list-cached           list cached-and-ready-to-install verbs
 list-download         list verbs which download automatically
 list-manual-download  list verbs which download with some help from the user
 list-installed        list already-installed verbs
-prefix=foobar         select WINEPREFIX=$W_PREFIXES_ROOT/foobar
 _EOF_
         ;;
     esac
@@ -1969,8 +1928,6 @@ winetricks_handle_option()
     -v|--verbose) WINETRICKS_OPT_VERBOSE=1; set -x ;;
     -V|--version) winetricks_print_version ; exit 0;;
     -h|--help) winetricks_usage ; exit 0 ;;
-    --isolate) WINETRICKS_OPT_SHAREDPREFIX=0 ;;
-    --no-isolate) WINETRICKS_OPT_SHAREDPREFIX=1 ;;
     --no-clean) W_OPT_NOCLEAN=1 ;;
     --force) WINETRICKS_FORCE=1;;
     --showbroken) W_OPT_SHOWBROKEN=1 ;;
@@ -3510,7 +3467,7 @@ load_flash()
     #
     #    cd ~/winetricks/src
     #    rm -rf ~/.wine
-    #    sh winetricks -q flash --no-isolate firefox
+    #    sh winetricks -q flash firefox
     #    cd ~/.wine/drive_c/Program\ Files/Mozilla\ Firefox
     #    wine firefox.exe http://www.adobe.com/software/flash/about
     # Verify that the version of flash shows up and that you're not prompted
@@ -7127,7 +7084,7 @@ execute_command()
     case "$1" in
 
     # FIXME: avoid duplicated code
-    apps|benchmarks|dlls|fonts|games|prefix|settings)
+    apps|benchmarks|dlls|fonts|games|settings)
         WINETRICKS_CURMENU=$1
         ;;
 
@@ -7150,7 +7107,7 @@ execute_command()
     list-installed) winetricks_list_installed ;;
     list-all)
         old_menu="$WINETRICKS_CURMENU"
-        for WINETRICKS_CURMENU in apps benchmarks dlls fonts games prefix settings
+        for WINETRICKS_CURMENU in apps benchmarks dlls fonts games settings
         do
             echo "===== $WINETRICKS_CURMENU ====="
             winetricks_list_all
@@ -7161,7 +7118,6 @@ execute_command()
     attended) winetricks_set_unattended 0 ;;
     showbroken) W_OPT_SHOWBROKEN=1 ;;
     hidebroken) W_OPT_SHOWBROKEN=0 ;;
-    prefix=*) winetricks_set_wineprefix "$arg" ;;
     folder) w_open_folder "$WINEPREFIX" ;;
     winecfg) "$WINE" winecfg ;;
     regedit) "$WINE" regedit ;;
