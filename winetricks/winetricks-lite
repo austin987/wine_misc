@@ -1122,23 +1122,8 @@ w_do_call()
 
         # We'd like to get rid of W_PACKAGE, but for now, just set it as late as possible.
         W_PACKAGE=$1
-        
-        # FIXME: work in progress for multiarch.
-        # We may need to specify 32/64 order, and when verbs have a conflict between 32/64-bit.
-        # In the latter case, we should use the current prefix $W_ARCH (with option to --force via cli).
+        w_try load_$cmd $arg
 
-        # Hacky:
-        if [ "$W_ARCH" = "win32" ]
-        then
-            w_verb_arch=32
-        fi
-
-        case $w_verb_arch in
-            64_32) w_try load_${cmd}_64 $arg && w_try load_${cmd}_32 $arg ;;
-            64) w_try load_${cmd}_64 $arg ;;
-            32) w_try load_${cmd}_32 $arg ;;
-            *) w_try load_${cmd} $arg ;;
-        esac
         # Clean up after this verb
         test "$W_OPT_NOCLEAN" = 1 || rm -rf "$W_TMP"
 
@@ -5486,24 +5471,14 @@ w_metadata 7zip apps \
     publisher="Igor Pavlov" \
     year="1999" \
     media="download" \
-    w_verb_arch="64_32" \
-    file1_32="7z920.exe" \
-    file1_64="7z920-x64.msi" \
-    installed_exe1_32="$W_PROGRAMS_X86_WIN/7-Zip/7z.exe" \
-    installed_exe1_64="$W_PROGRAMS_WIN/7-Zip/7z.exe"
+    file1="7z920.exe" \
+    installed_exe1="$W_PROGRAMS_X86_WIN/7-Zip/7z.exe"
 
-load_7zip_32()
+load_7zip()
 {
     w_download http://downloads.sourceforge.net/sevenzip/7z920.exe 55283ad59439134673fc32fc097bdd9ae920fbc6
     cd "$W_CACHE"/7zip
     w_try "$WINE" 7z920.exe $W_UNATTENDED_SLASH_S
-}
-
-load_7zip_64()
-{
-    w_download http://downloads.sourceforge.net/sevenzip/7z920-x64.msi 4173fea2af9a595fa0be1ef8251f412229687be1
-    cd "$W_CACHE"/7zip
-    w_try "$WINE" msiexec /i 7z920-x64.msi ${W_OPT_UNATTENDED:+/qb}
 }
 
 #----------------------------------------------------------------
