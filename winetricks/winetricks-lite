@@ -1128,7 +1128,8 @@ w_do_call()
         # In the latter case, we should use the current prefix $W_ARCH (with option to --force via cli).
 
         # Hacky:
-        if [ "$W_ARCH" = "win32" ]
+        w_verb_arch="${w_verb_arch:-generic}"
+        if test "$W_ARCH" = "win32" && "$w_verb_arch" != "generic"
         then
             w_verb_arch=32
         fi
@@ -2760,13 +2761,19 @@ w_metadata dotnet20 dlls \
     publisher="Microsoft" \
     year="2006" \
     media="download" \
-    file1="dotnetfx.exe" \
-    installed_file1="c:/windows/Microsoft.NET/Framework/v2.0.50727/Microsoft .NET Framework 2.0/install.exe"
+    w_verb_arch="64_or_32" \
+    file1_32="dotnetfx.exe" \
+    installed_file1_32="c:/windows/Microsoft.NET/Framework/v2.0.50727/Microsoft .NET Framework 2.0/install.exe" \
+    file1_64="NetFX64.exe" \
+    installed_file1_64="C:/Microsoft.NET/Framework64/v2.0.50727/Microsoft .NET Framework 2.0 (x64)/install.exe"
 
-load_dotnet20()
+load_dotnet20_32()
 {
-    w_call remove_mono
-    w_call fontfix
+    # FIXME: calling remove_mono from here gets the wrong $w_verb_arch.
+    # There's a bug in w_call/w_do_call() somewhere...
+    # workaround is to call it manually on the command line first.
+    #w_call remove_mono
+    #w_call fontfix
 
     # Recipe from http://bugs.winehq.org/show_bug.cgi?id=10467#c57
     # and http://bugs.winehq.org/show_bug.cgi?id=30845#c10
@@ -2796,6 +2803,23 @@ load_dotnet20()
     then
         w_killall "mscorsvw.exe"
     fi
+}
+
+load_dotnet20_64()
+{
+    # FIXME: calling remove_mono from here gets the wrong $w_verb_arch.
+    # There's a bug in w_call/w_do_call() somewhere...
+    # workaround is to call it manually on the command line first.
+    #w_call remove_mono
+    #w_call fontfix
+
+    # http://www.microsoft.com/en-us/download/details.aspx?id=6523
+    w_download http://download.microsoft.com/download/a/3/f/a3f1bf98-18f3-4036-9b68-8e6de530ce0a/NetFx64.exe e59cca309463a5d98daeaada83d1b05fed5126c5
+
+    cd "$W_CACHE"/dotnet20
+    w_try "$WINE" NetFx64.exe ${W_OPT_UNATTENDED:+/q /c:"install.exe /q"}
+
+    # FIXME: hangs around after exit. Need to file a wine bug.
 }
 
 #----------------------------------------------------------------
