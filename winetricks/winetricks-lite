@@ -2,7 +2,7 @@
 
 # Name of this version of winetricks (YYYYMMDD)
 # (This doesn't change often, use the sha1sum of the file when reporting problems)
-WINETRICKS_VERSION=20131119
+WINETRICKS_VERSION=winetricks-lite-64
 
 # This is a utf-8 file
 # You should see an o with two dots over it here [ö]
@@ -1133,8 +1133,15 @@ w_do_call()
             w_verb_arch=32
         fi
 
+        # Work in progress...
+        # 64_and_32: install 64-bit, then 32-bit version:
+        # 64_or_32: only one version can be installed per $WINEPREFIX. Will use the matching arch.
+        # 64: verb only supports 64-bit
+        # 32: verb only supports 32-bit
+        # generic: verb supports both 64-bit and 32-bit with no separate function needed
         case $w_verb_arch in
-            64_32) w_try load_${cmd}_64 $arg && w_try load_${cmd}_32 $arg ;;
+            64_and_32) w_try load_${cmd}_64 $arg && w_try load_${cmd}_32 $arg ;;
+            64_or_32) w_try load_${cmd}_${W_ARCH_NUM} $arg ;;
             64) w_try load_${cmd}_64 $arg ;;
             32) w_try load_${cmd}_32 $arg ;;
             *) w_try load_${cmd} $arg ;;
@@ -1551,11 +1558,13 @@ winetricks_set_wineprefix()
     if test -d "$W_DRIVE_C/windows/syswow64"
     then
         W_ARCH=win64
+        W_ARCH_NUM=64
         W_SYSTEM32_DLLS="$W_WINDIR_UNIX/syswow64"
         W_SYSTEM32_DLLS_WIN="C:\\windows\\syswow64"
         W_SYSTEM64_DLLS="$W_WINDIR_UNIX/system32"
     else
         W_ARCH=win32
+        W_ARCH_NUM=32
         W_SYSTEM32_DLLS="$W_WINDIR_UNIX/system32"
         W_SYSTEM32_DLLS_WIN="C:\\windows\\system32"
     fi
@@ -1633,6 +1642,8 @@ winetricks_init()
     WINETRICKS_AUTH="${WINETRICKS_AUTH:-$XDG_DATA_HOME/winetricks/auth}"
 
     # System-specific variables
+    # FIXME: for 64-bit support, we'll need to default to wine64 instead of wine, for 64-bit prefixes.
+    # We'll likely want a WINE32/WINE64 variable, then have WINE match it, based on prefix.
     WINE="${WINE:-wine}"
     # Find wineserver.  Some distros (Debian) don't have it on the path,
     # on the mistaken understanding that user scripts never need it :-(
@@ -5486,7 +5497,7 @@ w_metadata 7zip apps \
     publisher="Igor Pavlov" \
     year="1999" \
     media="download" \
-    w_verb_arch="64_32" \
+    w_verb_arch="64_and_32" \
     file1_32="7z920.exe" \
     file1_64="7z920-x64.msi" \
     installed_exe1_32="$W_PROGRAMS_X86_WIN/7-Zip/7z.exe" \
