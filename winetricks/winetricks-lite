@@ -4,6 +4,11 @@
 # (This doesn't change often, use the sha1sum of the file when reporting problems)
 WINETRICKS_VERSION=winetricks-lite-64
 
+# 64-bit todo:
+# for 64-bit wine, we need to default to wine64, not wine, which defaults to 32-bit programs.
+# w_call/w_do_call has some issues with w_verb_arch.
+# most verbs don't yet support it..
+
 # This is a utf-8 file
 # You should see an o with two dots over it here [ö]
 # You should see a micro (u with a tail) here [µ]
