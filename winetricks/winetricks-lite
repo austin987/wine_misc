@@ -2739,6 +2739,11 @@ w_metadata dotnet20 dlls \
 
 load_dotnet20()
 {
+    if [ $W_ARCH = win64 ]
+    then
+        w_die "This package does not work on a 64-bit installation"
+    fi
+
     w_call remove_mono
     w_call fontfix
 
@@ -2750,25 +2755,12 @@ load_dotnet20()
     w_download http://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/dotnetfx.exe a3625c59d7a2995fb60877b5f5324892a1693b2a
 
     cd "$W_CACHE"/dotnet20
-    if w_workaround_wine_bug 30845 "Using native fusion while installing..." 1.5.8,
-    then
-        w_try env WINEDLLOVERRIDES=mscoree,fusion=n "$WINE" dotnetfx.exe ${W_OPT_UNATTENDED:+/q /c:"install.exe /q"}
-    else
-        w_try "$WINE" dotnetfx.exe ${W_OPT_UNATTENDED:+/q /c:"install.exe /q"}
-    fi
+    w_try "$WINE" dotnetfx.exe ${W_OPT_UNATTENDED:+/q /c:"install.exe /q"}
     w_unset_winver
 
-    # We can't stop installing dotnet20 in win2K mode until wine supports
-    # reparse/junction points
-    # (see http://bugs.winehq.org/show_bug.cgi?id=10467#c57 )
-    # so for now just remove the bogus msvc*80.dll files it installs.
-    # See also http://bugs.winehq.org/show_bug.cgi?id=16577
-    # This affects Victoria 2 demo, see http://forum.paradoxplaza.com/forum/showthread.php?p=11523967
-    rm -f "$W_SYSTEM32_DLLS"/msvc?80.dll
-
-    if w_workaround_wine_bug 30162 "Dirty hack, killing off mscorsvw.exe" 1.5.31,
+    if w_workaround_wine_bug 12401 "Removing bogus msvc*80.dll files"
     then
-        w_killall "mscorsvw.exe"
+        w_try rm -f "$W_SYSTEM32_DLLS"/msvc?80.dll
     fi
 }
 
@@ -2784,26 +2776,10 @@ w_metadata dotnet20sp1 dlls \
 
 load_dotnet20sp1()
 {
-    if w_workaround_wine_bug 16956 "wine version too old" 1.3.22,
-    then
-        w_die "wine-1.3.22 or later required to install dotnet20sp1 properly"
-    fi
-
     w_call dotnet20
 
-    WINEDLLOVERRIDES=
-    w_warn "Setting windows version so installer works"
-    # Stop services
-    # Recipe from http://bugs.winehq.org/show_bug.cgi?id=16956
-    $WINESERVER -k
-    # Fight a race condition, see bug 16956 comment 43
-    w_set_winver win2k
-    $WINESERVER -w
     WINEDLLOVERRIDES=ngen.exe,regsvcs.exe,mscorsvw.exe=b
     export WINEDLLOVERRIDES
-
-    # Workaround Wine/Mono integration:
-    "$WINE" reg add "HKLM\\Software\\Microsoft\\NET Framework Setup\\NDP\\v2.0.50727" /v Version /t REG_SZ /d "2.0.50727" /f
 
     w_download http://download.microsoft.com/download/0/8/c/08c19fa4-4c4f-4ffb-9d6c-150906578c9e/NetFx20SP1_x86.exe eef5a36924cdf0c02598ccf96aa4f60887a49840
     cd "$W_CACHE"/dotnet20sp1
@@ -2811,19 +2787,16 @@ load_dotnet20sp1()
     status=$?
 
     case $status in
-    0) ;;
-    105) echo "exit status $status - normal, user selected 'restart now'" ;;
-    194) echo "exit status $status - normal, user selected 'restart later'" ;;
-    *) w_die "exit status $status - $W_PACKAGE installation failed" ;;
+        0) ;;
+        105) echo "exit status $status - normal, user selected 'restart now'" ;;
+        194) echo "exit status $status - normal, user selected 'restart later'" ;;
+        *) w_die "exit status $status - $W_PACKAGE installation failed" ;;
     esac
 
-    # We can't stop installing dotnet20sp1 in win2K mode until wine supports
-    # reparse/junction points
-    # (see http://bugs.winehq.org/show_bug.cgi?id=10467#c57 )
-    # so for now just remove the bogus msvc*80.dll files it installs.
-    # See also http://bugs.winehq.org/show_bug.cgi?id=16577
-    # This affects Victoria 2 demo, see http://forum.paradoxplaza.com/forum/showthread.php?p=11523967
-    rm -f "$W_SYSTEM32_DLLS"/msvc?80.dll
+    if w_workaround_wine_bug 12401 "Removing bogus msvc*80.dll files"
+    then
+        w_try rm -f "$W_SYSTEM32_DLLS"/msvc?80.dll
+    fi
 
     w_unset_winver
 }
@@ -2839,11 +2812,6 @@ w_metadata dotnet20sp2 dlls \
 
 load_dotnet20sp2()
 {
-    if w_workaround_wine_bug 22521 "wine version too old" 1.3.18,
-    then
-        w_die "wine-1.3.18 or later required to install dotnet20sp2"
-    fi
-
     w_call dotnet20
 
     WINEDLLOVERRIDES=
@@ -2868,10 +2836,10 @@ load_dotnet20sp2()
     status=$?
 
     case $status in
-    0) ;;
-    105) echo "exit status $status - normal, user selected 'restart now'" ;;
-    194) echo "exit status $status - normal, user selected 'restart later'" ;;
-    *) w_die "exit status $status - $W_PACKAGE installation failed" ;;
+        0) ;;
+        105) echo "exit status $status - normal, user selected 'restart now'" ;;
+        194) echo "exit status $status - normal, user selected 'restart later'" ;;
+        *) w_die "exit status $status - $W_PACKAGE installation failed" ;;
     esac
 
     w_unset_winver
