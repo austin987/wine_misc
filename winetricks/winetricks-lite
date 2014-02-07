@@ -6645,6 +6645,7 @@ w_metadata vd=1440x900 settings \
 
 load_vd()
 {
+    # FIXME: take arbitrary sizes (port from upstream)
     size=$1
     case $size in
     off|disabled)
