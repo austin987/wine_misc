@@ -1,0 +1,9738 @@
+# Bugs are filed, not yet fixed (or marked as intentional)
+# Not suppressed by default
+
+{
+   bug_14078
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:deserialize_param
+   fun:xCall
+   obj:*
+   fun:func_tmarshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_20545
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:MMDRV_InitPerType
+   fun:MMDRV_Install
+   fun:MMDRV_Init
+   fun:MMDRV_InitSingleType
+   fun:MMDRV_GetNum
+    fun:midiOutGetNumDevs
+   fun:DEVENUM_CreateSpecialCategories
+   fun:DEVENUM_ICreateDevEnum_CreateClassEnumerator
+   fun:test_devenum
+   fun:func_devenum
+   fun:run_test
+   fun:main
+}
+{
+   bug_20896
+   Memcheck:Addr2
+   fun:GlobalFree
+   fun:WDML_FreeTransaction
+   fun:DdeClientTransaction
+   fun:test_ddeml_client
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_26044_1
+   Memcheck:Cond
+   fun:USER_SetWindowPos
+   fun:SetWindowPos
+   fun:activate_inplace
+   fun:OleObject_DoVerb
+   fun:IOCS_Init
+   fun:IOCS_Create
+   fun:AtlAxAttachControl
+   fun:test_AtlAxAttachControl
+   fun:func_atl_ax
+   fun:run_test
+   fun:main
+}
+{
+   bug_26044_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   fun:AtlAxWinInit
+   fun:test_ax_win
+   fun:func_atl_ax
+   fun:run_test
+   fun:main
+}
+{
+   bug_26044_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   fun:AtlAxWinInit
+   fun:func_atl_ax
+   fun:run_test
+   fun:main
+}
+{
+   bug_26044_4
+   Memcheck:Cond
+   ...
+   fun:USER_SetWindowPos
+   fun:SetWindowPos
+   fun:activate_inplace
+   fun:OleObject_DoVerb
+   fun:AtlAxAttachControl
+   fun:func_atl_ax
+   fun:main
+}
+{
+   bug_26044_5
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:wine_server_call
+   fun:set_window_pos
+   fun:USER_SetWindowPos
+   fun:SetWindowPos
+   fun:activate_inplace
+   fun:OleObject_DoVerb
+   fun:AtlAxAttachControl
+   fun:func_atl_ax
+   fun:main
+}
+{
+   bug_26044_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   fun:AtlAxWinInit
+   fun:func_atl_ax
+   fun:main
+}
+{
+   bug_26046_1
+   Memcheck:Cond
+   fun:CompareFileTime
+   fun:MONTHCAL_CompareSystemTime
+   fun:MONTHCAL_CompareMonths
+   ...
+   fun:MONTHCAL_GetDayRect
+   fun:MONTHCAL_UpdateToday
+   fun:MONTHCAL_SetToday
+   fun:MONTHCAL_WindowProc
+   ...
+}
+{
+   bug_26049
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:WS2_AcceptEx
+   ...
+   fun:func_sock
+   fun:run_test
+   fun:main
+}
+{
+   bug_26070_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DIALOG_get_info
+   fun:DIALOG_CreateIndirect
+   fun:CreateDialogIndirectParamAorW
+   fun:CreateDialogIndirectParamA
+   fun:CreateDialogParamA
+   fun:CreateDialogParamTest
+   fun:func_class
+   fun:run_test
+   fun:main
+}
+{
+   bug_26070_2
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:EDIT_WM_NCCreate
+   fun:EditWndProc_common
+   fun:EditWndProcW
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExW
+   fun:IPADDRESS_Create
+   fun:IPADDRESS_WindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+}
+{
+   bug_26070_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:Alloc
+   fun:SetWindowSubclass
+   fun:COMBOEX_Create
+   fun:COMBOEX_WindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_CallProcAtoW
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageA
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:test_comctl32_class
+   fun:func_class
+}
+{
+   bug_26101_1
+   Memcheck:Leak
+   ...
+   fun:OleSetClipboard
+   ...
+}
+{
+   bug_26101_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_facbuf_for_iid
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:set_src_dataobject
+   fun:OleSetClipboard
+   ...
+}
+{
+   bug_26101_3
+   Memcheck:Value4
+   fun:wcstombs_sbcs
+   fun:wine_cp_wcstombs
+   fun:RtlUnicodeToMultiByteN
+   fun:WINPROC_CallProcWtoA
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:test_EM_FINDWORDBREAK_A
+   fun:func_editor
+   fun:run_test
+   fun:main
+}
+{
+   bug_26101_4
+   Memcheck:Cond
+   fun:strlenW
+   fun:WINPROC_CallProcWtoA
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:test_EM_FINDWORDBREAK_A
+   fun:func_editor
+   fun:run_test
+   fun:main
+}
+{
+   bug_26101_5
+   Memcheck:Cond
+   ...
+   fun:ME_WordBreakProc
+   fun:ME_CallWordBreakProc
+   fun:ME_MoveCursorWords
+   fun:ME_ArrowKey
+   fun:ME_KeyDown
+   fun:ME_HandleMessage
+   fun:RichEditWndProc_common
+   fun:RichEditWndProcA
+   ...
+}
+{
+   bug_26101_5
+   Memcheck:Value4
+   ...
+   fun:ME_WordBreakProc
+   fun:ME_CallWordBreakProc
+   fun:ME_MoveCursorWords
+   fun:ME_ArrowKey
+   fun:ME_KeyDown
+   fun:ME_HandleMessage
+   fun:RichEditWndProc_common
+   fun:RichEditWndProcA
+   ...
+}
+{
+   bug_26108_1
+   Memcheck:Cond
+   fun:StorageImpl_CreateDirEntry
+   fun:StorageBaseImpl_CreateStream
+   fun:STORAGE_CreateOleStream
+   fun:DefaultHandler_IPersistStorage_InitNew
+   fun:func_defaulthandler
+   ...
+}
+{
+   bug_26108_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:CoRegisterClassObject
+   fun:func_defaulthandler
+   fun:main
+}
+{
+   bug_26108_3
+   Memcheck:Cond
+   fun:StorageImpl_CreateDirEntry
+   fun:StorageBaseImpl_CreateStream
+   fun:STORAGE_CreateOleStream
+   fun:DefaultHandler_IPersistStorage_InitNew
+   fun:func_defaulthandler
+   fun:run_test
+   fun:main
+}
+{
+   bug_26108_4
+   Memcheck:Cond
+   fun:StorageImpl_CreateDirEntry
+   fun:StorageBaseImpl_CreateDirEntry
+   fun:StorageBaseImpl_CreateStream
+   fun:STORAGE_CreateOleStream
+   fun:DefaultHandler_IPersistStorage_InitNew
+   fun:test_olestream
+   fun:func_defaulthandler
+   fun:run_test
+   fun:main
+}
+{
+   bug_26110_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:CoRegisterClassObject
+   fun:test_local_server
+   fun:func_marshal
+   fun:main
+}
+{
+   bug_26110_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:test_local_server
+   fun:func_marshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_26110_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IDefClF_fnConstructor
+   fun:DllGetClassObject
+   fun:apartment_getclassobject
+   fun:apartment_hostobject
+   fun:apartment_wndproc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:peek_message
+   fun:GetMessageW
+   fun:apartment_hostobject_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_26110_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:IDefClF_fnConstructor
+   fun:DllGetClassObject
+   fun:apartment_getclassobject
+   fun:apartment_hostobject
+   fun:apartment_wndproc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:peek_message
+   fun:GetMessageW
+   fun:apartment_hostobject_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_26110_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:apartment_hostobject
+   fun:apartment_wndproc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:peek_message
+   fun:GetMessageW
+   fun:apartment_hostobject_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_26110_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:apartment_hostobject
+   fun:apartment_wndproc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:peek_message
+   fun:GetMessageW
+   fun:apartment_hostobject_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_26110_7
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:NdrProxyGetBuffer
+   fun:IRemUnknown_RemRelease_Proxy
+   fun:ifproxy_release_public_refs
+   fun:ifproxy_destroy
+   fun:proxy_manager_destroy
+   fun:ClientIdentity_Release
+   fun:IUnknown_Release_Proxy
+   ...
+}
+{
+   bug_26110_8
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:CoRegisterClassObject
+   fun:test_local_server
+   fun:func_marshal
+   fun:main
+}
+{
+   bug_26110_9
+   Memcheck:Leak
+   ...
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:NdrProxyGetBuffer
+   fun:IRemUnknown_RemRelease_Proxy
+   fun:ifproxy_release_public_refs
+   fun:ifproxy_destroy
+   fun:ClientIdentity_Release
+   fun:IUnknown_Release_Proxy
+   ...
+}
+{
+   bug_26110_10
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_facbuf_for_iid
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   ...
+}
+{
+   bug_26110_11
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:test_local_server
+   fun:func_marshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_26110_12
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_facbuf_for_iid
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:apartment_hostobject
+   fun:apartment_wndproc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:peek_message
+   fun:GetMessageW
+}
+{
+   bug_26110_13
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:CoRegisterClassObject
+   fun:test_local_server
+   fun:func_marshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_26112
+   Memcheck:Cond
+   ...
+   fun:func_env
+   ...
+   fun:main
+}
+{
+   bug_26116
+   Memcheck:Leak
+   ...
+   fun:func_hlink
+   fun:run_test
+   fun:main
+}
+{
+   bug_26119
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   ...
+   fun:NtWaitForMultipleObjects
+   fun:NtWaitForSingleObject
+   fun:server_ioctl_file
+   fun:NtFsControlFile
+   fun:ConnectNamedPipe
+   ...
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_26122
+   Memcheck:Value4
+   fun:mbstowcs_sbcs
+   fun:wine_cp_mbstowcs
+   fun:MultiByteToWideChar
+   fun:CompareStringA
+   fun:StrCmpNIA
+   fun:SHLWAPI_StrStrHelperA
+   fun:StrStrIA
+   fun:test_loadlibraryshim
+   fun:func_mscoree
+   fun:run_test
+   fun:main
+}
+{
+   bug_26130_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:createdirectdraw
+   fun:func_ddrawmodes
+   fun:run_test
+   fun:main
+}
+{
+   bug_26130_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:DirectDrawEnumerateExA
+   fun:DirectDrawEnumerateA
+   fun:func_ddrawmodes
+   fun:run_test
+   fun:main
+}
+{
+   bug_26139_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DIALOG_get_info
+   fun:DefDlgProcA
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageA
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:DIALOG_CreateIndirect
+   fun:CreateDialogIndirectParamAorW
+   fun:CreateDialogIndirectParamA
+   fun:CreateTemplateDialog
+   fun:FileOpenDlgProc95
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_dialog_proc
+   fun:WINPROC_CallProcWtoA
+}
+{
+   bug_26139_2
+   Memcheck:Cond
+   fun:EqualRect
+   fun:FileOpenDlgProc95
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_dialog_proc
+   fun:WINPROC_CallProcWtoA
+   fun:WINPROC_CallDlgProcW
+   fun:DefDlgProcW
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:DIALOG_CreateIndirect
+   fun:DialogBoxIndirectParamAorW
+   fun:DialogBoxIndirectParamA
+   fun:GetFileName95
+   fun:GetFileDialog95A
+   fun:GetOpenFileNameA
+   fun:test_create_view_window2
+}
+{
+   bug_26139_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_facbuf_for_iid
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:RegisterDragDrop
+   fun:ShellView_OnCreate
+   fun:ShellView_WndProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+}
+{
+   # Also occurs in ole32/{dragdrop,marshal}:
+   bug_26139_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:rpcrt4_protseq_np_get_wait_array
+   fun:RPCRT4_server_thread
+   ...
+}
+{
+   bug_26139_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:RegisterDragDrop
+   fun:ShellView_OnCreate
+   fun:ShellView_WndProc
+   obj:*-known/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExW
+}
+{
+   bug_26139_6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:EDIT_WordBreakProc
+   fun:EDIT_CallWordBreakProc
+   fun:EDIT_MoveWordBackward
+   fun:EDIT_WM_KeyDown
+   fun:EditWndProc_common
+   fun:EditWndProcW
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   fun:IsDialogMessageW
+   fun:DIALOG_DoDialogBox
+   fun:DialogBoxIndirectParamAorW
+   fun:DialogBoxIndirectParamA
+   fun:GetFileName95
+   fun:GetFileDialog95A
+   fun:GetOpenFileNameA
+   fun:test_null_filename
+}
+{
+   bug_28220_1
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_Console
+   fun:func_process
+   fun:run_test
+   fun:main
+}
+{
+   bug_28220_2
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:send_request
+   fun:wine_server_call
+   fun:wine_server_call_err
+   fun:SetConsoleMode
+   fun:doChild
+   fun:func_process
+   fun:run_test
+   fun:main
+}
+{
+   bug_28220_3
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:send_request
+   fun:wine_server_call
+   fun:wine_server_call_err
+   fun:SetConsoleMode
+   fun:test_Console
+   fun:func_process
+   fun:run_test
+   fun:main
+}
+{
+   bug_28220_4
+   Memcheck:Value4
+   fun:_itoa_word
+   fun:vfprintf
+   fun:buffered_vfprintf
+   fun:vfprintf
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_Console
+   fun:func_process
+   fun:run_test
+   fun:main
+}
+{
+   bug_28220_5
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:buffered_vfprintf
+   fun:vfprintf
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_Console
+   fun:func_process
+   fun:run_test
+   fun:main
+}
+{
+   bug_28220_6
+   Memcheck:Cond
+   fun:vfprintf
+   fun:buffered_vfprintf
+   fun:vfprintf
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_Console
+   fun:func_process
+   fun:run_test
+   fun:main
+}
+{
+   bug_28696
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:NtWriteFile
+   fun:WriteFile
+   fun:FileLockBytesImpl_WriteAt
+   ...
+   fun:StorageImpl_WriteBigBlock
+   fun:BlockChainStream_Flush
+   fun:StorageImpl_Flush
+   ...
+   fun:StgStreamImpl_Write
+   fun:PropertyStorage_WritePropertyToStream
+   fun:PropertyStorage_PropertiesWriter
+   fun:dictionary_enumerate
+   ...
+   fun:IPropertyStorage_fnCommit
+   fun:test_ReadAndWriteProperties
+   ...
+   fun:func_intshcut
+   fun:run_test
+}
+{
+   bug_28698_1
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_ReadAndWriteProperties
+   ...
+   fun:func_intshcut
+   fun:run_test
+   fun:main
+}
+{
+   bug_28698_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:Process_URL
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_28698_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:get_profile_string
+   fun:PersistFile_Load
+   fun:Process_URL
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_28735_1
+   Memcheck:Addr4
+   ...
+   fun:func_exception
+   fun:run_test
+   fun:main
+}
+{
+   bug_28735_2
+   Memcheck:Jump
+   ...
+   fun:func_exception
+   fun:run_test
+   fun:main
+}
+{
+   bug_28735_3
+   Memcheck:Addr1
+   ...
+   fun:func_exception
+   fun:run_test
+   fun:main
+}
+{
+   bug_28735_4
+   Memcheck:Cond
+   ...
+   fun:func_exception
+   fun:run_test
+   fun:main
+}
+{
+   bug_28735_5
+   Memcheck:Value4
+   ...
+   fun:func_exception
+   fun:run_test
+   fun:main
+}
+{
+   bug_28738
+   Memcheck:Addr2
+   fun:wine_dbgstr_wn
+   fun:wine_dbgstr_w
+   fun:server_end_to_end_callback
+   fun:WDML_InvokeCallback
+   fun:WDML_ServerHandleExecute
+   fun:WDML_ServerHandle
+   fun:WDML_ServerConvProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageA
+   fun:test_end_to_end_server
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_28745
+   Memcheck:Cond
+   ...
+   fun:enumerate_mmdevices
+   fun:DSPROPERTY_EnumerateW
+   ...
+   fun:IKsPrivatePropertySetImpl_Get
+   fun:propset_private_tests
+   fun:func_propset
+   fun:run_test
+   fun:main
+}
+{
+   bug_28754
+   Memcheck:Cond
+   ...
+   fun:update_layout
+   ...
+   fun:test_basics
+   fun:func_itemdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_28766_1
+   Memcheck:Cond
+   ...
+   fun:GetDIBits
+   ...
+}
+{
+   bug_28766_2
+   Memcheck:Overlap
+   ...
+   fun:GetDIBits
+   ...
+}
+{
+   bug_28766_3
+   Memcheck:Leak
+   ...
+   fun:BitBlt
+   ...
+}
+{
+   bug_28766_4
+   Memcheck:Leak
+   ...
+   fun:PatBlt
+   ...
+}
+{
+   bug_28766_1
+   Memcheck:Addr4
+   fun:memcpy
+   fun:select_pattern_brush
+   fun:pattern_brush
+   fun:dibdrv_PatBlt
+   fun:PatBlt
+   fun:test_palette_brush
+   fun:func_brush
+   fun:main
+}
+{
+   bug_28766_2
+   Memcheck:Addr4
+   fun:CreatePolyPolygonRgn
+   fun:PATH_PathToRegion
+   fun:PATH_FillPath
+   fun:nulldrv_FillPath
+   fun:FillPath
+   fun:test_path_state
+   fun:func_path
+   fun:main
+}
+{
+   bug_28769_1
+   Memcheck:Addr1
+   fun:bcmp
+   fun:foldermanager_GetFolder
+   fun:test_knownFolders
+   fun:func_shellpath
+   fun:main
+}
+{
+   bug_28769_2
+   Memcheck:Free
+   fun:RtlFreeHeap
+   fun:foldermanager_Release
+   fun:test_knownFolders
+   fun:func_shellpath
+   fun:main
+}
+{
+   bug_28824
+   Memcheck:Cond
+   fun:__mktime_internal
+   fun:mktime
+   ...
+   fun:TRASH_EnumItems
+   fun:SHQueryRecycleBinW
+   fun:SHQueryRecycleBinA
+   ...
+}
+{
+   bug_28831
+   Memcheck:Cond
+   fun:schan_InitializeSecurityContextW
+   fun:schan_InitializeSecurityContextA
+   fun:InitializeSecurityContextA
+   fun:test_communication
+   fun:func_schannel
+   fun:run_test
+   fun:main
+}
+{
+   bug_34613
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_xmlparser
+   ...
+}
+{
+   bug_36061
+   Memcheck:Leak
+   ...
+   fun:ImmCreateIMCC
+   ...
+   fun:ImmProcessKey
+   fun:process_keyboard_message
+   fun:process_hardware_message
+   fun:peek_message
+   ...
+}
+{
+   bug_36094
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   fun:FILE_CreateFile
+   fun:NtCreateFile
+   fun:CreateDirectoryW
+   fun:CreateDirectoryA
+   fun:test_CreateDirectoryA
+   fun:func_security
+   fun:run_test
+   fun:main
+}
+{
+   bug_36095_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:init_load_order
+   fun:get_load_order
+   fun:load_dll
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:__wine_kernel_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36095_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlCreateUnicodeString
+   fun:alloc_module
+   fun:load_builtin_callback
+   fun:wine_dll_set_callback
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36095_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:init_load_order
+   fun:get_load_order
+   fun:load_dll
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:__wine_kernel_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36095_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlCreateUnicodeString
+   fun:alloc_module
+   fun:load_builtin_callback
+   fun:__wine_dll_register
+   fun:__wine_spec_init
+   fun:call_init.part.0
+   fun:_dl_init
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:wine_dlopen
+   fun:dlopen_dll
+   fun:wine_dll_load
+   fun:load_builtin_dll
+}
+{
+   bug_36096_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlCreateUnicodeString
+   fun:alloc_module
+   fun:load_builtin_callback
+   fun:__wine_dll_register
+   fun:__wine_spec_init
+   fun:call_init.part.0
+   fun:_dl_init
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:wine_dlopen
+   fun:dlopen_dll
+   fun:wine_dll_load
+   fun:load_builtin_dll
+}
+{
+   bug_36096_2
+   Memcheck:Leak
+   ...
+   fun:create_glxcontext
+   ...
+}
+{
+   bug_36096_3
+   Memcheck:Leak
+   ...
+   fun:surface_cpu_blt
+   ...
+}
+{
+   bug_36096_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_map
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:shared_dispatch_stub_662
+   fun:wined3d_surface_blt
+   fun:wined3d_device_set_render_state
+   fun:d3d9_device_SetRenderState
+   fun:func_visual
+   fun:run_test
+   fun:main
+}
+{
+   bug_36096_5
+   Memcheck:Leak
+   ...
+   fun:glEnable
+   ...
+}
+{
+   bug_36096_6
+   Memcheck:Leak
+   ...
+   fun:glClear
+   ...
+}
+{
+   bug_36096_7
+   Memcheck:Leak
+   ...
+   fun:glGetTexImage
+   ...
+}
+{
+   bug_36096_8
+   Memcheck:Leak
+   ...
+   fun:context_attach_depth_stencil_fbo
+}
+{
+   bug_36096_9
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_alloc
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:shared_dispatch_stub_682
+   fun:wined3d_buffer_map
+   fun:d3d9_device_DrawPrimitiveUP
+   fun:resz_test
+   fun:func_visual
+   fun:run_test
+   fun:main
+}
+{
+   bug_36096_10
+   Memcheck:Leak
+   ...
+   fun:create_dummy_textures
+   ...
+}
+{
+   bug_36096_11
+   Memcheck:Leak
+   ...
+   fun:buffer_create_buffer_object
+   ...
+}
+{
+   bug_36096_11
+   Memcheck:Leak
+   ...
+   fun:init_format_fbo_compat_info
+   ...
+}
+{
+   bug_36097_1
+   Memcheck:Leak
+   ...
+   fun:glXCreateContext
+   ...
+}
+{
+   bug_36097_2
+   Memcheck:Leak
+   ...
+   fun:glTexImage2D
+   ...
+}
+{
+   bug_36097_3
+   Memcheck:Leak
+   ...
+   fun:match_broken_arb_fog
+   ...
+}
+{
+   bug_36097_4
+   Memcheck:Leak
+   ...
+   fun:glXMakeContextCurrent
+   ...
+}
+{
+   bug_36097_5
+   Memcheck:Leak
+   ...
+   fun:check_fbo_compat
+   ...
+}
+{
+   bug_36097_5
+   Memcheck:Leak
+   ...
+   fun:fixup_extensions
+   ...
+}
+{
+   bug_36097_6
+   Memcheck:Leak
+   ...
+   fun:glXMakeCurrent
+   ...
+}
+{
+   # kernel32/tests/{loader,pipe}.c and ole32/tests/marshal.c
+   bug_36103_1
+   Memcheck:Addr4
+   fun:MODULE_DllThreadAttach
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_2
+   Memcheck:Addr4
+   fun:MODULE_InitDLL
+   fun:MODULE_DllThreadAttach
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_3
+   Memcheck:Addr4
+   fun:__x86.get_pc_thunk.bx
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_4
+   Memcheck:Addr4
+   fun:RtlEnterCriticalSection
+   fun:MODULE_DllThreadAttach
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:get_tls_data
+   ...
+   fun:clone
+}
+{
+   bug_36103_6
+   Memcheck:Addr4
+   fun:set_test_val
+   fun:NtDelayExecution
+   fun:SleepEx
+   fun:Sleep
+   fun:threadFunc6
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:get_tls_data
+   fun:winetest_set_location
+   fun:dll_entry_point
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:MODULE_DllThreadAttach
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_8
+   Memcheck:Addr4
+   fun:set_test_val
+   obj:/*lib*/ld-2.*.so
+   fun:NtDelayExecution
+   fun:SleepEx
+   fun:Sleep
+   fun:threadFunc6
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36103_9
+   Memcheck:Cond
+   fun:vfprintf
+   fun:buffered_vfprintf
+   fun:vfprintf
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_ExitProcess
+   fun:func_loader
+   fun:run_test
+   fun:main
+}
+{
+   bug_36103_10
+   Memcheck:Value4
+   fun:_itoa_word
+   fun:vfprintf
+   fun:buffered_vfprintf
+   fun:vfprintf
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_ExitProcess
+   fun:func_loader
+   fun:run_test
+   fun:main
+}
+{
+   bug_36105_1
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:DdeCreateDataHandle
+   ...
+   fun:WDML_ServerHandleExecute
+   fun:WDML_ServerHandle
+   fun:WDML_ServerConvProc
+   ...
+}
+{
+   bug_36105_2
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:dde_server_wndproc
+   ...
+}
+{
+   bug_36105_3
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   ...
+   fun:unpack_dde_message
+   ...
+}
+{
+   bug_36105_4
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   ...
+   fun:WDML_SyncWaitTransactionReply
+   fun:WDML_ClientHandle
+   fun:DdeClientTransaction
+   fun:test_ddeml_client
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36105_5
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:PackDDElParam
+   ...
+}
+{
+   bug_36105_6
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:server_end_to_end_callback
+   fun:WDML_InvokeCallback
+   fun:WDML_ServerHandleExecute
+   fun:WDML_ServerHandle
+   fun:WDML_ServerConvProc
+   ...
+}
+{
+   bug_36105_7
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:create_poke
+   fun:test_msg_client
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36105_8
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:DdeCreateDataHandle
+   fun:server_ddeml_callback
+   fun:WDML_InvokeCallback
+   fun:WDML_ServerHandleRequest
+   fun:WDML_ServerHandle
+   fun:WDML_ServerConvProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageA
+   fun:test_ddeml_server
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36105_9
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:WDML_DataHandle2Global
+   fun:WDML_ServerHandleRequest
+   fun:WDML_ServerHandle
+   fun:WDML_ServerConvProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageA
+   fun:test_ddeml_server
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36105_10
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:peek_message
+   fun:PeekMessageW
+   fun:PeekMessageA
+   fun:func_dde
+}
+{
+   bug_36113_1
+   Memcheck:Leak
+   ...
+   fun:shader_glsl_compile
+   ...
+}
+{
+   bug_36113_2
+   Memcheck:Leak
+   ...
+   fun:wined3d_buffer_map
+   ...
+}
+{
+   bug_36113_3
+   Memcheck:Leak
+   ...
+   fun:wined3d_cs_exec_draw
+   ...
+}
+{
+   bug_36113_4
+   Memcheck:Leak
+   ...
+   fun:wined3d_cs_exec_present
+   ...
+}
+{
+   bug_36114
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAllocateAndInitializeSid
+   fun:AllocateAndInitializeSid
+   fun:is_process_limited
+   ...
+}
+{
+   bug_36116_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:MsiInstallProductW
+   fun:MsiInstallProductA
+   ...
+}
+{
+   bug_36116_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:MSI_IterateRecords
+   ...
+}
+{
+   # also seen in dlls/oleaut32/tests/olepicture.c
+   bug_36117
+   Memcheck:Leak
+   ...
+   fun:register_namespace
+   ...
+   fun:process_attach
+   ...
+}
+{
+   bug_36118
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:xmlstrdupW
+   ...
+   fun:parse_assembly_elem
+   fun:parse_manifest_buffer
+   fun:parse_manifest
+   fun:get_manifest_in_manifest_file
+   fun:RtlCreateActivationContext
+   fun:CreateActCtxW
+   fun:test_create
+   fun:test_actctx
+   fun:func_actctx
+   fun:run_test
+   fun:main
+}
+{
+   bug_36119_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlDosPathNameToNtPathName_U
+   fun:test_NtCreateFile
+   fun:func_file
+   fun:run_test
+   fun:main
+}
+{
+   bug_36119_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlDosPathNameToNtPathName_U
+   fun:create_file_test
+   fun:func_file
+   fun:run_test
+   fun:main
+}
+{
+   bug_36120
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:Direct3DCreate9
+   fun:init_d3d9
+   fun:func_vertexdeclaration
+   fun:run_test
+   fun:main
+}
+{
+   bug_36121
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:NtNotifyChangeDirectoryFile
+   ...
+}
+{
+   bug_36122_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:Process_Link
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36122_2
+   Memcheck:Leak
+   ...
+   fun:convert_to_native_icon.isra.5.constprop.11
+   fun:extract_icon
+   fun:InvokeShellLinker
+   fun:Process_Link
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36122_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CreatePropertyBag2
+   fun:PngEncoder_CreateNewFrame
+   fun:convert_to_native_icon
+   fun:platform_write_icon
+   fun:extract_icon
+   fun:InvokeShellLinker
+   fun:Process_Link
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36123_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:process_args
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36123_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:StringListAppend
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36123_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:build_properties
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36123_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36125
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:FontEventsDisp_Invoke
+   fun:OLEFont_SendNotify
+   fun:OLEFontImpl_put_Bold
+   fun:test_font_events_disp
+   fun:func_olefont
+   fun:run_test
+   fun:main
+}
+{
+   bug_36126
+   Memcheck:Leak
+   ...
+   fun:MSI_DatabaseImport
+   ...
+}
+{
+   bug_36127
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:SafeArrayAllocData
+   fun:SAFEARRAY_Create
+   fun:SafeArrayCreate
+   fun:test_safearray
+   fun:func_safearray
+   fun:run_test
+   fun:main
+}
+{
+   bug_36128
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:WINECON_CreateKeyName
+   fun:WINECON_RegLoad
+   fun:WINECON_Init
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36129_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:OLEPictureImpl_LoadWICDecoder
+   fun:OLEPictureImpl_Load
+   fun:OleLoadPicture
+   ...
+}
+{
+   bug_36129_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:OleLoadPicturePath
+   ...
+}
+{
+   bug_36133_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:decode_image_wic
+   ...
+   fun:GdipLoadImageFromStream
+   fun:load_image
+   fun:test_tiff_palette
+   fun:func_image
+   fun:run_test
+   fun:main
+}
+{
+   bug_36133_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:ungif_alloc
+   fun:MakeMapObject
+   fun:DGifGetImageDesc
+   fun:DGifSlurp
+   fun:GifDecoder_Initialize
+   fun:decode_image_wic
+   fun:decode_image_gif
+   fun:GdipImageSelectActiveFrame
+   fun:test_gif_properties
+   fun:func_image
+   fun:run_test
+   fun:main
+}
+{
+   bug_36133_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:ungif_alloc
+   fun:MakeMapObject
+   fun:DGifGetImageDesc
+   fun:DGifSlurp
+   fun:GifDecoder_Initialize
+   fun:decode_image_wic
+   fun:decode_image_gif
+   fun:GdipLoadImageFromStream
+   fun:load_image
+   fun:test_gif_properties
+   fun:func_image
+   fun:run_test
+   fun:main
+}
+{
+   bug_36133_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:GdipAlloc
+   fun:GdipCreateBitmapFromScan0
+   fun:GdipGetImageThumbnail
+   fun:test_image_format
+   fun:func_image
+   fun:run_test
+   fun:main
+}
+{
+   bug_36134_1
+   Memcheck:Addr4
+   ...
+   fun:test_bstr_cache
+   fun:func_vartype
+   fun:run_test
+   fun:main
+}
+{
+   bug_36134_2
+   Memcheck:Free
+   ...
+   fun:test_bstr_cache
+   fun:func_vartype
+   fun:run_test
+   fun:main
+}
+{
+   bug_36134_3
+   Memcheck:Addr2
+   ...
+   fun:test_bstr_cache
+   fun:func_vartype
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_1
+   Memcheck:Cond
+   fun:order_rect
+   fun:ExtTextOutW
+   fun:ExtTextOutA
+   fun:MF_Play_MetaExtTextOut
+   fun:PlayMetaFileRecord
+   fun:PlayMetaFile
+   fun:DataCache_Draw
+   fun:test_data_cache
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:DataObject_DAdvise
+   fun:setup_sink
+   fun:DataCache_OnRun
+   fun:test_data_cache
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:DefaultHandler_Construct
+   fun:OleCreateEmbeddingHelper
+   fun:OleCreateDefaultHandler
+   fun:test_default_handler
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:DataObject_DAdvise
+   fun:setup_sink
+   fun:DataCache_OnRun
+   fun:test_data_cache
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:DataCache_Construct
+   fun:CreateDataCache
+   fun:DefaultHandler_Construct
+   fun:OleCreateEmbeddingHelper
+   fun:OleCreateDefaultHandler
+   fun:test_default_handler
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_6
+   Memcheck:Cond
+   fun:ExtTextOutW
+   fun:ExtTextOutA
+   fun:PlayMetaFileRecord
+   fun:PlayMetaFile
+   fun:DataCache_Draw
+   fun:test_data_cache
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36135_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   ...
+   fun:OleCreateEmbeddingHelper
+   fun:OleCreateDefaultHandler
+   fun:func_ole2
+   ...
+}
+{
+   bug_36136_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:VarBstrCat
+   fun:VarCat
+   fun:test_VarCat
+   fun:func_vartest
+   fun:run_test
+   fun:main
+}
+{
+   bug_36136_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:VARIANT_CopyIRecordInfo
+   fun:VariantCopy
+   ...
+   fun:func_vartest
+   fun:run_test
+   fun:main
+}
+{
+   bug_36136_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:test_VarCat
+   fun:func_vartest
+   fun:run_test
+   fun:main
+}
+{
+   bug_36136_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:VARIANT_CopyIRecordInfo
+   fun:VariantCopy
+   fun:func_vartest
+   fun:run_test
+   fun:main
+}
+{
+   bug_36137_1
+   Memcheck:Leak
+   ...
+   fun:CreateStreamOnHGlobal
+   ...
+   fun:func_tmarshal
+   ...
+}
+{
+   bug_36137_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:test_typelibmarshal
+   fun:func_tmarshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_36137_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   ...
+   fun:func_tmarshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_36137_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_facbuf_for_iid
+   fun:marshal_object
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:host_object_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36137_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_facbuf_for_iid
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:host_object_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36137_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:marshal_object
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:host_object_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36138_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:TLB_append_str
+   ...
+   fun:test_SetFuncAndParamNames
+   fun:func_typelib
+   fun:run_test
+   fun:main
+}
+{
+   bug_36138_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:test_stub
+   fun:func_typelib
+   fun:run_test
+   fun:main
+}
+{
+   bug_36138_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   ...
+   fun:ITypeLib2_Constructor_MSFT
+   ...
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:_get_typeinfo_for_iid
+   fun:PSFacBuf_CreateStub
+   fun:test_stub
+   fun:func_typelib
+   fun:run_test
+   fun:main
+}
+{
+   bug_36138_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:TLB_MultiByteToBSTR
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:_get_typeinfo_for_iid
+   fun:PSFacBuf_CreateStub
+   fun:test_stub
+   fun:func_typelib
+   fun:run_test
+   fun:main
+}
+{
+   bug_36138_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:MSFT_ReadAllNames
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:_get_typeinfo_for_iid
+   fun:PSFacBuf_CreateStub
+   fun:test_stub
+   fun:func_typelib
+   fun:run_test
+   fun:main
+}
+{
+   bug_36138_6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:PSFacBuf_CreateStub
+   fun:test_stub
+   fun:func_typelib
+   fun:run_test
+   fun:main
+}
+{
+   bug_36145_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:create_window_handle
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:ImmGetContextThreadFunc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36145_2
+   Memcheck:Leak
+   ...
+   fun:ImmCreateIMCC
+   ...
+}
+{
+   bug_36145_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalReAlloc
+   fun:ImmReSizeIMCC
+   fun:GenerateIMEMessage
+   fun:ImeSetCompositionString
+   fun:ImmSetCompositionStringW
+   fun:ImmSetCompositionStringA
+   fun:test_ImmNotifyIME
+   fun:func_imm32
+   fun:run_test
+   fun:main
+}
+{
+   bug_36146_1
+   Memcheck:Leak
+   ...
+   fun:test_change_types
+   ...
+}
+{
+   bug_36146_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+}
+{
+   bug_36146_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:_parse_script_a
+   fun:run_scripts
+   fun:func_caller
+   fun:run_test
+}
+{
+   bug_36147
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:test_jscript_uninitializing
+   fun:func_jscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_36148
+   Memcheck:Cond
+   fun:WideCharToMultiByte
+   fun:msi_strcpy_to_awstring
+   fun:MSI_GetProperty
+   fun:MsiGetPropertyW
+   fun:session_invoke
+   fun:AutomationObject_Invoke
+   fun:invoke
+   fun:Session_PropertyGet
+   fun:test_Session
+   fun:test_Installer
+   fun:func_automation
+   fun:run_test
+   fun:main
+}
+{
+   bug_36149
+   Memcheck:Cond
+   ...
+   fun:interp_end_finally
+   fun:enter_bytecode
+   fun:exec_source
+   fun:exec_global_code
+   fun:JScriptParse_ParseScriptText
+   fun:parse_script
+   fun:run_from_res
+   fun:run_tests
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36151_1
+   Memcheck:Addr4
+   fun:memcpy
+   fun:BlockChainStream_WriteAt
+   fun:SmallBlockChainStream_WriteAt
+   fun:StorageImpl_StreamWriteAt
+   fun:StorageBaseImpl_StreamWriteAt
+   fun:TransactedSnapshotImpl_StreamWriteAt
+   fun:StorageBaseImpl_StreamWriteAt
+   fun:StgStreamImpl_Write
+   fun:write_stream_data
+   fun:save_table
+   fun:MSI_CommitTables
+   fun:MsiDatabaseCommit
+   fun:test_MsiDatabaseCommit
+   fun:func_package
+   fun:run_test
+   fun:main
+}
+{
+   bug_36151_2
+   Memcheck:Addr1
+   fun:save_table
+   fun:MSI_CommitTables
+   fun:MsiDatabaseCommit
+   fun:test_MsiDatabaseCommit
+   fun:func_package
+   fun:run_test
+   fun:main
+}
+{
+   bug_36151_3
+   Memcheck:Addr1
+   fun:MSI_CommitTables
+   fun:MsiDatabaseCommit
+   fun:func_package
+   ...
+}
+{
+   # atl/registrar, browseui/autocomplete ...
+   # (only with a virtual desktop)
+   bug_36155
+   Memcheck:Leak
+   ...
+   fun:xinerama_init
+   ...
+}
+{
+   bug_36162
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   fun:WCMD_batch
+   fun:WCMD_run_program
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   ...
+}
+{
+   bug_36163
+   Memcheck:Cond
+   fun:real_length
+   fun:wine_compare_string
+   fun:CompareStringEx
+   fun:CompareStringW
+   fun:WCMD_setshow_default
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   fun:WCMD_batch
+   fun:WCMD_run_program
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   ...
+}
+{
+   bug_36164
+   Memcheck:Cond
+   ...
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   fun:WCMD_batch
+   fun:WCMD_run_program
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   ...
+}
+{
+   bug_36166_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:create_script
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36166_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:check_vbscript
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36167_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:PersistStreamInit_Load
+   fun:doc_load_string
+   fun:create_doc
+   fun:test_flash_ax
+   fun:func_activex
+   fun:run_test
+   fun:main
+}
+{
+   bug_36167_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:add_func_info
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:disp_get_id
+   fun:interp_memberid
+   fun:enter_bytecode
+   fun:exec_source
+   fun:exec_global_code
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text
+   fun:parse_inline_script
+   fun:parse_script_elem
+}
+{
+   bug_36167_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:PersistStreamInit_Load
+   fun:doc_load_string
+   fun:create_doc
+   fun:test_noquickact_ax
+   fun:func_activex
+   fun:run_test
+   fun:main
+}
+{
+   bug_36167_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:nsSupportsWeakReference_GetWeakReference
+   obj:*
+   obj:*
+   fun:init_nscontainer
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:check_ie
+   fun:func_activex
+   fun:run_test
+   fun:main
+}
+{
+   bug_36167_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:Uri_GetPropertyBSTR
+   fun:Uri_GetDisplayUri
+   fun:set_current_uri
+   fun:set_current_mon
+   fun:channelbsc_load_stream
+   fun:PersistStreamInit_Load
+   fun:doc_load_string
+   fun:create_doc
+   fun:test_event_binding
+   fun:func_activex
+   fun:run_test
+   fun:main
+}
+{
+   bug_36167_6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:PropertyBag_Read
+   fun:PersistPropertyBag_Load
+   fun:load_prop_bag
+   fun:load_plugin
+   fun:activate_plugin
+   fun:update_plugin_window
+   fun:NPP_SetWindow
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   bug_36167_7
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*
+   fun:create_nsfile
+   fun:init_xpcom
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:check_ie
+   fun:func_activex
+   fun:run_test
+   fun:main
+}
+{
+   bug_36169
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlInitializeCriticalSectionEx
+   fun:InitializeCriticalSectionEx
+   fun:InitializeCriticalSection
+   fun:test_runner
+   fun:func_service
+   fun:run_test
+   fun:main
+}
+{
+   bug_36170
+   Memcheck:Value4
+   fun:wcstombs_sbcs_slow
+   fun:wine_cp_wcstombs
+   fun:WideCharToMultiByte
+   fun:WCMD_output_asis_len
+   fun:WCMD_output_stderr
+   fun:WCMD_assoc
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   fun:WCMD_batch
+   fun:WCMD_run_program
+   fun:WCMD_execute
+   fun:WCMD_process_commands
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+}
+{
+   bug_36171_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:WINMM_OpenDevice
+   fun:WOD_Open
+   fun:WINMM_DevicesMsgProc
+   ...
+   fun:WINMM_DevicesThreadProc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36171_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:AudioClient_GetMixFormat
+   fun:set_format
+   fun:load_driver_devices
+   fun:MMDevEnum_Create
+   fun:MMCF_CreateInstance
+   fun:CoCreateInstance
+   fun:WINMM_InitMMDevices
+   ...
+}
+{
+   bug_36171_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:list_window_children
+   fun:WIN_ListChildren
+   fun:DestroyWindow
+   fun:WINMM_DevicesThreadDone
+   fun:WINMM_DevicesThreadProc
+   ...
+}
+{
+   bug_36171_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:test_fragmentsize
+   fun:func_wave
+   fun:run_test
+   fun:main
+}
+{
+   bug_36171_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:MMDevEnum_RegisterEndpointNotificationCallback
+   fun:WINMM_InitMMDevices
+   ...
+}
+{
+   bug_36171_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:create_session
+   fun:get_audio_session
+   fun:AudioClient_Initialize
+   fun:WINMM_OpenDevice
+   ...
+}
+{
+   bug_36171_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:test_fragmentsize
+   fun:func_wave
+   fun:run_test
+   fun:main
+}
+{
+   bug_36173_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:Dispatch_Invoke
+   fun:IDispatch_Invoke_Stub
+   fun:IDispatch_RemoteInvoke_Stub
+   fun:CStdStubBuffer_Invoke
+   fun:RPC_ExecuteCall
+   fun:dispatch_rpc
+   fun:process_request_packet
+   fun:RPCRT4_process_packet
+   fun:RPCRT4_worker_thread
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+}
+{
+   bug_36173_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:VariantCopy
+   fun:VariantCopyInd
+   fun:exec_script
+   fun:do_icall
+   fun:interp_icallv
+   fun:exec_script
+   fun:exec_global_code
+   fun:exec_queued_code
+   fun:VBScript_SetScriptState
+   ...
+}
+{
+   bug_36173_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:MSFT_ReadAllNames
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:get_typeinfo
+   fun:init_global
+   fun:set_ctx_site
+   fun:VBScriptParse_InitNew
+   ...
+}
+{
+   bug_36173_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:register_activex
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36173_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:register_activex
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36173_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:CommandLineToArgvW
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36173_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:register_activex
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36173_8
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:register_activex
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36181
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlInitializeCriticalSectionEx
+   fun:InitializeCriticalSectionEx
+   fun:InitializeCriticalSection
+   fun:AtlModuleInit
+   ...
+}
+{
+   bug_36182_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   ...
+   fun:func_registrar
+   ...
+}
+{
+   bug_36182_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_registrar
+   fun:run_test
+   fun:main
+}
+{
+   bug_36183
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_atl
+   fun:run_test
+   fun:main
+}
+{
+   bug_36184
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   fun:AVIFileInit
+   fun:func_api
+   fun:run_test
+   fun:main
+}
+{
+   bug_36186
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:create_path
+   fun:test_IWbemPath_SetText
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   bug_36187_1
+   Memcheck:Value4
+   ...
+   fun:NC_DoNCPaint
+   ...
+}
+{
+   bug_36187_2
+   Memcheck:Cond
+   ...
+   fun:NC_DoNCPaint
+   ...
+}
+{
+   bug_36190_1
+   Memcheck:Cond
+   fun:update_layout
+   fun:IFileDialog2_fnSetFileNameLabel
+   fun:IFileSaveDialog_fnSetFileNameLabel
+   fun:test_basics
+   fun:func_itemdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36190_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   ...
+   fun:func_itemdlg
+   ...
+}
+{
+   bug_36190_3
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   ...
+   fun:wine_server_call
+   fun:set_window_pos
+   fun:USER_SetWindowPos
+   fun:EndDeferWindowPos
+   fun:update_layout
+   fun:IFileDialog2_fnSetFileNameLabel
+   fun:IFileOpenDialog_fnSetFileNameLabel
+   fun:test_basics
+   fun:func_itemdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36190_4
+   Memcheck:Cond
+   ...
+   fun:MonitorFromRect
+   fun:MonitorFromWindow
+   fun:WINPOS_GetMinMaxInfo
+   fun:WINPOS_HandleWindowPosChanging
+   fun:DEFWND_DefWinProc
+   fun:DefWindowProcW
+   fun:ctrl_container_wndproc
+   ...
+}
+{
+   bug_36191_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:CertAddCertificateContextToStore
+   fun:CertAddEncodedCertificateToStore
+   fun:testAddCert
+   fun:func_cert
+   ...
+}
+{
+   bug_36191_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:ContextPropertyList_SetProperty
+   fun:CertContext_SetProperty
+   fun:CertContext_GetHashProp
+   fun:CertContext_GetProperty
+   fun:CertGetCertificateContextProperty
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:testAddCert
+   fun:func_cert
+   ...
+}
+{
+   bug_36192_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:DSOUND_CopyFormat
+   fun:IDirectSoundCaptureImpl_CreateCaptureBuffer
+   fun:dscenum_callback
+   fun:a_to_w_callback
+   fun:enumerate_mmdevices
+   fun:DirectSoundCaptureEnumerateW
+   fun:DirectSoundCaptureEnumerateA
+   fun:func_capture
+   fun:main
+}
+{
+   bug_36192_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:allocate_large_block
+   fun:RtlReAllocateHeap
+   fun:IDirectSoundCaptureImpl_CreateCaptureBuffer
+   fun:dscenum_callback
+   fun:a_to_w_callback
+   fun:enumerate_mmdevices
+   fun:DirectSoundCaptureEnumerateW
+   fun:DirectSoundCaptureEnumerateA
+   fun:func_capture
+   fun:main
+}
+{
+   bug_36193_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_capture
+   ...
+}
+{
+   bug_36193_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:create_session
+   fun:get_audio_session
+   fun:AudioClient_Initialize
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36193_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:AudioClient_GetMixFormat
+   fun:set_format
+   fun:load_driver_devices
+   fun:MMDevEnum_Create
+   fun:MMCF_CreateInstance
+   fun:CoCreateInstance
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36194_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_dependency
+   fun:run_test
+   fun:main
+}
+{
+   bug_36194_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:MMDevice_Activate
+   fun:func_dependency
+   fun:run_test
+   fun:main
+}
+{
+   bug_36195_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:get_mmdevenum
+   fun:GetDeviceID
+   ...
+   fun:IDirectSoundCaptureImpl_Initialize
+   fun:DirectSoundCaptureCreate
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36195_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:func_capture
+   fun:run_test
+   fun:main
+}
+{
+   bug_36195_3
+   Memcheck:Leak
+   ...
+   fun:IDirectSoundCaptureImpl_CreateCaptureBuffer
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36195_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:allocate_large_block
+   fun:RtlReAllocateHeap
+   fun:IDirectSoundCaptureImpl_CreateCaptureBuffer
+   fun:dscenum_callback
+   fun:a_to_w_callback
+   fun:send_device
+   fun:enumerate_mmdevices
+   fun:DirectSoundCaptureEnumerateW
+   fun:DirectSoundCaptureEnumerateA
+   fun:func_capture
+   ...
+}
+{
+   bug_36196
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_propstore
+   fun:run_test
+   fun:main
+}
+{
+   bug_36197_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_render
+   fun:run_test
+   fun:main
+}
+{
+   bug_36197_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:create_session
+   fun:get_audio_session
+   fun:AudioSessionManager_GetSimpleAudioVolume
+   ...
+   fun:func_render
+   fun:run_test
+   fun:main
+}
+{
+   bug_36199_1
+   Memcheck:Addr4
+   fun:_Unwind_IteratePhdrCallback
+   fun:dl_iterate_phdr
+   fun:_Unwind_Find_FDE
+   obj:/*/lib*/gcc/*/libgcc_s.so.1
+   obj:/*/lib*/gcc/*/libgcc_s.so.1
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36199_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:CertAddStoreToCollection
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_CreateChainEngine
+   fun:get_chain_engine
+   fun:CertGetCertificateChain
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36199_3
+   Memcheck:Jump
+   obj:*/libresolv-2.*.so
+   ...
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   bug_36199_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_chain
+   ...
+}
+{
+   bug_36199_5
+   Memcheck:Jump
+   obj:*/libnss_dns-2.*.so
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   bug_36199_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:ContextPropertyList_SetProperty
+   fun:ContextPropertyList_Copy
+   fun:Context_CopyProperties
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:CRYPT_RegReadSerializedFromReg
+   fun:CRYPT_RegReadFromReg
+   fun:CRYPT_RegOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_CreateChainEngine
+   fun:get_chain_engine
+   fun:CertGetCertificateChain
+   fun:testVerifyCertChainPolicy
+}
+{
+   bug_36199_7
+   Memcheck:Addr1
+   fun:strcmp
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:__libc_dlopen_mode
+   fun:pthread_cancel_init
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36199_8
+   Memcheck:Addr4
+   fun:_Unwind_IteratePhdrCallback
+   fun:dl_iterate_phdr
+   fun:_Unwind_Find_FDE
+   obj:/*lib*/libgcc_s-*.so.1
+   obj:/*lib*/libgcc_s-*.so.1
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36199_9
+   Memcheck:Jump
+   obj:/*lib*/libresolv-2.*.so
+   obj:/*lib*/libresolv-2.*.so
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   bug_36199_10
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:ContextPropertyList_SetProperty
+   fun:ContextPropertyList_Copy
+   fun:Context_CopyProperties
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:MemStore_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:CertAddEncodedCertificateToStore
+   fun:add_ms_root_certs
+   fun:create_root_store
+   fun:CRYPT_RootOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_CreateChainEngine
+   ...
+}
+{
+   bug_36199_11
+   Memcheck:Addr4
+   ...
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:/*/dlls/kernel32/kernel32.dll.so
+}
+{
+   bug_36199_12
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:Context_CreateDataContext
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:MemStore_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:CertAddEncodedCertificateToStore
+   fun:add_ms_root_certs
+   fun:create_root_store
+   fun:CRYPT_RootOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_CreateChainEngine
+   fun:CertCreateCertificateChainEngine
+   fun:testCreateCertChainEngine
+}
+{
+   bug_36199_13
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:ContextPropertyList_SetProperty
+   fun:CertContext_SetProperty
+   fun:CertContext_GetProperty
+   fun:CertGetCertificateContextProperty
+   fun:compare_cert_by_cert_id
+   fun:cert_compare_certs_in_store
+   fun:CertFindCertificateInStore
+   fun:CRYPT_FindIssuer
+   fun:CRYPT_GetIssuer
+   fun:CRYPT_BuildSimpleChain
+   fun:CRYPT_GetSimpleChainForCert
+   fun:CRYPT_BuildCandidateChainFromCert
+   fun:CertGetCertificateChain
+   fun:getChain
+   fun:checkChainPolicyStatus
+   fun:check_ssl_policy
+   fun:testVerifyCertChainPolicy
+}
+{
+   bug_36199_14
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:ContextPropertyList_SetProperty
+   fun:ContextPropertyList_Copy
+   fun:Context_CopyProperties
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:MemStore_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:check_and_store_certs
+   fun:read_trusted_roots_from_known_locations
+   fun:create_root_store
+   fun:CRYPT_RootOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_CreateChainEngine
+   ...
+}
+{
+   bug_36199_15
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:Context_CreateDataContext
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:MemStore_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:check_and_store_certs
+   fun:read_trusted_roots_from_known_locations
+   fun:create_root_store
+   fun:CRYPT_RootOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_CreateChainEngine
+   fun:CertCreateCertificateChainEngine
+   fun:testCreateCertChainEngine
+}
+{
+   bug_36199_16
+   Memcheck:Addr2
+   fun:strlenW
+   fun:lstrlenW
+   ...
+   fun:CRYPT_Connect
+   fun:HTTP_RetrieveEncodedObjectW
+   fun:CryptRetrieveObjectByUrlW
+   fun:CRYPT_FindIssuer
+   fun:CRYPT_GetIssuer
+   fun:CRYPT_BuildSimpleChain
+   fun:CRYPT_GetSimpleChainForCert
+   fun:CRYPT_BuildCandidateChainFromCert
+   fun:CertGetCertificateChain
+   fun:testGetCertChain
+   fun:func_chain
+   fun:run_test
+   fun:main
+}
+{
+   bug_36199_17
+   Memcheck:Cond
+   ...
+   fun:HTTP_RetrieveEncodedObjectW
+   fun:CryptRetrieveObjectByUrlW
+   fun:CRYPT_FindIssuer
+   fun:CRYPT_GetIssuer
+   fun:CRYPT_BuildSimpleChain
+   fun:CRYPT_GetSimpleChainForCert
+   fun:CRYPT_BuildCandidateChainFromCert
+   fun:CertGetCertificateChain
+   fun:testGetCertChain
+   fun:func_chain
+   fun:run_test
+   fun:main
+}
+{
+   bug_36200_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:Context_CreateLinkContext
+   fun:Cert_clone
+   fun:CRYPT_CollectionCreateContextFromChild
+   fun:Collection_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:CertAddEncodedCertificateToStore
+   fun:testCollectionStore
+   fun:func_store
+   ...
+}
+{
+   bug_36200_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:Context_CreateLinkContext
+   fun:Cert_clone
+   fun:CRYPT_CollectionCreateContextFromChild
+   fun:CRYPT_CollectionAdvanceEnum
+   fun:Collection_enumCert
+   fun:CertEnumCertificatesInStore
+   ...
+}
+{
+   bug_36200_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   ...
+   fun:func_store
+   ...
+}
+{
+   bug_36201
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:Context_CreateLinkContext
+   fun:Cert_clone
+   fun:CRYPT_CollectionAdvanceEnum
+   fun:Collection_enumCert
+   fun:CertEnumCertificatesInStore
+   fun:testCollectionStore
+   fun:func_store
+   ...
+}
+{
+   bug_36212_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   ...
+   fun:CryptInstallOIDFunctionAddress
+   fun:test_installOIDFunctionAddress
+   fun:func_oid
+   ...
+}
+{
+   bug_36212_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:CryptInitOIDFunctionSet
+   fun:test_oidFunctionSet
+   fun:func_oid
+   ...
+}
+{
+   bug_36212_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:CryptInitOIDFunctionSet
+   fun:test_getDefaultOIDFunctionAddress
+   fun:func_oid
+   ...
+}
+{
+   bug_36213
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_sip
+   ...
+}
+{
+   bug_36235_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnRealloc
+   fun:CoTaskMemRealloc
+   ...
+   fun:test_media_streams
+   fun:func_amstream
+   fun:run_test
+   fun:main
+}
+{
+   bug_36235_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:get_mmdevenum
+   fun:GetDeviceID
+   fun:DirectSoundDevice_Initialize
+   fun:IDirectSound8Impl_Initialize
+   fun:DirectSoundCreate8
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   obj:*
+   fun:test_media_streams
+   fun:func_amstream
+   fun:run_test
+   fun:main
+}
+{
+   bug_36235_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   ...
+   fun:glXChooseVisual
+   fun:X11DRV_WineGL_InitOpenglInfo
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   fun:__wine_get_wgl_driver
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   fun:ddraw_init
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:create_directdraw
+   fun:test_media_streams
+   fun:func_amstream
+   fun:run_test
+}
+{
+   bug_36235_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:realloc
+   obj:/*lib*/opengl/nvidia/lib/libGL.so.*
+   fun:wglGetString
+   fun:wined3d_adapter_init_gl_caps
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   ...
+}
+{
+   bug_36236_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:Alloc
+   fun:CreatePropertySheetPageA
+   ...
+   fun:func_propsheet
+   ...
+}
+{
+   bug_36236_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DIALOG_get_info
+   fun:DefDlgProcA
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageA
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:DIALOG_CreateIndirect
+   fun:CreateDialogIndirectParamAorW
+   fun:CreateDialogIndirectParamA
+   fun:PROPSHEET_CreatePage
+   fun:PROPSHEET_SetCurSel
+   fun:PROPSHEET_DialogProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_dialog_proc
+   ...
+}
+{
+   bug_36237
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:Alloc
+   fun:SetWindowSubclass
+   ...
+   fun:func_subclass
+   ...
+}
+{
+   bug_36239
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:init_oid_info
+   fun:crypt_oid_init
+   fun:DllMain
+   ...
+}
+{
+   bug_36240_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   ...
+   fun:preprocess_shader
+   ...
+   fun:func_asm
+   ...
+}
+{
+   bug_36240_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:d3dcompiler_alloc
+   fun:set_rel_reg
+   fun:asmshader_parse
+   fun:parse_asm_shader
+   fun:SlAssembleShader
+   fun:assemble_shader
+   fun:D3DAssemble
+   fun:exec_tests
+   fun:vs_3_0_test
+   fun:func_asm
+   fun:run_test
+   fun:main
+}
+{
+   bug_36241_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:test_PrintDlgExW
+   fun:func_printdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36241_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:test_PrintDlgExW
+   fun:func_printdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36241_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:func_printdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36242_1
+   Memcheck:Value4
+   ...
+   fun:ID3DXFontImpl_GetGlyphData
+   fun:test_ID3DXFont
+   fun:func_core
+   ...
+}
+{
+   bug_36242_2
+   Memcheck:Cond
+   ...
+   fun:ID3DXFontImpl_GetGlyphData
+   fun:test_ID3DXFont
+   fun:func_core
+   ...
+}
+{
+   bug_36242_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   ...
+   fun:d3d9_device_DrawPrimitiveUP
+   fun:d3dx9_sprite_Flush
+   fun:test_ID3DXSprite
+   fun:func_core
+   ...
+}
+{
+   bug_36242_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/*lib*/libdrm_intel.so.*
+   ...
+   fun:D3DXRenderToSurface_EndScene
+   fun:check_ID3DXRenderToSurface
+   fun:test_ID3DXRenderToSurface
+   fun:func_core
+   ...
+}
+{
+   bug_36242_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   ...
+   fun:D3DXRenderToSurface_EndScene
+   fun:check_ID3DXRenderToSurface
+   fun:test_ID3DXRenderToSurface
+   fun:func_core
+   ...
+}
+{
+   bug_36243_1
+   Memcheck:Leak
+   ...
+   fun:func_mesh
+   ...
+}
+{
+   bug_36243_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   obj:/*lib*/dri/i965_dri.so
+   ...
+   fun:context_apply_fbo_state
+   fun:context_apply_clear_state
+   fun:device_clear_render_targets
+   fun:wined3d_cs_exec_clear
+   fun:wined3d_cs_st_submit
+   fun:wined3d_cs_emit_clear
+   fun:wined3d_device_clear
+   fun:wined3d_device_init_3d
+   fun:device_init
+   ...
+}
+{
+   bug_36243_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   obj:/*lib*/dri/i965_dri.so
+   ...
+   fun:context_create
+   fun:wined3d_swapchain_create
+   fun:d3d9_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   ...
+}
+{
+   bug_36244_1
+   Memcheck:Addr4
+   fun:point_filter_argb_pixels
+   fun:D3DXLoadSurfaceFromMemory
+   fun:D3DXLoadSurfaceFromFileInMemory
+   fun:D3DXLoadSurfaceFromResourceA
+   fun:test_D3DXLoadSurface
+   fun:func_surface
+   ...
+}
+{
+   bug_36244_2
+   Memcheck:Leak
+   ...
+   fun:func_surface
+   ...
+}
+{
+   bug_36244_3
+   Memcheck:Addr4
+   fun:point_filter_argb_pixels
+   fun:D3DXLoadSurfaceFromMemory
+   fun:D3DXLoadSurfaceFromFileInMemory
+   fun:D3DXLoadSurfaceFromResourceA
+   fun:func_surface
+   ...
+}
+{
+   bug_36245_1
+   Memcheck:Addr4
+   fun:point_filter_argb_pixels
+   fun:D3DXLoadSurfaceFromMemory
+   fun:D3DXLoadSurfaceFromFileInMemory
+   fun:D3DXCreateTextureFromFileInMemoryEx
+   fun:D3DXCreateTextureFromResourceExA
+   fun:D3DXCreateTextureFromResourceA
+   fun:test_D3DXCreateTexture
+   fun:func_texture
+   ...
+}
+{
+   bug_36245_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:D3DXGetImageInfoFromFileInMemory
+   fun:D3DXCreateTextureFromFileInMemoryEx
+   fun:D3DXCreateTextureFromResourceExA
+   fun:D3DXCreateTextureFromResourceA
+   fun:test_D3DXCreateTexture
+   fun:func_texture
+   ...
+}
+{
+   bug_36245_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:Direct3DCreate9
+   fun:func_texture
+   ...
+}
+{
+   bug_36245_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:d3d9_init
+   fun:Direct3DCreate9
+   fun:func_texture
+   ...
+}
+{
+   bug_36246
+   Memcheck:Leak
+   ...
+   fun:func_xfile
+   ...
+}
+{
+   bug_36248_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_cryptui
+}
+{
+   bug_36248_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:Context_CreateDataContext
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:MemStore_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:CRYPT_RegReadSerializedFromReg
+   fun:CRYPT_RegReadFromReg
+   fun:CRYPT_RegOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   bug_36248_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:ContextPropertyList_SetProperty
+   fun:ContextPropertyList_Copy
+   fun:Context_CopyProperties
+   fun:Cert_clone
+   fun:MemStore_addContext
+   fun:MemStore_addCert
+   fun:add_cert_to_store
+   fun:CertAddCertificateContextToStore
+   fun:CRYPT_RegReadSerializedFromReg
+   fun:CRYPT_RegReadFromReg
+   fun:CRYPT_RegOpenStore
+   fun:CRYPT_SysRegOpenStoreW
+   fun:CertOpenStore
+   fun:CRYPT_SysOpenStoreW
+   fun:CertOpenStore
+   obj:*
+   obj:*
+}
+{
+   bug_36249_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:dxgi_factory_init
+   fun:dxgi_factory_create
+   fun:CreateDXGIFactory
+   fun:D3D10CreateDevice
+   fun:create_device
+   fun:test_effect_local_shader
+   fun:func_effect
+   fun:run_test
+   fun:main
+}
+{
+   bug_36249_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:dxgi_factory_init
+   fun:dxgi_factory_create
+   fun:CreateDXGIFactory
+   fun:D3D10CreateDevice
+   fun:create_device
+   fun:test_effect_state_groups
+   fun:func_effect
+   fun:run_test
+   fun:main
+}
+{
+   bug_36249_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_alloc
+   obj:/*lib*/dri/i965_dri.so
+   ...
+   fun:create_glxcontext.isra.0
+   fun:X11DRV_wglCreateContextAttribsARB
+   fun:wglCreateContextAttribsARB
+   fun:wined3d_adapter_init.constprop.18
+   fun:wined3d_init
+   fun:wined3d_create
+   fun:dxgi_factory_create
+   fun:CreateDXGIFactory
+   fun:D3D10CreateDevice
+   fun:create_device
+   ...
+}
+{
+   bug_36249_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:create_device
+   fun:func_effect
+   fun:run_test
+   fun:main
+}
+{
+   bug_36249_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:dxgi_factory_create
+   fun:CreateDXGIFactory
+   fun:D3D10CreateDevice
+   fun:create_device
+   fun:test_effect_constant_buffer_type
+   fun:func_effect
+   fun:run_test
+   fun:main
+}
+{
+   bug_36260_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:midiOutGetNumDevs
+   fun:DEVENUM_CreateSpecialCategories
+   fun:DEVENUM_ICreateDevEnum_CreateClassEnumerator
+   fun:test_devenum
+   fun:func_devenum
+   fun:run_test
+   fun:main
+}
+{
+   bug_36260_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:WINMM_InitMMDevices
+   fun:waveOutGetNumDevs
+   fun:DEVENUM_CreateSpecialCategories
+   fun:DEVENUM_ICreateDevEnum_CreateClassEnumerator
+   fun:test_devenum
+   fun:func_devenum
+   fun:run_test
+   fun:main
+}
+{
+   bug_36260_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_devenum
+   fun:func_devenum
+   fun:run_test
+   fun:main
+}
+{
+   bug_36261_1
+   Memcheck:Addr4
+   fun:d3d_device_inner_Release
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36261_2
+   Memcheck:Addr4
+   fun:memcpy
+   fun:wined3d_device_set_ps_consts_f
+   fun:wined3d_stateblock_apply
+   fun:ddraw_set_cooperative_level
+   fun:ddraw7_SetCooperativeLevel
+   fun:ddraw_destroy
+   fun:ddraw4_Release
+   fun:test_surface_interface_mismatch
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36262_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:create_directinput_instance
+   fun:DirectInputCreateEx
+   fun:DirectInputCreateA
+   fun:test_DirectInputJoyConfig8
+   fun:func_dinput
+   ...
+}
+{
+   bug_36262_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_dinput
+   ...
+}
+{
+   bug_36263_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_device
+   fun:keyboarddev_create_device
+   fun:create_device
+   fun:IDirectInput7AImpl_CreateDeviceEx
+   fun:IDirectInput8AImpl_CreateDevice
+   fun:test_save_settings
+   fun:func_device
+   ...
+}
+{
+   bug_36263_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:keyboarddev_create_device
+   fun:create_device
+   fun:IDirectInput7AImpl_CreateDeviceEx
+   fun:IDirectInput8AImpl_CreateDevice
+   fun:IDirectInput8AImpl_EnumDevicesBySemantics
+   fun:test_action_mapping
+   fun:func_device
+   ...
+}
+{
+   bug_36263_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:mousedev_create_device
+   fun:create_device
+   fun:IDirectInput7AImpl_CreateDeviceEx
+   fun:IDirectInput8AImpl_CreateDevice
+   fun:IDirectInput8AImpl_EnumDevicesBySemantics
+   fun:test_action_mapping
+   fun:func_device
+   ...
+}
+{
+   bug_36264_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:create_stub
+   fun:CStdStubBuffer_Delegating_Construct
+   fun:CStdPSFactory_CreateStub
+   fun:marshal_object
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:host_object_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36264_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:DI8CF_CreateInstance
+   fun:CoCreateInstance
+   fun:test_action_mapping
+   fun:func_device
+   ...
+}
+{
+   bug_36264_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:create_stub
+   fun:CStdStubBuffer_Delegating_Construct
+   fun:CStdPSFactory_CreateStub
+   fun:marshal_object
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:host_object_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36264_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:host_object_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36265_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   ...
+   fun:func_dmband
+   fun:run_test
+   fun:main
+}
+{
+   bug_36265_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:test_COM_bandtrack
+   fun:func_dmband
+   fun:run_test
+   fun:main
+}
+{
+   bug_36265_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:func_dmband
+   fun:run_test
+   fun:main
+}
+{
+   bug_36266_1
+   Memcheck:Leak
+   ...
+   fun:func_dmusic
+   fun:run_test
+   fun:main
+}
+{
+   bug_36266_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:AudioClient_GetMixFormat
+   fun:set_format
+   fun:load_driver_devices
+   fun:MMDevEnum_Create
+   fun:MMCF_CreateInstance
+   fun:CoCreateInstance
+   fun:MMDRV_Init
+   fun:MMDRV_InitSingleType
+   fun:MMDRV_GetNum
+   fun:midiOutGetNumDevs
+   fun:create_system_ports_list
+   fun:DMUSIC_CreateDirectMusicImpl
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:missing_dmusic
+   fun:func_dmusic
+}
+{
+   bug_36267_1
+   Memcheck:Addr4
+   fun:memcpy
+   fun:wined3d_device_set_ps_consts_f
+   fun:wined3d_stateblock_apply
+   fun:ddraw_set_cooperative_level
+   fun:ddraw7_SetCooperativeLevel
+   fun:ddraw_destroy
+   fun:ddraw4_Release
+   fun:test_surface_interface_mismatch
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36267_2
+   Memcheck:Addr4
+   fun:update_heap_entry
+   fun:shader_glsl_update_float_vertex_constants
+   fun:wined3d_device_set_vs_consts_f
+   fun:wined3d_stateblock_apply
+   fun:ddraw_set_cooperative_level
+   fun:ddraw4_SetCooperativeLevel
+   fun:test_coop_level_create_device_window
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36268_1
+   Memcheck:Leak
+   ...
+   fun:func_loader
+   fun:run_test
+   fun:main
+}
+{
+   bug_36270_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:test_COM_track
+   fun:func_dmcompos
+   fun:run_test
+   fun:main
+}
+{
+   bug_36270_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:func_dmcompos
+   fun:run_test
+   fun:main
+}
+{
+   bug_36271_1
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   ...
+   fun:func_dmime
+   ...
+}
+{
+   bug_36271_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:create_dmaudiopath
+   fun:IDirectMusicPerformance8Impl_CreateStandardAudioPath
+   fun:IDirectMusicPerformance8Impl_InitAudio
+   fun:test_COM_audiopath
+   fun:func_dmime
+   ...
+}
+{
+   bug_36271_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:create_dmaudiopath
+   fun:IDirectMusicPerformance8Impl_CreateStandardAudioPath
+   fun:IDirectMusicPerformance8Impl_InitAudio
+   fun:func_dmime
+   ...
+}
+{
+   bug_36271
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_dmime
+   ...
+}
+{
+   bug_36272_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DMUSIC_CreateDirectMusicImpl
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:IDirectMusicPerformance8Impl_Init
+   fun:test_createport
+   fun:func_performance
+   ...
+}
+{
+   bug_36272_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:IDirectMusicPerformance8Impl_InitAudio
+   ...
+   fun:func_performance
+   ...
+}
+{
+   bug_36272_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_performance
+   ...
+}
+{
+   bug_36273
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   ...
+   fun:func_dmstyle
+   fun:run_test
+   fun:main
+}
+{
+   bug_36274_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:func_dplayx
+   fun:run_test
+   fun:main
+}
+{
+   bug_36274_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_dplayx
+   fun:run_test
+   fun:main
+}
+{
+   bug_36275_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:DirectSoundDevice_Create
+   fun:DirectSoundDevice_Initialize
+   fun:IDirectSound8Impl_Initialize
+   ...
+   fun:dsenum_callback
+   fun:a_to_w_callback
+   fun:send_device
+   fun:enumerate_mmdevices
+   fun:DirectSoundEnumerateW
+   fun:DirectSoundEnumerateA
+   ...
+}
+{
+   bug_36275_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_ds3d
+   fun:run_test
+   fun:main
+}
+{
+   bug_36276_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:MMDRV_InitPerType
+   fun:MMDRV_Install
+   fun:MMDRV_Init
+   fun:MMDRV_InitSingleType
+   fun:MMDRV_GetNum
+   fun:midiOutGetNumDevs
+   fun:DEVENUM_CreateSpecialCategories
+   fun:DEVENUM_ICreateDevEnum_CreateClassEnumerator
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36276_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:allocate_information_node
+   fun:build_information_tree
+   fun:IDxDiagProviderImpl_Initialize
+   fun:create_root_IDxDiagContainer
+   fun:test_GetNumberOfProps
+   fun:func_container
+   fun:run_test
+   fun:main
+}
+{
+   bug_36276_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DXDiag_CreateDXDiagContainer
+   fun:IDxDiagContainerImpl_GetChildContainer
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36276_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:VariantCopy
+   fun:VariantChangeTypeEx
+   fun:VariantChangeType
+   fun:add_ull_as_bstr_property
+   fun:build_systeminfo_tree
+   fun:build_information_tree
+   fun:IDxDiagProviderImpl_Initialize
+   fun:create_root_IDxDiagContainer
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36276_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:VariantCopy
+   fun:VariantChangeTypeEx
+   fun:VariantChangeType
+   fun:add_ull_as_bstr_property
+   fun:build_systeminfo_tree
+   fun:build_information_tree
+   fun:IDxDiagProviderImpl_Initialize
+   fun:create_root_IDxDiagContainer
+   fun:test_GetNumberOfChildContainers
+   fun:func_container
+   fun:run_test
+   fun:main
+}
+{
+   bug_36278_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:GAMEUX_ParseGDFBinary
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36278_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:get_protocol_cf
+   fun:get_protocol_handler
+   fun:BindProtocol_StartEx
+   fun:start_binding
+   fun:bind_to_storage
+   fun:URLMoniker_BindToStorage
+   fun:bind_url
+   ...
+   fun:domdoc_load
+   fun:GAMEUX_ParseGDFBinary
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   ...
+}
+{
+   bug_36278_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   ...
+   fun:func_gameexplorer
+   ...
+   fun:main
+}
+{
+   bug_36279
+   Memcheck:Addr4
+   fun:memcpy
+   fun:copy_bitmapinfo
+   fun:select_pattern_brush
+   fun:pattern_brush
+   fun:dibdrv_PatBlt
+   fun:PatBlt
+   fun:test_palette_brush
+   fun:func_brush
+   fun:run_test
+   fun:main
+}
+{
+   bug_36280
+   Memcheck:Leak
+   ...
+   fun:func_gamestatistics
+   ...
+   fun:main
+}
+{
+   bug_36281
+   Memcheck:Addr4
+   fun:CreatePolyPolygonRgn
+   fun:PATH_PathToRegion
+   fun:PATH_FillPath
+   fun:nulldrv_FillPath
+   fun:FillPath
+   fun:test_path_state
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   bug_36282
+   Memcheck:Param
+   write(buf)
+   obj:*/libpthread-2.*.so
+   fun:NtWriteFile
+   fun:WriteFile
+   fun:rpcrt4_conn_np_write
+   ...
+   fun:RPCRT4_SendWithAuth
+   fun:RPCRT4_Send
+   fun:process_request_packet
+   ...
+   fun:RPCRT4_worker_thread
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36283_1
+   Memcheck:Addr4
+   fun:memcpy
+   fun:FT_Stream_ReadAt
+   ...
+   obj:/*lib*/libfreetype.so.*
+   ...
+   fun:FT_Load_Sfnt_Table
+   fun:get_font_data
+   fun:get_gasp_flags
+   fun:freetype_SelectFont
+   fun:X11DRV_SelectFont
+   fun:xrenderdrv_SelectFont
+   fun:FONT_SelectObject
+   fun:SelectObject
+   fun:get_text_metr_size
+   fun:normalize_nonclientmetrics
+   fun:SystemParametersInfoW
+   fun:GetSystemMetrics
+   fun:GetSystemMetrics
+   fun:WINPOS_GetMinMaxInfo
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:test_ImmDefaultHwnd
+}
+{
+   bug_36283_2
+   Memcheck:Addr1
+   ...
+   obj:/*lib*/libfreetype.so.*
+   ...
+   fun:FT_Load_Glyph
+   fun:get_glyph_outline
+   fun:freetype_GetGlyphOutline
+   fun:GetGlyphOutlineW
+   fun:cache_glyph_bitmap
+   fun:render_string
+   fun:dibdrv_ExtTextOut
+   fun:windrv_ExtTextOut
+   fun:ExtTextOutW
+   fun:DrawTextExW
+   fun:DrawTextW
+   fun:NC_DrawCaption
+   fun:NC_DoNCPaint
+   fun:NC_HandleNCActivate
+   fun:DEFWND_DefWinProc
+   fun:DefWindowProcW
+   ...
+}
+{
+   bug_36283_2
+   Memcheck:Addr1
+   ...
+   obj:/*lib*/libfreetype.so.*
+   ...
+   fun:FT_Load_Glyph
+   fun:get_glyph_outline
+    fun:freetype_GetTextExtentExPoint
+   fun:get_char_positions
+   fun:GetTextExtentExPointW
+   fun:TEXT_NextLineW
+   fun:DrawTextExW
+   fun:DrawTextW
+   fun:NC_DrawCaption
+   fun:NC_DoNCPaint
+   fun:NC_HandleNCActivate
+   fun:DEFWND_DefWinProc
+   fun:DefWindowProcW
+   ...
+}
+{
+   bug_36283_3
+   Memcheck:Addr1
+   ...
+   obj:/*lib*/libfreetype.so.*
+   ...
+   fun:FT_Get_Char_Index
+   fun:get_glyph_index
+   fun:get_glyph_index_linked
+   fun:get_glyph_outline
+   fun:freetype_GetTextExtentExPoint
+   fun:get_char_positions
+   fun:GetTextExtentExPointW
+   fun:GetTextExtentPoint32W
+   fun:GetTextExtentPointW
+   fun:GdiGetCharDimensions
+   fun:get_text_metr_size
+   fun:GetSystemMetrics
+   fun:GetSystemMetrics
+   fun:WINPOS_GetMinMaxInfo
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   ...
+}
+{
+   bug_36286
+   Memcheck:Addr4
+   fun:memcpy
+   fun:xbuf_add
+   fun:serialize_param
+   fun:serialize_param
+   fun:TMStubImpl_Invoke
+   fun:RPC_ExecuteCall
+   fun:apartment_wndproc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   fun:IEWinMain
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+}
+{
+   bug_36288_1
+   Memcheck:Addr4
+   fun:set_test_val
+   fun:SleepEx
+   fun:Sleep
+   fun:threadFunc6
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36290
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:/*lib*/libfreetype.so.*
+   fun:ft_mem_qalloc
+   fun:ft_mem_alloc
+   ...
+}
+{
+   bug_36291
+   Memcheck:Leak
+   ...
+   fun:func_inputprocessor
+   fun:run_test
+   fun:main
+}
+{
+   bug_36293
+   Memcheck:Cond
+   ...
+   fun:func_ios
+   fun:run_test
+   fun:main
+}
+{
+   bug_36294
+   Memcheck:Cond
+   ...
+   fun:func_string
+   fun:run_test
+   fun:main
+}
+{
+   bug_36295
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:MSVCRT_operator_new
+   fun:MSVCP_allocator_char_allocate
+   fun:basic_string_char__Grow
+   fun:basic_string_char_assign_cstr_len
+   fun:basic_string_char_assign_cstr
+   fun:basic_string_char_ctor_cstr_alloc
+   fun:basic_string_char_ctor_cstr
+   fun:locale__Init
+   fun:locale_ctor
+   fun:basic_streambuf_char_ctor
+   fun:basic_filebuf_char_ctor_file
+   fun:init_io
+   fun:DllMain
+   fun:__wine_spec_dll_entry
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:LdrLoadDll
+}
+{
+   bug_36296
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:func_ios
+   fun:run_test
+   fun:main
+}
+{
+   bug_36297
+   Memcheck:Cond
+   fun:dump_Variant
+   fun:dump_DispParms
+   fun:ITypeInfo_fnInvoke
+   fun:DispatchEx_InvokeEx
+   fun:DispatchEx_Invoke
+   fun:test_dispex
+   fun:func_domdoc
+   ...
+}
+{
+   bug_36298
+   Memcheck:Leak
+   ...
+   fun:func_domdoc
+   ...
+}
+{
+   bug_36299_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:alloc_str_from_narrow
+   fun:_bstr_
+   fun:_test_open
+   fun:test_safe_httpreq
+   fun:func_httpreq
+   ...
+}
+{
+   bug_36299_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:DispatchEx_GetDispID
+   fun:test_selection
+   fun:func_domdoc
+   ...
+}
+{
+   bug_36299_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:_bstr_
+   fun:_test_open
+   fun:func_httpreq
+   ...
+}
+{
+   bug_36299_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:CreateStreamOnHGlobal
+   fun:HGLOBALStreamImpl_Clone
+   fun:httprequest_get_responseStream.isra.1
+   fun:XMLHTTPRequest_get_responseStream
+   fun:func_httpreq
+   ...
+}
+{
+   bug_36299_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:create_xhr
+   fun:func_httpreq
+   ...
+}
+{
+   bug_36299_6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CreateStreamOnHGlobal
+   fun:HGLOBALStreamImpl_Clone
+   fun:httprequest_get_responseStream
+   fun:XMLHTTPRequest_get_responseStream
+   fun:test_XMLHTTP
+   fun:func_httpreq
+   fun:run_test
+   fun:main
+}
+{
+   bug_36300
+   Memcheck:Addr1
+   fun:update_position
+   fun:libxmlStartElementNS
+   ...
+   fun:isaxxmlreader_parse
+   fun:test_saxreader
+   fun:func_saxreader
+   ...
+}
+{
+   bug_36301_1
+   Memcheck:Addr1
+   ...
+   fun:_bstr_
+   ...
+   fun:func_saxreader
+   ...
+}
+{
+   bug_36301_2
+   Memcheck:Leak
+   ...
+   fun:func_saxreader
+   ...
+}
+{
+   bug_36301_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_DoFuncs
+   fun:MSFT_DoTypeInfo
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:DispatchEx_GetDispID
+   fun:test_obj_dispex
+   fun:test_saxreader_dispex
+   fun:func_saxreader
+   ...
+}
+{
+   bug_36301_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:DispatchEx_GetDispID
+   fun:test_obj_dispex
+   fun:test_saxreader_dispex
+   fun:func_saxreader
+   ...
+}
+{
+   bug_36303_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:xmlchar_from_wcharn
+   fun:xmlchar_from_wchar
+   fun:schema_cache_remove
+   fun:test_remove
+   fun:func_schema
+   ...
+}
+{
+   bug_36303_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_schema
+   ...
+}
+{
+   bug_36303_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:xmlNewDocProp
+   obj:/*lib*/libxml2.so.2.9.1
+   fun:XDR_E_Schema
+   fun:XDR_to_XSD_doc
+   fun:cache_entry_from_xdr_doc
+   fun:schema_cache_add
+   ...
+   fun:run_test
+   fun:main
+}
+{
+   bug_36303_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:domelem_get_dataType
+   ...
+   fun:func_schema
+   ...
+}
+{
+   bug_36303_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:xmlNewDocProp
+   obj:*/libxml2.so.*
+   ...
+   fun:XDR_to_XSD_doc
+   fun:cache_entry_from_xdr_doc
+   fun:schema_cache_add
+   ...
+   fun:func_schema
+   ...
+}
+{
+   bug_36303_6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:schema_cache_remove
+   fun:func_schema
+   ...
+}
+{
+   bug_36304_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:xmlStrndup
+   fun:xmlStrdup
+   fun:xmlNewNode
+   fun:xmldoc_createElement
+   ...
+   fun:func_xmldoc
+   ...
+}
+{
+   bug_36304_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_xmldoc
+   ...
+}
+{
+   bug_36304_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:XMLElement_create
+   fun:xmlelem_collection_IEnumVARIANT_Next
+   fun:test_xmlelem_collection
+   fun:func_xmldoc
+   ...
+}
+{
+   bug_36304_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:XMLElement_create
+   fun:xmlelem_collection_IEnumVARIANT_Next
+   fun:test_xmlelem_collection
+   fun:func_xmldoc
+   ...
+}
+{
+   bug_36305
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:run_localgroupgetinfo_tests
+   fun:func_access
+   fun:run_test
+   fun:main
+}
+{
+   bug_36306
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:run_wkstatransportenum_tests
+   fun:func_wksta
+   fun:run_test
+   fun:main
+}
+{
+   bug_36308_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   ...
+   fun:func_compobj
+   ...
+}
+{
+   bug_36308_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:CoGetObjectContext
+   fun:CoGetContextToken
+   fun:test_CoGetContextToken
+   fun:func_compobj
+   fun:run_test
+   fun:main
+}
+{
+   bug_36308_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:func_compobj
+   ...
+}
+{
+   bug_36309_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:WrapDropTarget
+   fun:RegisterDragDrop
+   fun:test_DoDragDrop
+   fun:func_dragdrop
+   ...
+}
+{
+   bug_36309_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:RegisterDragDrop
+   fun:func_dragdrop
+   ...
+}
+{
+   bug_36310_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:XMLView_PersistMoniker_Load
+}
+{
+   bug_36310_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_xmlview
+   ...
+}
+{
+   bug_36310_3
+   Memcheck:Cond
+   ...
+   fun:func_xmlview
+   ...
+}
+{
+   bug_36310_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+    ...
+   fun:XMLView_create
+   ...
+}
+{
+   bug_36310_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_DoFuncs
+   fun:MSFT_DoTypeInfo
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispids
+   fun:is_cp_event
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:test_Load
+}
+{
+   bug_36311
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:create_db_init
+   fun:datainit_GetDataSource
+   ...
+   fun:test_database
+   fun:func_database
+   ...
+}
+{
+   bug_36312_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:NdrOleAllocate
+   fun:NdrAllocate
+   fun:array_read_variance_and_unmarshall
+   fun:NdrConformantArrayUnmarshall
+   fun:PointerUnmarshall
+   fun:NdrPointerUnmarshall
+   fun:PointerUnmarshall
+   fun:NdrPointerUnmarshall
+   obj:*
+   obj:*
+   fun:test_IDBProperties
+   fun:func_marshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_36312_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysReAllocStringLen
+   fun:BSTR_UserUnmarshal
+   fun:VARIANT_UserUnmarshal
+   fun:NdrUserMarshalUnmarshall
+   fun:ComplexUnmarshall
+   fun:NdrComplexStructUnmarshall
+   fun:ComplexUnmarshall
+   fun:array_read_variance_and_unmarshall
+   fun:NdrComplexArrayUnmarshall
+   fun:PointerUnmarshall
+   fun:EmbeddedPointerUnmarshall
+   fun:array_read_variance_and_unmarshall
+   fun:NdrConformantArrayUnmarshall
+   fun:PointerUnmarshall
+   fun:NdrPointerUnmarshall
+   fun:PointerUnmarshall
+}
+{
+   bug_36313_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:PropertyStore_CreateInstance
+   fun:InMemoryPropertyStoreFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:test_persistserialized
+   fun:func_propstore
+   fun:run_test
+   fun:main
+}
+{
+   bug_36313_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_inmemorystore
+   fun:func_propstore
+   fun:run_test
+   fun:main
+}
+{
+   bug_36314
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:nt_get_mapped_file_name
+   fun:test_GetMappedFileName
+   fun:func_psapi_main
+   fun:run_test
+   fun:main
+}
+{
+   bug_36315_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_ReadAllRefs
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:SampleGrabber_create
+   fun:DSCF_CreateInstance
+   fun:CoCreateInstance
+   fun:test_samplegrabber
+   fun:func_mediadet
+   fun:run_test
+}
+{
+   bug_36315_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   obj:*
+   obj:*
+   fun:MediaDet_put_Filename
+   fun:test_mediadet
+   fun:func_mediadet
+   fun:run_test
+   fun:main
+}
+{
+   bug_36315_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_mediadet
+   ...
+}
+{
+   bug_36315_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:SampleGrabber_create
+   fun:DSCF_CreateInstance
+   fun:CoCreateInstance
+   fun:test_samplegrabber
+}
+{
+   bug_36316
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlInitializeCriticalSectionEx
+   fun:InitializeCriticalSectionEx
+   fun:InitializeCriticalSection
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:create_avisplitter
+   fun:func_avisplitter
+   fun:run_test
+   fun:main
+}
+{
+   bug_36318_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   obj:*
+   obj:*
+   ...
+   fun:func_filtermapper
+   fun:run_test
+   fun:main
+}
+{
+   bug_36318_2
+   Memcheck:Leak
+   ...
+   fun:DEVENUM_CreateSpecialCategories
+   fun:DEVENUM_ICreateDevEnum_CreateClassEnumerator
+   ...
+   fun:func_filtermapper
+   fun:run_test
+   fun:main
+}
+{
+   bug_36318_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   obj:*
+   fun:func_filtermapper
+   fun:run_test
+   fun:main
+}
+{
+   bug_36318_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   obj:*
+   obj:*
+   fun:test_parse_filter_data
+   fun:func_filtermapper
+   fun:run_test
+   fun:main
+}
+{
+   bug_36319_1
+   Memcheck:Leak
+   ...
+   fun:func_misc
+   ...
+}
+{
+   bug_36319_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+    fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   fun:test_aggregation
+}
+{
+   bug_36320
+   Memcheck:Leak
+   ...
+   fun:func_opengl
+   fun:run_test
+   fun:main
+}
+{
+   bug_36321
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_referenceclock
+   fun:run_test
+   fun:main
+}
+{
+   bug_36322_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CStdStubBuffer_Construct
+   fun:CStdPSFactory_CreateStub
+   fun:create_stub
+   ...
+   fun:func_cstub
+   fun:run_test
+   fun:main
+}
+{
+    bug_36322_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:create_proxy
+   fun:StdProxy_Construct
+   fun:CStdPSFactory_CreateProxy
+   fun:create_proxy_test
+   fun:func_cstub
+   fun:run_test
+   fun:main
+}
+{
+   bug_36323_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   fun:ME_MakeEditor
+   fun:CreateTextServices
+   fun:func_txtsrv
+   fun:run_test
+   fun:main
+}
+{
+   bug_36323_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:ME_MakeEditor
+   fun:CreateTextServices
+   ...
+   fun:func_txtsrv
+   fun:run_test
+   fun:main
+}
+{
+   bug_36324
+   Memcheck:Leak
+   ...
+   fun:func_ndr_marshall
+   ...
+}
+{
+   bug_36325_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RpcServerUseProtseqEpA
+   ...
+}
+{
+   bug_36325_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:MIDL_user_allocate
+   fun:NdrAllocate
+   fun:NdrConformantArrayUnmarshall
+   fun:PointerUnmarshall
+   fun:EmbeddedPointerUnmarshall
+   fun:NdrSimpleStructUnmarshall
+   fun:get_cpsc
+   fun:array_tests
+   fun:run_tests
+   fun:func_server
+   fun:run_test
+   fun:main
+}
+{
+   bug_36326
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   ...
+   fun:RpcServerUseProtseqA
+   fun:func_rpc_protseq
+   fun:run_test
+   fun:main
+}
+{
+   bug_36328_1
+   Memcheck:Leak
+   ...
+   obj:/*lib*/libfreetype.so.*
+   fun:ft_mem_qalloc
+   fun:ft_mem_alloc
+   ...
+   obj:*/dlls/ntdll/ntdll.dll.so
+   ...
+}
+{
+   bug_36328_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   ...
+   fun:CryptCreateHash
+   fun:test_hashes
+   fun:func_rsaenh
+   fun:run_test
+   fun:main
+}
+{
+   bug_36329_1
+   Memcheck:Addr4
+   fun:get_versionstring
+   fun:filesys_GetFileVersion
+   fun:test_GetFileVersion
+   fun:func_filesystem
+   fun:run_test
+   fun:main
+}
+{
+   bug_36329_2
+   Memcheck:Addr2
+   fun:create_file
+   fun:filesys_GetFile
+   ...
+   fun:func_filesystem
+   fun:run_test
+   fun:main
+}
+{
+   bug_36329_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_filesystem
+   fun:run_test
+   fun:main
+}
+{
+   bug_36330_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:crypt_oid_init
+   fun:DllMain
+   fun:__wine_spec_dll_entry
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:LoadLibraryExA
+   fun:LoadLibraryA
+   fun:func_schannel
+   fun:run_test
+   fun:main
+}
+{
+   bug_36330_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:test_communication
+   fun:func_schannel
+   fun:run_test
+   fun:main
+}
+{
+   bug_36338_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:do_enum
+   fun:func_comcat
+   fun:run_test
+   fun:main
+}
+{
+   bug_36338_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_comcat
+   fun:run_test
+   fun:main
+}
+{
+   bug_36339_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   ...
+   fun:glXChooseVisual
+   fun:X11DRV_WineGL_InitOpenglInfo
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   fun:__wine_get_wgl_driver
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   ...
+}
+{
+   bug_36339_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   ...
+   fun:glXChooseVisual
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   fun:__wine_get_wgl_driver
+   fun:wined3d_adapter_init.constprop.18
+   fun:wined3d_init
+   fun:wined3d_create
+   ...
+}
+{
+   bug_36339_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   ...
+   fun:glXChooseVisual
+   fun:X11DRV_WineGL_InitOpenglInfo
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   fun:__wine_get_wgl_driver
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   ...
+}
+{
+   bug_36339_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   ...
+   fun:create_glxcontext.isra.0
+   fun:X11DRV_wglCreateContextAttribsARB
+   fun:wglCreateContextAttribsARB
+   fun:wined3d_adapter_init.constprop.18
+   fun:wined3d_init
+   fun:wined3d_create
+   fun:ddraw_init
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:func_d3d
+   fun:run_test
+   fun:main
+}
+{
+   bug_36340_1
+   Memcheck:Cond
+   fun:GetRegionData
+   fun:ddraw_clipper_GetClipList
+   fun:ddraw_surface7_Blt
+   fun:ddraw_surface1_Blt
+   fun:test_clipper_blt
+   fun:func_ddraw2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36340_2
+   Memcheck:Leak
+   ...
+   fun:func_ddraw2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36340_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_alloc
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:glBindTexture
+   fun:context_bind_texture
+   fun:draw_textured_quad
+   fun:surface_blt_to_drawable
+   fun:surface_load_location
+   fun:surface_unmap
+}
+{
+   bug_36340_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_map
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:glTexSubImage2D
+   fun:surface_upload_data
+   fun:surface_load_texture
+   fun:surface_load_location
+   fun:surface_load
+   fun:wined3d_texture_load
+   fun:arbfp_blit_surface
+   fun:wined3d_surface_blt
+   fun:ddraw_surface7_Blt
+   fun:ddraw_surface1_Blt
+   fun:test_p8_rgb_blit
+}
+{
+   bug_36340_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_map
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:glTexSubImage2D
+   fun:surface_upload_data
+   fun:surface_load_texture
+   fun:surface_load_location
+   fun:surface_load
+   fun:wined3d_texture_load
+   fun:context_apply_blit_state
+   fun:arbfp_blit_surface
+   fun:wined3d_surface_blt
+   fun:ddraw_surface7_Blt
+   fun:ddraw_surface1_Blt
+}
+{
+   bug_36340_6
+   Memcheck:Addr4
+   fun:d3d_viewport_Clear
+   fun:test_material
+   fun:func_ddraw2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36341_1
+   Memcheck:Addr4
+   fun:update_heap_entry
+   fun:shader_glsl_update_float_vertex_constants
+   fun:wined3d_device_set_vs_consts_f
+   fun:wined3d_stateblock_apply
+   fun:ddraw_set_cooperative_level
+   fun:ddraw2_SetCooperativeLevel
+   fun:test_coop_level_create_device_window
+   fun:func_ddraw2
+   fun:run_test
+   fun:main
+}
+{
+   bug_36341_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:crypt_oid_init
+   fun:DllMain
+   fun:__wine_spec_dll_entry
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_attach
+   ...
+   fun:attach_process_dlls
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36342
+   Memcheck:Cond
+   fun:GetRegionData
+   fun:ddraw_clipper_GetClipList
+   fun:ddraw_surface7_Blt
+   fun:ddraw_surface4_Blt
+   fun:test_clipper_blt
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:create_ddraw
+   fun:test_clipper_blt
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:DirectDrawCreateClipper
+   fun:ddraw7_CreateClipper
+   ...
+}
+{
+   bug_36343_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DirectDrawCreateClipper
+   fun:ddraw7_CreateClipper
+   fun:ddraw4_CreateClipper
+   ...
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:ddraw_init
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:create_ddraw
+   fun:test_clipper_blt
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_ddraw4
+   fun:main
+}
+{
+   bug_36343_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:d3d3_CreateViewport
+   fun:create_viewport.constprop.6
+   fun:test_lighting_interface_versions
+   fun:func_ddraw4
+   fun:main
+}
+{
+   bug_36343_8
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:d3d3_CreateViewport
+   fun:create_viewport.constprop.6
+   fun:test_lighting_interface_versions
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_9
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_alloc
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:shared_dispatch_stub_462
+   fun:surface_prepare_map_memory
+   fun:surface_realize_palette
+   fun:wined3d_surface_set_palette
+   fun:ddraw_surface_set_palette
+   fun:ddraw_surface4_SetPalette
+   fun:test_palette_gdi
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36343_10
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_map
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:glTexSubImage2D
+   fun:surface_upload_data
+   fun:surface_load_texture
+   fun:surface_load_location
+   fun:surface_load
+   fun:wined3d_texture_load
+   fun:arbfp_blit_surface
+   fun:wined3d_surface_blt
+   fun:ddraw_surface7_Blt
+   fun:ddraw_surface4_Blt
+   fun:test_p8_rgb_blit
+}
+{
+   bug_36343_11
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_map
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   obj:/*lib*/dri/i965_dri.so
+   fun:glTexSubImage2D
+   fun:surface_upload_data
+   fun:surface_load_texture
+   fun:surface_load_location
+   fun:surface_load
+   fun:wined3d_texture_load
+   fun:context_apply_blit_state
+   fun:arbfp_blit_surface
+   fun:wined3d_surface_blt
+   fun:ddraw_surface7_Blt
+   fun:ddraw_surface4_Blt
+}
+{
+   bug_36343_12
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:d3d3_CreateViewport
+   fun:create_viewport
+   fun:test_lighting_interface_versions
+   fun:func_ddraw4
+   fun:run_test
+   fun:main
+}
+{
+   bug_36344
+   Memcheck:Cond
+   fun:GetRegionData
+   fun:ddraw_clipper_GetClipList
+   fun:ddraw_surface7_Blt
+   ...
+   fun:func_ddraw7
+   fun:run_test
+   fun:main
+}
+{
+   bug_36346_1
+   Memcheck:Leak
+   ...
+   obj:/*lib*/dri/i965_dri.so
+   ...
+   fun:wined3d_init
+   fun:wined3d_create
+   ...
+}
+{
+   bug_36346_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:dxgi_factory_create
+   fun:CreateDXGIFactory
+   fun:D3D10CreateDevice
+   fun:create_device
+   ...
+}
+{
+   bug_36347
+   Memcheck:Leak
+   ...
+   fun:create_glxcontext.isra.0
+   fun:X11DRV_wglCreateContextAttribsARB
+   fun:wglCreateContextAttribsARB
+   fun:context_create
+   fun:wined3d_swapchain_create
+   ...
+}
+{
+   bug_36348
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   ...
+   fun:Direct3DCreate9Ex
+   fun:create_device.constprop.1
+   fun:test_reset
+   fun:func_d3d9ex
+   fun:run_test
+   fun:main
+}
+{
+   bug_36349
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/*lib*/libdrm_intel.so.*
+   fun:drm_intel_bo_alloc
+   obj:/*lib*/dri/i965_dri.so
+   ...
+   fun:X11DRV_wglCreateContextAttribsARB
+   fun:wglCreateContextAttribsARB
+   fun:context_create
+   fun:wined3d_swapchain_create
+   fun:d3d9_swapchain_create
+   fun:d3d9_device_CreateAdditionalSwapChain
+   fun:switch_render_target
+   fun:execute_test_chain
+   ...
+}
+{
+   bug_36350
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:set_rel_reg.isra.2.part.3
+   fun:asmshader_parse
+   fun:parse_asm_shader
+   fun:SlAssembleShader
+   fun:D3DAssemble
+   fun:exec_tests
+   fun:vs_3_0_test
+   fun:func_asm
+   ...
+}
+{
+   bug_36352_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:context_create
+   fun:wined3d_swapchain_create
+   fun:d3d9_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   ...
+}
+{
+   bug_36352_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:d3dcompiler_alloc
+   fun:d3dcompiler_strdup
+   fun:hlsl_lex
+   fun:hlsl_parse
+   fun:parse_hlsl
+   fun:parse_hlsl_shader
+   fun:compile_shader
+   fun:D3DCompile
+   fun:init_d3d9
+   fun:func_hlsl
+   fun:run_test
+   fun:main
+}
+{
+   bug_36352_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:d3dcompiler_alloc
+   fun:add_function_decl
+   fun:hlsl_parse
+   fun:parse_hlsl
+   fun:parse_hlsl_shader
+   fun:compile_shader
+   fun:D3DCompile
+   fun:init_d3d9
+   fun:func_hlsl
+   fun:run_test
+   fun:main
+}
+{
+   bug_36352_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   ...
+   fun:context_create
+   fun:swapchain_init
+   fun:wined3d_swapchain_create
+   fun:swapchain_init
+   fun:d3d9_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   fun:d3d9_CreateDevice
+   fun:init_d3d9
+   fun:func_hlsl
+   fun:run_test
+   fun:main
+}
+{
+   bug_36352_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   ...
+   fun:context_create
+   fun:swapchain_init
+   fun:wined3d_swapchain_create
+   fun:swapchain_init
+   fun:d3d9_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   fun:d3d9_CreateDevice
+   fun:init_d3d9
+   fun:func_hlsl
+   fun:run_test
+   fun:main
+}
+{
+   bug_36353
+   Memcheck:Leak
+   ...
+   obj:/*lib*/libdrm_intel.so.*
+   ...
+   fun:wined3d_surface_map
+   fun:d3d9_surface_LockRect
+   fun:D3DXLoadSurfaceFromMemory
+   fun:D3DXLoadSurfaceFromSurface
+   fun:D3DXRenderToSurface_EndScene
+   fun:check_ID3DXRenderToSurface
+   fun:func_core
+   ...
+}
+{
+   bug_36354
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:ddraw7_CreatePalette
+   fun:ddraw1_CreatePalette
+   fun:PaletteTest
+   fun:func_dsurface
+   fun:run_test
+   fun:main
+}
+{
+   bug_36355
+   Memcheck:Cond
+   fun:ddraw_surface_create
+   fun:ddraw1_CreateSurface
+   ...
+   fun:func_dsurface
+   ...
+}
+{
+   bug_36356
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_device
+   ...
+}
+{
+   bug_36357_1
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:create_dswave
+   fun:WaveCF_CreateInstance
+   fun:CoCreateInstance
+   ...
+   fun:func_dswave
+   ...
+}
+{
+   bug_36357_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_dswave
+   ...
+}
+{
+   bug_36359_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:func_dsound
+   ...
+}
+{
+   bug_36359_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:get_mmdevenum
+   fun:GetDeviceID
+   fun:DirectSoundDevice_Initialize
+   fun:IDirectSound8Impl_Initialize
+   fun:IDirectSound_test
+   fun:func_dsound
+   fun:run_test
+   fun:main
+}
+{
+   bug_36360_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:func_provider
+   fun:run_test
+   fun:main
+}
+{
+   bug_36360_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_provider
+   fun:run_test
+   fun:main
+}
+{
+   bug_36361
+   Memcheck:Cond
+   ...
+   fun:enum_callback
+   fun:send_device
+   fun:enumerate_mmdevices
+   fun:DSPROPERTY_EnumerateW
+   fun:IKsPrivatePropertySetImpl_Get
+   fun:func_propset
+   fun:run_test
+   fun:main
+}
+{
+   bug_36362
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:get_mmdevenum
+   fun:enumerate_mmdevices
+   fun:DSPROPERTY_EnumerateW
+   fun:IKsPrivatePropertySetImpl_Get
+   fun:func_propset
+   fun:run_test
+   fun:main
+}
+{
+   bug_36363
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:HlinkCreateBrowseContext
+   ...
+   fun:func_browse_ctx
+   fun:run_test
+   fun:main
+}
+{
+   bug_36364_1
+   Memcheck:Leak
+   ...
+   fun:func_intshcut
+   ...
+}
+{
+   bug_36364_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RPCRT4_io_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36365_1
+   Memcheck:Leak
+   ...
+   fun:func_webbrowser
+   ...
+}
+{
+   bug_36365_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:HTTP_build_req
+   fun:build_request_header
+   fun:HTTP_HttpSendRequestW
+   fun:AsyncHttpSendRequestProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36365_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:combine_uri
+   fun:CoInternetCombineUrlEx
+   fun:combine_url
+   fun:nsIOService_NewURI
+   ...
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   fun:test_download
+}
+{
+   bug_36365_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+}
+{
+   bug_36365_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+}
+{
+   bug_36365_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:combine_uri
+   fun:CoInternetCombineUrlEx
+   fun:combine_url
+   fun:nsIOService_NewURI
+   ...
+}
+{
+   bug_36365_7
+   Memcheck:Cond
+   ...
+   fun:func_webbrowser
+   fun:run_test
+   fun:main
+}
+{
+   bug_36365_8
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlReAllocateHeap
+   fun:alloc_label
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_script
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+}
+{
+   bug_36365_9
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:PersistHistory_SaveHistory
+   fun:ClOleCommandTarget_Exec
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   bug_36379_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:wined3d_device_set_light
+   fun:d3d_device7_SetLight
+   fun:d3d_device7_SetLight_FPUSetup
+   fun:LightTest
+   fun:func_d3d
+   ...
+   fun:main
+}
+{
+   bug_36379_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:wined3d_device_set_light
+   fun:wined3d_device_set_light_enable
+   fun:d3d_device7_LightEnable
+   fun:d3d_device7_LightEnable_FPUSetup
+   fun:LightTest
+   fun:func_d3d
+   ...
+   fun:main
+}
+{
+   bug_36380
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_ddraw1
+   fun:main
+}
+{
+   bug_36381_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_ddraw2
+   fun:main
+}
+{
+   bug_36381_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:d3d3_CreateViewport
+   fun:d3d2_CreateViewport
+   fun:create_viewport.constprop.3
+   fun:test_lighting_interface_versions
+   fun:func_ddraw2
+   fun:main
+}
+{
+   bug_36382
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_ddraw7
+   fun:main
+}
+{
+   bug_36383
+   Memcheck:Cond
+   fun:ddraw_surface_create
+   fun:ddraw1_CreateSurface
+   ...
+   fun:func_dsurface
+   fun:main
+}
+{
+   bug_36384
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:ddraw7_CreatePalette
+   fun:ddraw1_CreatePalette
+   fun:PaletteTest
+   fun:func_dsurface
+   fun:main
+}
+{
+   bug_36393
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_infosoft
+   fun:run_test
+   fun:main
+}
+{
+   bug_36396_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:SnmpUtilOidCpy
+   obj:*
+   fun:func_main
+   fun:run_test
+   fun:main
+}
+{
+   bug_36396_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:asn_any_copy
+   fun:SnmpUtilAsnAnyCpy
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:testQuery
+   fun:func_main
+   fun:run_test
+   fun:main
+}
+{
+   bug_36397_1
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:NtWriteFile
+   fun:WriteFile
+   fun:FileLockBytesImpl_WriteAt
+   fun:StorageImpl_WriteBigBlock
+   fun:BlockChainStream_Flush
+   fun:StorageImpl_Flush
+   fun:StgStreamImpl_Write
+   fun:PropertyStorage_WritePropertyToStream
+   fun:PropertyStorage_PropertiesWriter
+   fun:dictionary_enumerate
+   fun:IPropertyStorage_fnCommit
+   fun:test_ReadAndWriteProperties
+   fun:func_intshcut
+   fun:main
+}
+{
+   bug_36397_2
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_ReadAndWriteProperties
+   fun:func_intshcut
+   fun:main
+}
+{
+   bug_36398
+   Memcheck:Addr2
+   fun:RtlImageNtHeader
+   fun:RtlImageDirectoryEntryToData
+   fun:find_entry
+   fun:LdrFindResource_U
+   fun:find_resourceW
+   fun:FindResourceExW
+   fun:FindResourceW
+   fun:TOOLBAR_AddStringW
+   fun:ToolbarWindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_CallProcAtoW
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageA
+   fun:test_add_string
+   fun:func_toolbar
+   ...
+}
+{
+   bug_36400
+   Memcheck:Cond
+   fun:CryptMsgOpenToEncode
+   fun:CryptSignMessage
+   fun:func_message
+   ...
+}
+{
+   bug_36401_1
+   Memcheck:Cond
+   fun:wined3d_swapchain_decref
+   fun:wined3d_device_uninit_3d
+   fun:dxgi_swapchain_Release
+   fun:func_device
+   ...
+}
+{
+   bug_36401_2
+   Memcheck:Cond
+   fun:swapchain_cleanup
+   fun:wined3d_swapchain_decref
+   fun:wined3d_device_uninit_3d
+   fun:dxgi_swapchain_Release
+   fun:test_createswapchain
+   fun:func_device
+   ...
+}
+{
+   bug_36402
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   ...
+   fun:IDirectSoundFullDuplexImpl_Initialize
+   ...
+   fun:func_duplex
+   ...
+}
+{
+   bug_36403
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:get_mmdevenum
+   fun:enumerate_mmdevices
+   fun:DirectSoundEnumerateW
+   fun:DirectSoundEnumerateA
+   ...
+   fun:func_ds3d8
+   ...
+   fun:main
+}
+{
+   bug_36404
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:RtlAllocateAndInitializeSid
+   fun:AllocateAndInitializeSid
+   fun:func_faultrep
+   fun:run_test
+   fun:main
+}
+{
+   bug_36405_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:test_Load
+   fun:func_xmlview
+   fun:run_test
+   fun:main
+}
+{
+   bug_36405_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:get_event_target
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:test_Load
+   fun:func_xmlview
+   fun:run_test
+   fun:main
+}
+{
+   bug_36407
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_mmcndmgr
+   fun:run_test
+   fun:main
+}
+{
+   bug_36412
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_list
+   fun:run_test
+   fun:main
+}
+{
+   bug_36414
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:CoRegisterClassObject
+   fun:test_local_server
+   fun:func_marshal
+   ...
+}
+{
+   bug_36416
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:ClassMoniker_BindToObject
+   fun:test_MkParseDisplayName
+   fun:func_moniker
+   fun:run_test
+   fun:main
+}
+{
+   bug_36417
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:list_window_children
+   fun:WIN_ListChildren
+   ...
+   fun:DestroyWindow
+   fun:apartment_release
+   fun:CoUninitialize
+   fun:apartment_hostobject_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36418
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:marshal_object
+   fun:start_apartment_remote_unknown
+   fun:RPC_StartRemoting
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:marshal_WdtpInterfacePointer
+   fun:func_usrmarshal
+   fun:run_test
+   fun:main
+}
+{
+   bug_36419
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:unmarshal_object
+   fun:proxy_manager_get_remunknown.part.8
+   fun:ifproxy_release_public_refs
+   fun:ifproxy_destroy
+   fun:ClientIdentity_Release
+   fun:func_main
+   fun:run_test
+   fun:main
+}
+{
+   bug_36420
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_dcinfo
+   fun:func_convert
+   fun:run_test
+   fun:main
+}
+{
+   bug_36421_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:datainit_GetDataSource
+   ...
+   fun:func_database
+   fun:run_test
+   fun:main
+}
+{
+   bug_36421_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:create_db_init
+   fun:datainit_GetDataSource
+   fun:test_initializationstring
+   fun:func_database
+   fun:run_test
+   fun:main
+}
+{
+   bug_36422
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_smart_tee_filter
+   fun:func_qcap
+   fun:run_test
+   fun:main
+}
+{
+   bug_36424
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   obj:*
+   fun:test_render_filter_priority
+   fun:func_filtergraph
+   fun:run_test
+   fun:main
+}
+{
+   bug_36425_1
+   Memcheck:Cond
+   ...
+   fun:reader_parse_misc
+   fun:xmlreader_Read
+   fun:TaskDefinition_put_XmlText
+   fun:test_TaskDefinition
+   fun:func_scheduler
+   fun:run_test
+   fun:main
+}
+{
+   bug_36425_2
+   Memcheck:Cond
+   ...
+   fun:reader_parse_misc
+   fun:reader_parse_nextnode
+   fun:xmlreader_Read
+   fun:read_xml
+   fun:TaskDefinition_put_XmlText
+   fun:test_TaskDefinition
+   fun:func_scheduler
+   fun:run_test
+   fun:main
+}
+{
+   bug_36427_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:func_scheduler
+   ...
+}
+{
+   bug_36427_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_Connect
+   fun:func_scheduler
+   fun:run_test
+   fun:main
+}
+{
+   bug_36428
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_dictionary
+   fun:run_test
+   fun:main
+}
+{
+   bug_36429
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_assoc
+   fun:run_test
+   fun:main
+}
+{
+   bug_36430
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_autocomplete
+   fun:run_test
+   fun:main
+}
+{
+   bug_36431
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_ebrowser
+   fun:run_test
+   fun:main
+}
+{
+   bug_36433_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:ShellDispatch_NameSpace
+   fun:func_shelldispatch
+   fun:run_test
+   fun:main
+}
+{
+   bug_36433_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:Folder_Constructor
+   fun:ShellDispatch_NameSpace
+   fun:test_namespace
+   fun:func_shelldispatch
+   fun:run_test
+   fun:main
+}
+{
+   bug_36509
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:test_createDebugger
+   fun:func_debugging
+   fun:run_test
+   fun:main
+}
+{
+   bug_36552_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:VARIANT_UserUnmarshal
+   fun:VARIANT_UserUnmarshal
+   fun:NdrUserMarshalUnmarshall
+   fun:ComplexUnmarshall
+   fun:array_read_variance_and_unmarshall
+   fun:NdrComplexArrayUnmarshall
+   fun:IDispatch_RemoteInvoke_Proxy
+   fun:IDispatch_Invoke_Proxy
+   fun:call_sink
+   fun:on_before_navigate2
+   fun:navigate_bsc
+   fun:navigate_bsc_proc
+   fun:process_dochost_tasks
+   fun:ie_window_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+}
+{
+   bug_36552_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:on_before_navigate2
+   fun:navigate_bsc
+   fun:navigate_bsc_proc
+   fun:process_dochost_tasks
+   fun:ie_window_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:push_dochost_task
+   fun:navigate_url
+   fun:InternetExplorer_Navigate2
+   obj:*/dlls/oleaut32/oleaut32.dll.so
+}
+{
+   bug_36554
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:get_profile_string
+   fun:PersistFile_Load
+   fun:Process_URL
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36555
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:IMalloc_fnAlloc
+   fun:CoTaskMemAlloc
+   fun:AudioClient_GetMixFormat
+   fun:set_format
+   fun:load_driver_devices
+   fun:MMDevEnum_Create
+   fun:MMCF_CreateInstance
+   fun:CoCreateInstance
+   fun:get_mmdevenum
+   fun:GetDeviceID
+   fun:DirectSoundDevice_Initialize
+   fun:IDirectSound8Impl_Initialize
+   fun:DirectSoundCreate8
+   obj:*
+   obj:*
+   fun:CoCreateInstance
+   obj:*
+   fun:test_media_streams
+}
+{
+   bug_36557
+   Memcheck:Addr4
+   fun:update_travellog
+   fun:ClOleCommandTarget_Exec
+   fun:notify_travellog_update
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+}
+{
+   bug_36558_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:ImageListImpl_CreateInstance
+   fun:ImageList_Create
+   fun:TREEVIEW_InitCheckboxes
+   fun:TREEVIEW_Paint
+   fun:TREEVIEW_WindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_CallProcAtoW
+   fun:CallWindowProcA
+   fun:TreeviewWndProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageA
+   fun:test_TVS_CHECKBOXES
+   fun:func_treeview
+   fun:run_test
+   fun:main
+}
+{
+   bug_36558_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:ImageListImpl_CreateInstance
+   fun:ImageList_Create
+   fun:TREEVIEW_InitCheckboxes
+   fun:TREEVIEW_StyleChanged
+   fun:TREEVIEW_WindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   ...
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   ...
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:WIN_SetWindowLong
+   ...
+}
+{
+   bug_36559
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:fd_sets_to_poll
+   fun:WS_select
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
+}
+{
+   bug_36560
+   Memcheck:Addr4
+   fun:D3DRMVectorSubtract
+   fun:load_mesh_data
+   ...
+   fun:load_data
+   fun:d3drm3_Load
+   fun:d3drm1_Load
+   fun:test_d3drm_load
+   fun:func_d3drm
+   fun:run_test
+   fun:main
+}
+{
+   bug_36561
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   obj:*
+   obj:*
+   obj:*
+   fun:DRIVER_SendMessage
+   fun:SendDriverMessage
+   fun:MSVIDEO_SendMessage
+   fun:ICSendMessage
+   fun:ICCompress
+   fun:test_encode
+   fun:func_msrle
+   fun:run_test
+   fun:main
+}
+{
+   bug_36570_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:rpcrt4_protseq_sock_alloc
+   fun:alloc_serverprotoseq
+   fun:RPCRT4_get_or_create_serverprotseq
+   fun:RpcServerUseProtseqA
+   fun:test_RpcServerUseProtseq
+   fun:func_rpc_protseq
+   fun:run_test
+   fun:main
+}
+{
+   bug_36570_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:rpcrt4_protseq_np_alloc
+   fun:alloc_serverprotoseq
+   fun:RPCRT4_get_or_create_serverprotseq
+   fun:RpcServerUseProtseqA
+   fun:test_RpcServerUseProtseq
+   fun:func_rpc_protseq
+   fun:run_test
+   fun:main
+}
+{
+   bug_36571_1
+   Memcheck:Addr1
+   fun:bcmp
+   fun:is_knownfolder
+   fun:foldermanager_GetFolder
+   fun:test_knownFolders
+   fun:func_shellpath
+   fun:run_test
+   fun:main
+}
+{
+   bug_36571_2
+   Memcheck:Free
+   fun:notify_free
+   fun:RtlFreeHeap
+   fun:foldermanager_Release
+   fun:test_knownFolders
+   fun:func_shellpath
+   fun:run_test
+   fun:main
+}
+{
+   bug_36574
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:create_netconn
+   fun:open_http_connection
+   fun:HTTP_HttpSendRequestW
+   fun:AsyncHttpSendRequestProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36575_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:register_namespace
+   fun:InternetSession_RegisterNameSpace
+   fun:register_protocols
+   fun:func_sec_mgr
+   fun:run_test
+   fun:main
+}
+{
+   bug_36575_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:OLEClipbrd_Initialize
+   fun:OleInitialize
+   fun:func_sec_mgr
+   fun:run_test
+   fun:main
+}
+{
+   bug_36576_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CF_CreateInstance
+   fun:CoCreateInstance
+   fun:test_IPersistStream
+   fun:func_uri
+   fun:run_test
+   fun:main
+}
+{
+   bug_36576_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CF_CreateInstance
+   fun:CoCreateInstance
+   fun:test_IPersistStream
+   fun:func_uri
+   fun:run_test
+   fun:main
+}
+{
+   bug_36576_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:PersistStream_Load
+   fun:Marshal_UnmarshalInterface
+   fun:test_IPersistStream
+   fun:func_uri
+   fun:run_test
+   fun:main
+}
+{
+   bug_36577
+   Memcheck:Addr4
+   fun:Binding_Abort
+   fun:abort_window_bindings
+   fun:detach_inner_window
+   fun:release_outer_window
+   fun:HTMLWindow2_Release
+   fun:CustomDoc_Release
+   fun:htmldoc_release
+   fun:HTMLDocument_Release
+   fun:test_BindToObject
+   fun:func_url
+   fun:run_test
+   fun:main
+}
+{
+   bug_36578_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:SECUR32_makeSecHandle
+   fun:InitializeSecurityContextW
+   fun:netcon_secure_connect_setup
+   fun:NETCON_secure_connect
+   fun:HTTP_HttpSendRequestW
+   fun:AsyncHttpSendRequestProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36578_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:create_moniker
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:test_BindToStorage
+   fun:func_url
+   fun:run_test
+   fun:main
+}
+{
+   bug_36578_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:test_BindToObject
+   fun:func_url
+   fun:run_test
+   fun:main
+}
+{
+   bug_36578_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CreateBindCtx
+   fun:CreateAsyncBindCtx
+   fun:test_StdURLMoniker
+   fun:func_url
+   fun:run_test
+   fun:main
+}
+{
+   bug_36578_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:register_namespace
+   fun:InternetSession_RegisterNameSpace
+   fun:register_protocols
+   fun:func_url
+   fun:run_test
+   fun:main
+}
+{
+   bug_36578_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CreateBindCtx
+   fun:CreateAsyncBindCtx
+   fun:test_BindToStorage
+   fun:func_url
+   fun:run_test
+   fun:main
+}
+{
+   bug_36581_1
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:WINMM_OpenDevice
+   fun:WID_Open
+   fun:WINMM_DevicesMsgProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:peek_message
+   fun:PeekMessageW
+   fun:WINMM_DevicesThreadProc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36581_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:list_window_children
+   fun:WIN_ListChildren
+   fun:WIN_SendDestroyMsg
+   fun:DestroyWindow
+   fun:WINMM_DevicesThreadDone
+   fun:WINMM_DevicesThreadProc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36581_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:list_window_children
+   fun:WIN_ListChildren
+   fun:DestroyWindow
+   fun:WINMM_DevicesThreadDone
+   fun:WINMM_DevicesThreadProc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36582
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DIALOG_get_info
+   fun:DefDlgProcA
+   fun:test_WM_NEXTDLGCTL
+   fun:func_dialog
+   fun:run_test
+   fun:main
+}
+{
+   bug_36583_1
+   Memcheck:Addr1
+   ...
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36583_2
+   Memcheck:Addr2
+   ...
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36583_3
+   Memcheck:Addr4
+   ...
+   fun:func_dde
+   fun:run_test
+   fun:main
+}
+{
+   bug_36585
+   Memcheck:Value4
+   fun:mbstowcs_sbcs
+   fun:wine_cp_mbstowcs
+   fun:MultiByteToWideChar
+   fun:EDIT_EM_SetHandle
+   fun:EditWndProc_common
+   fun:EditWndProcA
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageA
+   fun:test_EM_GETHANDLE
+   fun:func_edit
+   fun:run_test
+   fun:main
+}
+{
+   bug_36586_1
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:add_message_
+   fun:test_hotkey
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36586_2
+   Memcheck:Value4
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:add_message_
+   fun:test_hotkey
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36586_3
+   Memcheck:Cond
+   ...
+   fun:WaitForMultipleObjectsEx
+   fun:WaitForSingleObject
+   fun:test_interthread_messages
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36586_4
+   Memcheck:Cond
+   fun:CloseHandle
+   fun:test_interthread_messages
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36586_5
+   Memcheck:Cond
+   fun:server_remove_fd_from_cache
+   fun:close_handle
+   fun:NtClose
+   fun:CloseHandle
+   fun:test_interthread_messages
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36586_6
+   Memcheck:Param
+   write(buf)
+   obj:/*/libpthread-2.*.so
+   fun:send_request
+   fun:wine_server_call
+   fun:close_handle
+   fun:NtClose
+   fun:CloseHandle
+   fun:test_interthread_messages
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36587
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:send_request
+   fun:wine_server_call
+   fun:send_hardware_message
+   fun:SendInput
+   fun:test_inputdesktop
+   fun:func_winstation
+   fun:run_test
+   fun:main
+}
+{
+   bug_36589
+   Memcheck:Addr2
+   fun:_ItemizeInternal
+   fun:ScriptItemizeOpenType
+   fun:_test_items_ok
+   fun:test_ScriptItemize
+   fun:func_usp10
+   fun:run_test
+   fun:main
+}
+{
+   bug_36592_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:create_signature_columns_and_data
+   fun:create_signature_table
+   fun:create_signature
+   fun:class_object_GetMethod
+   fun:*
+   fun:func_query
+   fun:run_test
+   fun:main
+}
+{
+   bug_36592_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:get_properties
+   fun:class_object_GetNames
+   fun:test_GetNames
+   fun:func_query
+   fun:run_test
+   fun:main
+}
+{
+   bug_36592_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:get_stringvalue
+   fun:reg_get_stringvalue
+   fun:wbem_services_ExecMethod
+   fun:test_StdRegProv
+   fun:func_query
+   fun:run_test
+   fun:main
+}
+{
+   bug_36592_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:create_class_object
+   fun:get_object
+   fun:wbem_services_GetObject
+   fun:test_Win32_Process
+   fun:func_query
+   fun:run_test
+   fun:main
+}
+{
+   bug_36594_1
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:compare_metadata
+   fun:test_metadata_IFD
+   fun:func_metadata
+   fun:run_test
+   fun:main
+}
+{
+   bug_36594_2
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_metadata_png
+   fun:func_metadata
+   fun:run_test
+   fun:main
+}
+{
+   bug_36597_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DIALOG_get_info
+   fun:DIALOG_CreateIndirect
+   fun:CreateDialogIndirectParamAorW
+   fun:CreateDialogIndirectParamA
+   fun:CreateDialogParamA
+   fun:test_dialog_messages
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36597_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DIALOG_get_info
+   fun:DIALOG_CreateIndirect
+   fun:CreateDialogIndirectParamAorW
+   fun:CreateDialogIndirectParamA
+   fun:CreateDialogParamA
+   fun:test_EndDialog
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36597_4
+   Memcheck:Cond
+   ...
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36597_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:create_window_handle
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:create_grand_child_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36599_1
+   Memcheck:Cond
+   ...
+   fun:test_secure_connection
+   fun:func_winhttp
+   fun:run_test
+   fun:main
+}
+{
+   bug_36599_2
+   Memcheck:Value4
+   ...
+   fun:test_secure_connection
+   fun:func_winhttp
+   fun:run_test
+   fun:main
+}
+{
+   bug_36600
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:WinHttpOpen
+   fun:test_Timeouts
+   fun:func_winhttp
+   fun:run_test
+   fun:main
+}
+{
+   bug_36601_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:InternetGetConnectedStateExA
+   fun:test_InternetGetConnectedStateExA
+   fun:func_internet
+   fun:run_test
+   fun:main
+}
+{
+   bug_36601_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:get_server
+   fun:HTTP_HttpOpenRequestW
+   fun:HttpOpenRequestW
+   fun:HttpOpenRequestA
+   fun:*
+   fun:func_internet
+   fun:run_test
+   fun:main
+}
+{
+   bug_36607_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:create_stream_on_data
+   fun:test_readvaluechunk
+   fun:func_reader
+   fun:run_test
+   fun:main
+}
+{
+   bug_36607_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:CreateStreamOnHGlobal
+   fun:create_stream_on_data
+   fun:test_readvaluechunk
+   fun:func_reader
+   fun:run_test
+   fun:main
+}
+{
+   bug_36607_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:create_stream_on_data
+   fun:test_readvaluechunk
+   fun:func_reader
+   fun:run_test
+   fun:main
+}
+{
+   bug_36608
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:CreateXmlWriterOutputWithEncodingName
+   fun:test_writeroutput
+   fun:func_writer
+   fun:run_test
+   fun:main
+}
+{
+   bug_36609
+   Memcheck:Param
+   write(buf)
+   obj:/*lib*/libpthread-2.*.so
+   fun:NtWriteFile
+   fun:WriteFile
+   fun:rpcrt4_conn_np_write
+   fun:rpcrt4_conn_write
+   fun:RPCRT4_SendWithAuth
+   fun:RPCRT4_Send
+   fun:I_RpcSend
+   fun:I_RpcSendReceive
+   fun:rpc_sendreceive_thread
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36612
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:WinHttpReadData
+   fun:test_async
+   fun:func_notification
+   fun:run_test
+   fun:main
+}
+{
+   bug_36613_1
+   Memcheck:Param
+   write(buf)
+   obj:/*/libpthread-2.*.so
+   fun:send_request
+   fun:wine_server_call
+   fun:NtSetEvent
+   fun:SetEvent
+   fun:check_notification
+   fun:send_callback
+   fun:release_object
+   fun:request_destroy
+   fun:release_object
+   fun:task_thread
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36613_2
+   Memcheck:Addr4
+   fun:ntdll_get_thread_data
+   fun:abort_thread
+   fun:wait_select_reply
+   fun:server_select
+   fun:NtWaitForKeyedEvent
+   fun:RtlSleepConditionVariableCS
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36613_3
+   Memcheck:Addr4
+   fun:ntdll_get_thread_data
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36613_4
+   Memcheck:Addr4
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36613_5
+   Memcheck:Addr4
+   fun:check_notification
+   fun:send_callback
+   fun:release_object
+   fun:connect_destroy
+   fun:release_object
+   fun:request_destroy
+   fun:release_object
+   fun:task_thread
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36613_6
+   Memcheck:Addr4
+   fun:abort_thread
+   fun:wait_select_reply
+   fun:server_select
+   fun:NtWaitForKeyedEvent
+   fun:RtlSleepConditionVariableCS
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36614
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:I_RpcAllocate
+   fun:RpcTransport_ParseTopOfTower
+   fun:TowerExplode
+   fun:ept_map
+   fun:epm_ept_map
+   fun:process_request_packet
+   fun:RPCRT4_process_packet
+   fun:RPCRT4_worker_thread
+   fun:worker_thread_proc
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36615
+   Memcheck:Leak
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:PersistHistory_SaveHistory
+   fun:test_save_history
+   fun:OleCommandTarget_Exec
+   fun:notify_travellog_update
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   ...
+}
+{
+   bug_36619_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:shared_dispatch_stub_621
+   fun:context_create
+   fun:swapchain_init
+   fun:wined3d_swapchain_create
+   fun:swapchain_init
+   fun:d3d8_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   fun:d3d8_CreateDevice
+   fun:create_device
+   fun:test_depth_stencil_size
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36619_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:shared_dispatch_stub_639
+   fun:context_create
+   fun:swapchain_init
+   fun:wined3d_swapchain_create
+   fun:swapchain_init
+   fun:d3d8_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   fun:d3d8_CreateDevice
+   fun:create_device
+   fun:test_depth_stencil_size
+   fun:func_device
+   fun:run_test
+}
+{
+   bug_36619_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:shared_dispatch_stub_639
+   fun:context_create
+   fun:swapchain_init
+   fun:wined3d_swapchain_create
+   fun:swapchain_init
+   fun:d3d8_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   fun:d3d8_CreateDevice
+   fun:create_device
+   fun:test_depth_stencil_size
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36619_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:shared_dispatch_stub_639
+   fun:context_create
+   fun:swapchain_init
+   fun:wined3d_swapchain_create
+   fun:swapchain_init
+   fun:d3d8_swapchain_create
+   fun:device_parent_create_swapchain
+   fun:wined3d_device_init_3d
+   fun:device_init
+   fun:d3d8_CreateDevice
+   fun:create_device
+   fun:test_depth_stencil_size
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36619_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:Direct3DCreate8
+   fun:test_swapchain
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36619_6
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:wined3d_create
+   fun:d3d8_init
+   fun:Direct3DCreate8
+   fun:test_swapchain
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36620
+   Memcheck:Addr4
+   fun:d3d_viewport_Clear
+   fun:test_material
+   fun:func_ddraw1
+   fun:run_test
+   fun:main
+}
+{
+   bug_36621_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DirectDrawCreateClipper
+   fun:ddraw7_CreateClipper
+   fun:ddraw1_CreateClipper
+   ...
+   fun:func_ddraw1
+   fun:run_test
+   fun:main
+}
+{
+   bug_36621_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/usr/lib/libdrm_intel.so.1.0.0
+   fun:drm_intel_bo_map
+   ...
+   obj:/usr/lib/dri/i965_dri.so
+   ...
+   fun:glTexSubImage2D
+   fun:surface_upload_data
+   fun:surface_load_texture
+   fun:surface_load_location
+   fun:surface_load
+   fun:texture2d_sub_resource_load
+   fun:wined3d_texture_load
+   fun:arbfp_blit_surface
+   fun:wined3d_surface_blt
+   fun:ddraw_surface_blt_clipped
+   fun:ddraw_surface7_Blt
+}
+{
+   bug_36623
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:DirectDrawCreateClipper
+   fun:ddraw7_CreateClipper
+   ...
+   fun:func_ddraw7
+   fun:run_test
+   fun:main
+}
+{
+   bug_36624_1
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   fun:wine_server_call_err
+   fun:WriteConsoleInputW
+   fun:WCUSER_GenerateMouseInputRecord
+   fun:WCUSER_Proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   fun:WCUSER_MainLoop
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36624_2
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   fun:wine_server_call_err
+   fun:WriteConsoleInputW
+   fun:WriteConsoleInputA
+   fun:test_WriteConsoleInputA
+   fun:func_console
+   fun:run_test
+   fun:main
+}
+{
+   bug_36624_3
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   fun:wine_server_call_err
+   fun:WriteConsoleInputW
+   fun:WCUSER_GenerateKeyInputRecord
+   fun:WCUSER_Proc
+   obj:/home/austin/wine-valgrind/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   fun:WCUSER_MainLoop
+   fun:WinMain
+   fun:main
+}
+{
+   bug_36631
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/usr/lib/libdrm_intel.so.1.0.0
+   fun:drm_intel_bo_map
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:glTexSubImage2D
+   fun:surface_upload_data
+   fun:surface_load_texture
+   fun:surface_load_location
+   fun:surface_load
+   fun:texture2d_sub_resource_load
+   fun:wined3d_texture_load
+   fun:context_apply_blit_state
+   fun:arbfp_blit_surface
+   fun:wined3d_surface_blt
+   fun:ddraw_surface_blt_clipped
+}
+{
+   bug_36632
+   Memcheck:Addr4
+   ...
+   fun:RtlpWaitForCriticalSection
+   fun:RtlEnterCriticalSection
+   fun:alsa_push_buffer_data
+   fun:timer_callback_wrapper
+   fun:queue_timer_expire
+   fun:timer_queue_thread_proc
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36634
+   Memcheck:Addr4
+   fun:ntdll_get_thread_data
+   fun:abort_thread
+   fun:wait_select_reply
+   fun:server_select
+   fun:NtWaitForMultipleObjects
+   fun:NtWaitForSingleObject
+   fun:server_ioctl_file
+   fun:NtFsControlFile
+   fun:ConnectNamedPipe
+   fun:listen_thread
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36635
+   Memcheck:Cond
+   ...
+   obj:/*lib*/libgnutls.so.*
+   ...
+   fun:gnutls_handshake
+   fun:schan_imp_handshake
+   fun:schan_InitializeSecurityContextW
+   fun:schan_InitializeSecurityContextA
+   fun:InitializeSecurityContextA
+   ...
+   fun:func_schannel
+   ...
+}
+{
+   bug_36638
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:alloc_async_task
+   fun:HttpSendRequestW
+   fun:HttpSendRequestA
+   fun:test_InternetCloseHandle
+   fun:func_http
+   fun:run_test
+   fun:main
+}
+{
+   bug_36639
+   Memcheck:Param
+   gettimeofday(tv)
+   fun:gettimeofday
+   fun:NtQuerySystemTime
+   fun:NtDelayExecution
+   fun:SleepEx
+   fun:Sleep
+   fun:collect_connections_proc
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36640_1
+   Memcheck:Param
+   ioctl(generic)
+   fun:syscall
+   obj:/usr/lib/libv4lconvert.so.0.0.0
+   obj:/usr/lib/libv4lconvert.so.0.0.0
+   fun:v4lconvert_create_with_dev_ops
+   fun:v4l2_fd_open
+   fun:v4l1_open
+   obj:/usr/lib/sane/libsane-v4l.so.1.0.24
+   fun:sane_v4l_init
+   obj:/usr/lib/libsane.so.1.0.24
+   fun:sane_dll_get_devices
+   fun:sane_get_devices
+   fun:detect_sane_devices
+   fun:SANE_GetIdentity
+   fun:SANE_SourceControlHandler
+   fun:DS_Entry
+   fun:twain_add_onedriver
+   fun:twain_autodetect
+   fun:TWAIN_IdentityGetFirst
+   fun:TWAIN_SourceManagerHandler
+   fun:DSM_Entry
+}
+{
+   bug_36640_2
+   Memcheck:Param
+   ioctl(generic)
+   fun:syscall
+   obj:/usr/lib/libv4lconvert.so.0.0.0
+   fun:v4l2_ioctl
+   fun:v4l1_open
+   obj:/usr/lib/sane/libsane-v4l.so.1.0.24
+   fun:sane_v4l_init
+   obj:/usr/lib/libsane.so.1.0.24
+   fun:sane_dll_get_devices
+   fun:sane_get_devices
+   fun:detect_sane_devices
+   fun:SANE_GetIdentity
+   fun:SANE_SourceControlHandler
+   fun:DS_Entry
+   fun:twain_add_onedriver
+   fun:twain_autodetect
+   fun:TWAIN_IdentityGetFirst
+   fun:TWAIN_SourceManagerHandler
+   fun:DSM_Entry
+   fun:test_sources
+   fun:func_dsm
+}
+{
+   bug_36640_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:test_sources
+   fun:func_dsm
+   fun:run_test
+   fun:main
+}
+{
+   bug_36640_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:test_sources
+   fun:func_dsm
+   fun:run_test
+   fun:main
+}
+{
+   bug_36645_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:FTP_SendCommandA
+   fun:FTP_SendCommand
+   fun:FTP_SendRetrieve
+   fun:FTP_FtpOpenFileW
+   fun:AsyncFtpOpenFileProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36645_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:heap_strdupWtoA
+   fun:FTP_SendCommand
+   fun:FTP_SendRetrieve
+   fun:FTP_FtpOpenFileW
+   fun:AsyncFtpOpenFileProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36651
+   Memcheck:Cond
+   fun:strlenW
+   fun:PathCombineW
+   fun:PathCombineA
+   fun:test_PathCombineA
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   bug_36652_1
+   Memcheck:Cond
+   fun:bcmp
+   fun:d3d10_depthstencil_state_compare
+   fun:wine_rb_remove
+   fun:d3d10_depthstencil_state_Release
+   fun:test_create_depthstencil_state
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36652_2
+   Memcheck:Cond
+   fun:bcmp
+   fun:d3d10_depthstencil_state_compare
+   fun:wine_rb_get
+   fun:d3d10_device_CreateDepthStencilState
+   fun:test_create_depthstencil_state
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36654
+   Memcheck:Addr4
+   ...
+   fun:fixup_extensions
+   fun:wined3d_adapter_init_gl_caps
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   fun:d3d8_init
+   fun:Direct3DCreate8
+   fun:test_device_window_reset
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36655
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   fun:put_message_in_queue
+   fun:send_inter_thread_message
+   fun:send_message
+   fun:SendMessageTimeoutW
+   fun:bcast_childwindow
+   fun:EnumDesktopWindows
+   fun:bcast_desktop
+   fun:EnumDesktopsW
+   fun:bcast_winsta
+   fun:EnumWindowStationsW
+   fun:BroadcastSystemMessageExW
+   fun:BroadcastSystemMessageW
+   fun:send_notify
+   fun:add_dos_device
+   fun:udisks2_add_device
+   fun:udisks2_add_devices
+   fun:dbus_thread
+}
+{
+   bug_36656
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:send_request
+   fun:wine_server_call
+   fun:set_window_pos
+   fun:USER_SetWindowPos
+   fun:EndDeferWindowPos
+   fun:update_layout
+   fun:IFileDialog2_fnSetOkButtonLabel
+   fun:test_basics
+   fun:func_itemdlg
+   fun:run_test
+   fun:main
+}
+{
+   bug_36657
+   Memcheck:Cond
+   obj:*nvidia*
+   fun:shader_glsl_load_constants
+   fun:context_apply_draw_state
+   fun:draw_primitive
+   fun:wined3d_cs_exec_draw
+   fun:wined3d_cs_st_submit
+   fun:wined3d_cs_emit_draw
+   fun:wined3d_device_draw_primitive
+   fun:d3d9_device_DrawPrimitiveUP
+   fun:vpos_register_test
+   fun:func_visual
+   fun:run_test
+   fun:main
+}
+{
+   bug_36658
+   Memcheck:Addr4
+   obj:/tmp/.gl*
+   fun:fixup_extensions
+   fun:wined3d_adapter_init_gl_caps
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   fun:ddraw_init
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:CapsTest
+   fun:func_d3d
+   fun:run_test
+   fun:main
+}
+{
+   bug_36659
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:CapsTest
+   fun:func_d3d
+   fun:run_test
+   fun:main
+}
+{
+   bug_36662_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:WS2_ConnectEx
+   fun:test_ConnectEx
+   fun:func_sock
+   fun:run_test
+   fun:main
+}
+{
+   bug_36662_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:WS2_recv_base
+   fun:WSARecv
+   fun:test_completion_port
+   fun:func_sock
+   fun:run_test
+   fun:main
+}
+{
+   bug_36662_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:WS2_sendto
+   fun:WSASend
+   fun:test_send
+   fun:func_sock
+   fun:run_test
+   fun:main
+}
+{
+   bug_36669
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:D3D1_createObjects
+   fun:func_visual
+   fun:run_test
+   fun:main
+}
+{
+   bug_36670
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:wined3d_timestamp_query_ops_get_data
+   fun:wined3d_query_get_data
+   fun:d3d9_query_GetData
+   fun:test_timestamp_query
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   bug_36705
+   Memcheck:Cond
+   fun:wine_dbgstr_wn
+   fun:wine_dbgstr_w
+   fun:test_key_names
+   fun:func_input
+   fun:run_test
+   fun:main
+}
+{
+   bug_36714_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:WINTRUST_Alloc
+   fun:WINTRUST_AddSgnr
+   fun:testCertTrust
+   fun:test_provider_funcs
+   fun:func_softpub
+   fun:run_test
+   fun:main
+}
+{
+   bug_36714_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:WINTRUST_Alloc
+   fun:WINTRUST_AddCert
+   fun:test_utils
+   fun:test_provider_funcs
+   fun:func_softpub
+   fun:run_test
+   fun:main
+}
+{
+   bug_36748
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:test_Frame
+   fun:func_d3drm
+   fun:run_test
+   fun:main
+}

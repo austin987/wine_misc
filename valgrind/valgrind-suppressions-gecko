@@ -1,0 +1,2990 @@
+# Bugs in wine-gecko / upstream gecko:
+{
+   bug_36394_10
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysReAllocStringLen
+   fun:BSTR_UserUnmarshal
+   fun:VARIANT_UserUnmarshal
+   fun:VARIANT_UserUnmarshal
+   fun:NdrUserMarshalUnmarshall
+   fun:ComplexUnmarshall
+   fun:array_read_variance_and_unmarshall
+   fun:NdrComplexArrayUnmarshall
+   fun:IDispatch_RemoteInvoke_Proxy
+   fun:IDispatch_Invoke_Proxy
+   fun:call_sink
+   fun:DocObjectService_FireNavigateComplete2
+   fun:parse_complete
+   fun:run_end_load
+   fun:nsRunnable_Run
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/*.dll
+}
+{
+   bug_36394_11
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:NdrProxyGetBuffer
+   fun:IRemUnknown_RemAddRef_Proxy
+   fun:ifproxy_get_public_ref
+   fun:unmarshal_object
+   fun:StdMarshalImpl_UnmarshalInterface
+   fun:CoUnmarshalInterface
+   fun:RPC_GetLocalClassObject
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_InternetExplorer
+   fun:func_ie
+}
+{
+   bug_36394_12
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:NdrProxyGetBuffer
+   obj:*
+   obj:*
+   fun:RPC_GetLocalClassObject
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:test_InternetExplorer
+   fun:func_ie
+   fun:run_test
+   fun:main
+}
+{
+   bug_36394_13
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:NdrProxyGetBuffer
+   fun:*
+   fun:advise_cp
+   fun:test_InternetExplorer
+   fun:func_ie
+   fun:run_test
+   fun:main
+}
+{
+   bug_36394_14
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:NdrProxyGetBuffer
+   fun:IClassFactory_RemoteCreateInstance_Proxy
+   fun:IClassFactory_CreateInstance_Proxy
+   fun:CoCreateInstance
+   fun:test_InternetExplorer
+   fun:func_ie
+   fun:run_test
+   fun:main
+}
+{
+   bug_36394_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*
+   obj:*
+   obj:*
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36394_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RPCRT4_io_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36394_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:CoRegisterClassObject
+   fun:register_class_object
+   fun:IEWinMain
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36394_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:create_netconn
+   fun:HTTP_HttpSendRequestW
+   fun:AsyncHttpSendRequestProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36394_5
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:unmarshal_object
+   fun:ClientIdentity_QueryMultipleInterfaces
+   fun:ClientIdentity_QueryInterface
+   fun:advise_cp
+   fun:func_ie
+   fun:main
+}
+{
+   bug_36394_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:ClientRpcChannelBuffer_GetBuffer
+   fun:xCall
+   ...
+   fun:main
+}
+{
+   bug_36394_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:CoRegisterClassObject
+   fun:register_class_object
+   fun:IEWinMain
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36394_8
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:CreateStreamOnHGlobal
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:register_class_object
+   fun:IEWinMain
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_process
+   obj:*/libs/wine/libwine.so.1.0
+}
+{
+   bug_36394_9
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:NdrGetBuffer
+   fun:IrotIsRunning
+   fun:RunningObjectTableImpl_IsRunning
+   fun:URLMoniker_BindToObject
+   fun:bind_to_object
+   fun:navigate_bsc
+   fun:navigate_bsc_proc
+   fun:process_dochost_tasks
+   fun:ie_window_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+}
+{
+   bug_36395
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_mimeole
+   fun:main
+}
+{
+   bug_36563
+   Memcheck:Addr4
+   fun:Binding_Abort
+   fun:abort_window_bindings
+   fun:release_outer_window
+   fun:HTMLWindow2_Release
+   fun:CustomDoc_Release
+   fun:htmldoc_release
+   fun:HTMLDocument_Release
+   fun:release_document
+   fun:test_HTMLDocument_http
+   fun:func_htmldoc
+   fun:run_test
+   fun:main
+}
+{
+   bug_36615_mshtml_htmldoc
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:_dl_allocate_tls
+   fun:pthread_create@@GLIBC_2.1
+   fun:RtlCreateUserThread
+   fun:CreateRemoteThread
+   fun:CreateThread
+   fun:_beginthreadex
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
+}
+{
+   gecko_mshtml_activex_x
+   Memcheck:Addr4
+   fun:RtlAllocateHeap
+   fun:MODULE_DllThreadAttach
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   gecko_x
+   Memcheck:Addr2
+   fun:DispCallFunc
+   fun:invoke_builtin_function
+   fun:function_invoke
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:disp_call
+   fun:interp_call_member
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   fun:invoke_prop_func
+   fun:jsdisp_call
+   fun:disp_call
+   fun:interp_call_member
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+}
+{
+   gecko_x
+   Memcheck:Addr2
+   fun:wine_dbgstr_wn
+   fun:wine_dbgstr_w
+   fun:test_body_style
+   fun:basic_style_test
+   fun:run_test
+   fun:func_style
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Addr4
+   fun:Binding_Abort
+   fun:abort_window_bindings
+   fun:release_outer_window
+   fun:HTMLWindow2_Release
+   fun:CustomDoc_Release
+   fun:htmldoc_release
+   fun:HTMLDocument_Release
+   fun:perform_test
+   fun:func_htmllocation
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Addr4
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:func_activex
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:allocate_dtv
+   fun:_dl_allocate_tls
+   fun:pthread_create@@GLIBC_2.1
+   fun:RtlCreateUserThread
+   fun:CreateRemoteThread
+   fun:CreateThread
+   fun:_beginthreadex
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:get_elem_by_id
+   fun:test_submit
+   fun:func_htmldoc
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:test_body_style
+   fun:basic_style_test
+   fun:run_test
+   fun:func_style
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:_test_comment_text
+   fun:test_create_elems
+   fun:run_domtest
+   fun:func_dom
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:_test_comment_text
+   fun:test_doctype
+   fun:run_domtest
+   fun:func_dom
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:test_elems
+   fun:run_domtest
+   fun:func_dom
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:alloc_async_task
+   fun:FtpOpenFileW
+   fun:INTERNET_InternetOpenUrlW
+   fun:AsyncInternetOpenUrlProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:perform_test
+   fun:func_htmllocation
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/*.dll
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/mozalloc.dll
+   obj:*
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/mozalloc.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:PersistHistory_SaveHistory
+   fun:test_save_history
+   fun:OleCommandTarget_Exec
+   fun:notify_travellog_update
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:MSVCRT_realloc
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:disp_get_id
+   fun:interp_memberid
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   fun:nsDocumentObserver_AttemptToExecuteScript
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:PropertyBag_Read
+   fun:PersistPropertyBag_Load
+   fun:update_plugin_window
+   fun:NPP_SetWindow
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   fun:Uri_Construct
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:PersistStreamInit_Load
+   fun:run_test
+   fun:func_events
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:a2bstr
+   fun:test_open_window
+   fun:test_HTMLDocument_http
+   fun:func_htmldoc
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:pre_process_uri
+   fun:CreateUri
+   fun:create_uri
+   fun:set_moniker
+   fun:PersistMoniker_Load
+   fun:load_doc_mon
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+   fun:ProtocolSinkHandler_ReportData
+   fun:report_data_proc
+   fun:process_tasks
+   fun:notif_wnd_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:HTMLStyleSheet_Create
+   fun:HTMLStyleElement_get_styleSheet
+   fun:HTMLDocument_createStyleSheet
+   fun:test_create_stylesheet
+   fun:run_domtest
+   fun:func_dom
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:register_namespace
+   fun:InternetSession_RegisterNameSpace
+   fun:register_protocol
+   fun:func_htmldoc
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:HTMLCurrentStyle_Create
+   fun:HTMLElement2_get_currentStyle
+   fun:test_style_filters
+   fun:basic_style_test
+   fun:run_test
+   fun:func_style
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:HTMLDOMTextNode_Create
+   fun:HTMLDocument3_createTextNode
+   fun:_test_create_text
+   fun:*
+   fun:run_domtest
+   fun:func_dom
+   fun:run_test
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:HTMLElement_getAttribute
+   fun:test_get_set_attr
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:HTMLElement_getAttribute
+   fun:test_get_set_attr
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispids
+   fun:is_cp_event
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:register_cp
+   fun:test_onclick
+   fun:run_test
+   fun:func_events
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispids
+   fun:is_cp_event
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:test_ConnectionPoint
+   fun:test_ConnectionPointContainer
+   fun:test_HTMLDocument_hlink
+   fun:func_htmldoc
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:compiler_alloc_bstr_len
+   fun:parse_arguments
+   fun:compile_script
+   fun:JScriptParseProcedure_ParseProcedureText
+   fun:bind_event_scripts
+   fun:run_end_load
+   fun:nsRunnable_Run
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispids
+   fun:is_cp_event
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:register_cp
+   fun:test_onclick
+   fun:run_test
+   fun:func_events
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispids
+   fun:is_cp_event
+   fun:update_cp_events
+   fun:HTMLDocument_on_advise
+   fun:ConnectionPoint_Advise
+   fun:register_cp
+   fun:test_onclick
+   fun:run_test
+   fun:func_events
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:compiler_alloc_bstr
+   fun:compile_expression
+   fun:compile_expression
+   fun:compile_expression
+   fun:compile_statement
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_script
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:compiler_alloc_bstr
+   fun:push_instr_bstr
+   fun:compile_expression
+   fun:compile_binary_expression.isra.29
+   fun:compile_expression
+   fun:compile_binary_expression.isra.29
+   fun:compile_expression
+   fun:compile_statement
+   fun:compile_function.isra.34
+   fun:compile_script
+   fun:JScriptParseProcedure_ParseProcedureText
+   fun:bind_event_scripts
+   fun:run_end_load
+   fun:nsRunnable_Run
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:compiler_alloc_bstr
+   fun:push_instr_bstr
+   fun:compile_expression
+   ...
+   fun:nsRunnable_Run
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:compiler_alloc_bstr
+   fun:push_instr_bstr
+   fun:compile_variable_list
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_script
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:compiler_alloc_bstr
+   fun:push_instr_bstr_uint.constprop.40
+   fun:compile_assign_expression.isra.16
+   fun:compile_expression
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_statement
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_function.isra.34
+   fun:compile_script
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:disp_get_id
+   fun:interp_memberid
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+   obj:*/windows/system32/gecko/*/wine_gecko/*.dll
+   obj:*/windows/system32/gecko/*/wine_gecko/*.dll
+   fun:nsDocumentObserver_AttemptToExecuteScript
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:HTMLElement_getAttribute
+   fun:test_get_set_attr
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:_test_disp_value
+   fun:_test_anchor_href
+   fun:test_elems
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:_test_disp_value
+   fun:_test_disp
+   fun:test_create_elems
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:_test_disp_value
+   fun:_test_disp
+   fun:test_defaults
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:_test_disp_value
+   fun:_test_disp
+   fun:_test_elem_type
+   fun:_test_elem_collection
+   fun:test_elems
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:_test_disp_value
+   fun:_test_disp
+   fun:_test_elem_type
+   fun:test_frame
+   fun:test_frames_collection
+   fun:test_frameset
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:get_dispex_data.part.10
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:_test_disp_value
+   fun:_test_disp
+   fun:_test_elem_type
+   fun:test_txtrange
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:TLB_MultiByteToBSTR
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:TLB_MultiByteToBSTR
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:IShellLink_Constructor
+   fun:IDefClF_fnCreateInstance
+   fun:CoCreateInstance
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:create_document
+   fun:func_events
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text.isra.11
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:get_dispex_data.part.10
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:lookup_global_members
+   fun:identifier_eval
+   fun:interp_ident
+   fun:exec_source
+   fun:exec_global_code.isra.11
+   fun:JScriptParse_ParseScriptText
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLBodyElement_Create
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:fire_event
+   fun:handle_load
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLDOMAttribute_Create
+   fun:HTMLAttributeCollection_item
+   fun:test_attr_collection
+   fun:test_elems
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:create_all_list.isra.3
+   fun:create_all_list.isra.3
+   fun:create_all_collection
+   fun:HTMLDocument_get_all
+   fun:get_elem_by_id
+   fun:test_docfrag
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:create_all_list.isra.3
+   fun:create_all_list.isra.3
+   fun:create_all_collection
+   fun:HTMLDocument_get_all
+   fun:test_noscript
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:fire_event
+   fun:handle_load
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:HTMLDocument_get_all
+   fun:get_elem_by_id
+   fun:test_docfrag
+   fun:run_domtest
+   fun:func_dom
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLImgElement_Create
+   fun:HTMLElement_Create
+   fun:create_node
+   ...
+   fun:run_test
+   fun:func_events
+   fun:main
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLObjectElement_Create
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:create_plugin_host
+   fun:NPP_New
+   obj:*/windows/system32/gecko/*/wine_gecko/*.dll
+   obj:*/windows/system32/gecko/*/wine_gecko/*.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:HTMLScriptElement_Create
+   fun:HTMLElement_Create
+   fun:create_node
+   fun:get_node
+   fun:script_elem_from_nsscript
+   fun:nsDocumentObserver_BindToDocument
+   obj:*/windows/system32/gecko/*/wine_gecko/*.dll
+   ...
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/*.dll
+}
+{
+   gecko_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlReAllocateHeap
+   fun:MSVCRT_realloc
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/*.dll
+   ...
+}
+{
+   gecko_x
+   Memcheck:Value4
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/*.dll
+}
+{
+   ieframe_test_webbrowser_addr4
+   Memcheck:Addr4
+   fun:update_travellog
+   fun:ClOleCommandTarget_Exec
+   fun:notify_travellog_update
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   ...
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+}
+{
+   jscript_caller
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:func_caller
+   fun:main
+}
+{
+   jscript_jscript
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:func_jscript
+   fun:main
+}
+{
+   jscript_run
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:func_run
+   fun:main
+}
+{
+   load_gecko_leak
+   Memcheck:Addr4
+   obj:*
+   fun:init_xpcom
+   fun:load_gecko
+   fun:NSContainer_Create
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+}
+{
+   mshtml_htmldoc
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:PersistHistory_SaveHistory
+   fun:test_save_history
+   fun:OleCommandTarget_Exec
+   fun:notify_travellog_update
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   obj:*-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+}
+{
+   todo_gecko_warnings_r_us2
+   Memcheck:Cond
+   obj:*wine_gecko*
+}
+{
+   todo_gecko_warnings_r_us
+   Memcheck:Addr4
+   obj:*wine_gecko*
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{
+   bug_36219_10
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   ...
+   fun:create_node
+   fun:get_node
+   ...
+}
+{
+   bug_36219_11
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:MSFT_ReadAllNames
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+}
+{
+   bug_36219_12
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:create_netconn
+   fun:open_http_connection
+   fun:HTTP_HttpSendRequestW
+   fun:AsyncHttpSendRequestProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36219_13
+   Memcheck:Addr4
+   fun:navigate_history
+   fun:go_forward
+   fun:WebBrowser_GoForward
+   fun:test_go_forward
+   fun:test_WebBrowser
+   fun:func_webbrowser
+   fun:run_test
+   fun:main
+}
+{
+   bug_36219_14
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_DoFuncs
+   fun:MSFT_DoTypeInfo
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+}
+{
+   bug_36219_15
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:MSFT_ReadAllStrings
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+}
+{
+   bug_36219_16
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+}
+{
+   bug_36219_17
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:rpcrt4_conn_np_alloc
+   fun:RPCRT4_CreateConnection
+   fun:RpcAssoc_GetClientConnection
+   fun:RPCRT4_OpenBinding
+   fun:I_RpcNegotiateTransferSyntax
+   fun:I_RpcGetBuffer
+   fun:NdrGetBuffer
+   fun:IrotIsRunning
+   fun:RunningObjectTableImpl_IsRunning
+   fun:URLMoniker_BindToObject
+   fun:bind_to_object
+   fun:navigate_bsc
+   fun:navigate_bsc_proc
+   fun:process_dochost_tasks
+   fun:shell_embedding_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+}
+{
+   bug_36219_18
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_ReadAllRefs
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+}
+{
+   bug_36219_19
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:IShellLink_Constructor
+   fun:IDefClF_fnCreateInstance
+   fun:CoCreateInstance
+   obj:*
+   obj:*
+   fun:init_xpcom
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+}
+{
+   bug_36219_20
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:pre_process_uri
+   fun:CreateUri
+   fun:create_uri
+   fun:HTMLPrivateWindow_SuperNavigate
+   fun:html_window_navigate
+   fun:doc_navigate_proc
+   fun:process_dochost_tasks
+   ...
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   ...
+}
+{
+   bug_36219_21
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:pre_process_uri
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:create_moniker
+   fun:bind_to_object
+   fun:navigate_bsc
+   fun:navigate_bsc_proc
+   fun:process_dochost_tasks
+   fun:*
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+}
+{
+   bug_36219_22
+   Memcheck:Leak
+   ...
+   fun:get_travellog_stream
+   fun:update_travellog
+   fun:ClOleCommandTarget_Exec
+   fun:notify_travellog_update
+   fun:set_current_mon
+   fun:navigate_proc
+   fun:hidden_proc
+   ...
+}
+{
+   bug_36219_23
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:TLB_MultiByteToBSTR
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+}
+{
+   bug_36219_24
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlInitializeCriticalSectionEx
+   fun:InitializeCriticalSectionEx
+   fun:InitializeCriticalSectionAndSpinCount
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36219_25
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:TLB_MultiByteToBSTR
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+}
+{
+   bug_36219_26
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_ReadAllRefs
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+   fun:exec_source
+}
+{
+   bug_36219_27
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:OmNavigator_Create
+   fun:HTMLWindow2_get_navigator
+   fun:builtin_propget
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:WindowDispEx_InvokeEx
+   fun:disp_propget
+   fun:exprval_to_value
+   fun:interp_ident
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   fun:interp_call
+   fun:enter_bytecode
+}
+{
+   bug_36219_28
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:create_child_collection
+   fun:HTMLDOMNode_get_childNodes
+   fun:builtin_propget
+   fun:invoke_builtin_prop
+   fun:DispatchEx_InvokeEx
+   fun:disp_propget
+   fun:interp_member
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   fun:interp_call
+   fun:enter_bytecode
+   fun:exec_source
+   fun:exec_global_code
+}
+{
+   bug_36219_29
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:HTTP_build_req
+   fun:build_request_header
+   fun:HTTP_HttpSendRequestW
+   fun:AsyncHttpSendRequestProc
+   fun:INTERNET_WorkerThreadFunc
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36219_30
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:MSFT_ReadAllStrings
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+}
+{
+   bug_36219_31
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:HTMLDOMAttribute_Create
+   fun:get_domattr
+   fun:HTMLAttributeCollection_get_dispid
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:disp_get_id
+   fun:interp_array
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   fun:interp_call
+   fun:enter_bytecode
+   fun:exec_source
+   fun:exec_global_code
+}
+{
+   bug_36219_32
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:pre_process_uri
+   fun:CreateUri
+   fun:create_uri
+   fun:set_moniker
+   fun:PersistMoniker_Load
+   fun:load_doc_mon
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+   fun:ProtocolSinkHandler_ReportData
+   fun:BPInternetProtocolSink_ReportData
+   fun:FileProtocol_StartEx
+   fun:BindProtocol_StartEx
+   fun:start_binding
+   fun:bind_to_object
+}
+{
+   bug_36219_33
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+   fun:exec_source
+}
+{
+   bug_36219_34
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:pre_process_uri
+   fun:CreateUri
+   fun:create_uri
+   fun:set_moniker
+   fun:PersistMoniker_Load
+   fun:load_doc_mon
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+   fun:ProtocolSinkHandler_ReportData
+   fun:BPInternetProtocolSink_ReportData
+   fun:AboutProtocol_Start
+   fun:BindProtocol_StartEx
+   fun:start_binding
+   fun:bind_to_object
+}
+{
+   bug_36219_35
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+}
+{
+   bug_36219_36
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:MSFT_ReadValue
+   fun:MSFT_CustData
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:ITypeInfo_fnGetRefTypeInfo
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
+   fun:ITypeInfo_fnGetFuncDesc
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+}
+{
+   bug_36214_1
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:Alloc
+   fun:SetWindowSubclass
+   fun:COMBOEX_Create
+   fun:COMBOEX_WindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExW
+   fun:create_rebar
+   fun:iewnd_OnCreate
+   fun:ie_window_proc
+}
+{
+   bug_36214_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:StdMarshalImpl_MarshalInterface
+   fun:CoMarshalInterface
+   fun:get_local_server_stream
+   fun:CoRegisterClassObject
+   fun:register_class_object
+   fun:IEWinMain
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:*/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+}
+{
+   bug_36214_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:EDIT_MakeFit
+   fun:EDIT_EM_ReplaceSel
+   fun:EDIT_WM_SetText
+   fun:EditWndProc_common
+   fun:EditWndProcW
+   ...
+}
+{
+   bug_36214_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:HeapReAlloc
+   fun:GlobalReAlloc
+   fun:LocalReAlloc
+   fun:EDIT_MakeFit
+   fun:EDIT_EM_ReplaceSel
+   fun:EDIT_WM_SetText
+   fun:EditWndProc_common
+   fun:EditWndProcW
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:CallWindowProcW
+   fun:DefSubclassProc
+   fun:COMBOEX_EditWndProc
+   fun:DefSubclassProc
+   fun:COMCTL32_SubclassProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+}
+{
+   bug_36214_5
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:jsstr_alloc_buf
+   fun:jsstr_substr
+   fun:String_substring
+   fun:invoke_prop_func
+   fun:invoke_prop_func
+   fun:jsdisp_call
+   fun:disp_call
+   fun:interp_call_member
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   fun:invoke_prop_func
+   fun:jsdisp_call
+   fun:disp_call
+}
+{
+   bug_36214_6
+   Memcheck:Leak
+   ...
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:ITypeInfo_fnGetDocumentation
+   fun:add_func_info
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   ...
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   ...
+}
+{
+   bug_36214_7
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:create_object
+   fun:invoke_constructor
+   fun:Function_invoke
+   fun:jsdisp_call_value
+   fun:disp_call_value
+   fun:interp_new
+   fun:enter_bytecode
+   fun:exec_source
+   fun:invoke_source
+   fun:call_function
+   fun:Function_apply
+   fun:invoke_prop_func
+   fun:invoke_prop_func
+   fun:jsdisp_call
+   fun:disp_call
+   fun:interp_call_member
+   fun:enter_bytecode
+}
+{
+   bug_36214_8
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc
+   fun:alloc_label
+   fun:compile_switch_statement
+   fun:compile_statement
+   fun:compile_block_statement
+   fun:compile_function
+   fun:compile_function
+   fun:compile_function
+   fun:compile_script
+   fun:JScriptParse_ParseScriptText
+   fun:parse_text
+   fun:parse_extern_script
+   fun:parse_script_elem
+   fun:doc_insert_script
+   fun:run_insert_script
+   fun:nsRunnable_Run
+   obj:*
+   obj:*
+}
+{
+   bug_36214_9
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   fun:Uri_GetPropertyBSTR
+   fun:Uri_GetDisplayUri
+   fun:set_current_uri
+   fun:set_current_mon
+   fun:prepare_for_binding
+   fun:PersistMoniker_Load
+   fun:load_doc_mon
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+   fun:ProtocolSinkHandler_ReportData
+   fun:report_data_proc
+   fun:process_tasks
+   fun:notif_wnd_proc
+}
+{
+   bug_36214_10
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   fun:heap_realloc
+   fun:alloc_label
+   fun:compile_for_statement
+   fun:compile_statement
+   fun:compile_block_statement
+   fun:compile_statement
+   fun:compile_for_statement
+   fun:compile_statement
+   fun:compile_block_statement
+   fun:compile_statement
+   fun:compile_if_statement
+   fun:compile_statement
+   fun:compile_block_statement
+   fun:compile_statement
+   fun:compile_if_statement
+   fun:compile_statement
+   fun:compile_block_statement
+   fun:compile_statement
+}
+{
+   bug_36214_11
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*
+   fun:create_nsfile
+   fun:init_xpcom
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+   fun:ProtocolSinkHandler_ReportData
+   fun:report_data_proc
+   fun:process_tasks
+   fun:notif_wnd_proc
+   obj:*/dlls/user32/user32.dll.so
+}
+{
+   bug_36214_12
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:Uri_Construct
+   fun:CreateUri
+   fun:CreateURLMonikerEx
+   fun:CreateURLMoniker
+   fun:create_moniker
+   fun:bind_to_object
+   fun:navigate_bsc
+   fun:navigate_bsc_proc
+   fun:process_dochost_tasks
+   fun:ie_window_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   ...
+}
+
+{
+   bug_36219_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:parse_script_expr
+   fun:test_script_exprs
+   fun:run_tests
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36219_7
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringByteLen
+   fun:MSFT_ReadAllNames
+   fun:ITypeLib2_Constructor_MSFT
+   fun:TLB_ReadTypeLib
+   fun:LoadTypeLibEx
+   fun:LoadTypeLib
+   fun:LoadRegTypeLib
+   fun:load_typelib
+   fun:get_typeinfo
+   fun:preprocess_dispex_data
+   fun:get_dispex_data
+   fun:get_builtin_id
+   fun:DispatchEx_GetDispID
+   fun:WindowDispEx_GetDispID
+   fun:disp_get_id
+   fun:interp_member
+   fun:enter_bytecode
+}
+{
+   bug_36219_9
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   ...
+   fun:nsIOService_NewURI
+   ...
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlReAllocateHeap
+   ...
+   fun:parse_script
+   fun:run_from_res
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   ...
+   fun:parse_script
+   ...
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   ...
+   fun:run_tests
+   fun:func_run
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:parse_procedure_a
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:invoke_procedure
+   fun:test_parse_proc
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:parse_script
+   fun:*
+   fun:func_run
+   fun:run_test
+   fun:main
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   bug_36219_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:SysAllocString
+   ...
+   fun:test_ActiveXObject
+}
+{
+   bug_36289
+   Memcheck:Addr4
+   obj:*
+   obj:*
+   obj:*
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:process_attach
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:load_xul
+   fun:load_wine_gecko_v
+   fun:load_wine_gecko
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+}
+{
+   bug_36310_1
+   Memcheck:Addr4
+   obj:*
+   obj:*
+   obj:*
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:process_attach
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:load_xul
+   fun:load_wine_gecko_v
+   fun:load_wine_gecko
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:XMLView_create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+}

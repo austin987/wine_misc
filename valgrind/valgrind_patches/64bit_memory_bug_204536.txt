@@ -1,0 +1,84 @@
+Index: Makefile.tool.am
+===================================================================
+--- Makefile.tool.am	(revision 10841)
++++ Makefile.tool.am	(working copy)
+@@ -35,10 +35,12 @@
+ 
+ TOOL_LDFLAGS_X86_LINUX = \
+ 	$(TOOL_LDFLAGS_COMMON_LINUX) @FLAG_M32@ \
++	-Wl,-defsym,valt_load_address=@VALT_LOAD_ADDRESS32@ \
+ 	-Wl,-T,$(top_builddir)/valt_load_address_x86_linux.lds
+ 
+ TOOL_LDFLAGS_AMD64_LINUX = \
+ 	$(TOOL_LDFLAGS_COMMON_LINUX) @FLAG_M64@ \
++	-Wl,-defsym,valt_load_address=@VALT_LOAD_ADDRESS64@ \
+ 	-Wl,-T,$(top_builddir)/valt_load_address_amd64_linux.lds
+ 
+ TOOL_LDFLAGS_PPC32_LINUX = \
+Index: configure.in
+===================================================================
+--- configure.in	(revision 10841)
++++ configure.in	(working copy)
+@@ -348,15 +348,29 @@
+ 
+ case "$ARCH_MAX-$VGCONF_OS" in
+      x86-linux)
++# Wine claims          0 - 0x60000000  (user)
++# Wine claims 0x7f000000 - 0x81000000  (Win32 shared heap)
++# "3G/1G" split ==>  < 0xc0000000  (usual desktop)
++# "2G/2G" split ==>  < 0x80000000  (some servers)
++        valt_load_address_normal32="0x60000000"
++        valt_load_address_normal="0x60000000"
++        valt_load_address_inner="0x28000000"
+         VGCONF_ARCH_PRI="x86"
+         VGCONF_ARCH_SEC=""
+ 	VGCONF_PLATFORM_PRI_CAPS="X86_LINUX"
+ 	VGCONF_PLATFORM_SEC_CAPS=""
+-        valt_load_address_normal="0x38000000"
+-        valt_load_address_inner="0x28000000"
+         AC_MSG_RESULT([ok (${ARCH_MAX}-${VGCONF_OS})])
+ 	;;
+      amd64-linux)
++# Wine claims          0 - 0x60000000  (user)
++# Wine claims 0x7f000000 - 0x81000000  (Win32 shared heap)
++# R_X86_64_32S relocation in 64-bit medium model implies  < 0x80000000.
++# Kernel and 32-bit user are conflict free, but stack limit is 0xfff00000.
++# Helgrind length (largest tool) is 0x02a00000  (2009-08-15)
++        valt_load_address_normal64="0x7c000000"
++        valt_load_address_normal32="0xec000000"
++        valt_load_address_normal="0x7c000000"
++        valt_load_address_inner="0x28000000"
+ 	if test x$vg_cv_only64bit = xyes; then
+            VGCONF_ARCH_PRI="amd64"
+            VGCONF_ARCH_SEC=""
+@@ -373,8 +387,6 @@
+ 	   VGCONF_PLATFORM_PRI_CAPS="AMD64_LINUX"
+ 	   VGCONF_PLATFORM_SEC_CAPS="X86_LINUX"
+ 	fi
+-        valt_load_address_normal="0x38000000"
+-        valt_load_address_inner="0x28000000"
+         AC_MSG_RESULT([ok (${ARCH_MAX}-${VGCONF_OS})])
+ 	;;
+      ppc32-linux)
+@@ -545,6 +557,8 @@
+ # Check if this should be built as an inner Valgrind, to be run within
+ # another Valgrind.  Choose the load address accordingly.
+ AC_SUBST(VALT_LOAD_ADDRESS)
++AC_SUBST(VALT_LOAD_ADDRESS32)
++AC_SUBST(VALT_LOAD_ADDRESS64)
+ AC_CACHE_CHECK([for use as an inner Valgrind], vg_cv_inner,
+    [AC_ARG_ENABLE(inner, 
+       [  --enable-inner          enables self-hosting],
+@@ -553,8 +567,12 @@
+ if test "$vg_cv_inner" = yes; then
+     AC_DEFINE([ENABLE_INNER], 1, [configured to run as an inner Valgrind])
+     VALT_LOAD_ADDRESS=$valt_load_address_inner
++    VALT_LOAD_ADDRESS32=$valt_load_address_normal32
++    VALT_LOAD_ADDRESS64=$valt_load_address_normal64
+ else
+     VALT_LOAD_ADDRESS=$valt_load_address_normal
++    VALT_LOAD_ADDRESS32=$valt_load_address_normal32
++    VALT_LOAD_ADDRESS64=$valt_load_address_normal64
+ fi
+ 
+ 

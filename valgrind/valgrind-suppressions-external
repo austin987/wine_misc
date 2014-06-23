@@ -1,0 +1,860 @@
+{
+   alsa_futex1
+   Memcheck:Param
+   futex(futex)
+   fun:syscall
+   fun:futex_wait
+   fun:fast_wait
+   fun:wait_semaphore
+   fun:RtlpWaitForCriticalSection
+   fun:RtlEnterCriticalSection
+   fun:alsa_push_buffer_data
+   fun:timer_callback_wrapper
+   fun:queue_timer_expire
+   fun:timer_queue_thread_proc
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   alsa_possible_leaks
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   obj:/*lib*/libasound.so.2.*
+   ...
+}
+{
+   amstream/amstream, d3d10/effect, d3d10core/device,...
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:glXMakeCurrent
+   ...
+}
+{
+   bitmapinfoheader_from_user_bitmapinfo_1
+   Memcheck:Cond
+   fun:bitmapinfoheader_from_user_bitmapinfo
+   ...
+}
+{
+   bug_36124_1
+   Memcheck:Addr4
+   ...
+   fun:usr1_handler
+   obj:/*lib*/libpthread-2.*.so
+}
+{
+   bug_36124_2
+   Memcheck:Addr2
+   ...
+   fun:usr1_handler
+   obj:/*lib*/libpthread-2.*.so
+}
+{
+   bug_36124_3
+   Memcheck:Addr4
+   fun:segv_handler
+   obj:/*lib*/libpthread-2.*.so
+}
+{
+   bug_36124_4
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   ...
+   fun:pthread_create@@GLIBC_2.1
+   ...
+}
+{
+   bug_36199_6
+   Memcheck:Addr1
+   ...
+   obj:*/libresolv-2.*.so
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   bug_36199_7
+   Memcheck:Addr1
+   fun:strcmp
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   fun:dlerror_run
+   fun:__libc_dlopen_mode
+   fun:pthread_cancel_init
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36199_8
+   Memcheck:Addr2
+   fun:_dl_fixup
+   fun:_dl_runtime_resolve
+   obj:*/libresolv-2.*.so
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   bug_36508
+   Memcheck:Addr2
+   fun:init_handler
+   fun:usr1_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   d3d8_visual
+   Memcheck:Leak
+   match-leak-kinds: definite
+   obj:/usr/lib/libdrm_intel.so.1.0.0
+   fun:drm_intel_bo_map
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:shared_dispatch_stub_372
+   fun:wined3d_volume_upload_data
+   fun:device_update_volume
+   fun:wined3d_device_update_texture
+   fun:d3d8_device_UpdateTexture
+   fun:volume_v16u16_test
+   fun:func_visual
+   fun:run_test
+   fun:main
+}
+{
+   d3d8_visual
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/libdrm_intel.so.*
+   fun:drm_intel_bo_alloc_tiled
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:shared_dispatch_stub_371
+   fun:wined3d_volume_allocate_texture
+   fun:wined3d_volume_load
+   fun:texture3d_sub_resource_load
+   fun:wined3d_texture_load
+   fun:context_preload_texture
+   fun:context_preload_textures
+   fun:context_apply_draw_state
+   fun:draw_primitive
+}
+{
+   d3d9_device_1
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:wined3d_occlusion_query_ops_issue
+   fun:wined3d_query_issue
+   fun:d3d9_query_Issue
+   fun:test_occlusion_query_states
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   d3d9_device_2
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:wined3d_occlusion_query_ops_get_data
+   fun:wined3d_query_get_data
+   fun:d3d9_query_GetData
+   fun:test_occlusion_query_states
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   d3d9_device_3
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:wined3d_timestamp_query_ops_issue
+   fun:wined3d_query_issue
+   fun:d3d9_query_Issue
+   fun:test_timestamp_query
+   fun:func_device
+   fun:run_test
+   fun:main
+}
+{
+   dbus_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   fun:dbus_malloc0
+   ...
+   obj:/*lib*/libdbus-1.so.*
+   ...
+   fun:dbus_pending_call_block
+   fun:dbus_connection_send_with_reply_and_block
+   fun:dbus_bus_register
+   obj:/*lib*/libdbus-1.so.*
+   fun:dbus_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+}
+{
+   dbus_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   fun:dbus_malloc0
+   ...
+   obj:/*lib*/libdbus-1.so.*
+   ...
+   fun:dbus_connection_send_with_reply
+   fun:dbus_connection_send_with_reply_and_block
+   obj:/*lib*/libdbus-1.so.*
+   fun:dbus_bus_add_match
+   fun:dbus_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   dbus_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   fun:dbus_realloc
+   ...
+   obj:/*lib*/libdbus-1.so.*
+   ...
+   fun:dbus_message_iter_append_basic
+   fun:dbus_message_append_args_valist
+   fun:dbus_message_append_args
+   fun:dbus_bus_add_match
+   fun:dbus_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   ddrawex/tests/surface
+   Memcheck:Addr4
+   obj:/tmp/.gl*
+}
+{
+   dxgi_device
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:call_init.part.0
+   fun:_dl_init
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   obj:/usr/lib/libGL.so.1.2.0
+   obj:/usr/lib/libGL.so.1.2.0
+   obj:/usr/lib/libGL.so.1.2.0
+   obj:/usr/lib/libGL.so.1.2.0
+   fun:glXChooseVisual
+   fun:X11DRV_WineGL_InitOpenglInfo
+}
+{
+   glib_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   fun:g_slice_alloc
+   fun:g_list_append
+   fun:scan_source_dir
+   fun:main
+}
+{
+   glib2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   fun:g_slice_alloc
+   fun:g_list_append
+   fun:insert_suffix
+   fun:build_suffixes
+   fun:g_hash_table_foreach
+   fun:main
+}
+{
+   glibc_1
+   Memcheck:Cond
+   fun:index
+   fun:expand_dynamic_string_token
+   fun:_dl_map_object
+   fun:map_doit
+   fun:_dl_catch_error
+   fun:do_preload
+   fun:dl_main
+   fun:_dl_sysdep_start
+   fun:_dl_start
+   obj:/*lib*/ld-2.*.so
+}
+{
+   glibc_2
+   Memcheck:Cond
+   fun:index
+   fun:expand_dynamic_string_token
+   fun:fillin_rpath
+   fun:_dl_init_paths
+   fun:dl_main
+   fun:_dl_sysdep_start
+   fun:_dl_start
+   obj:/*lib*/ld-2.*.so
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   gnutls_leak_2
+   Memcheck:Leak
+   fun:calloc
+   ...
+   fun:schan_InitializeSecurityContextW
+   fun:InitializeSecurityContextW
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=36199
+   glibc_3
+   Memcheck:Addr1
+   fun:strcmp
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:do_dlopen
+   fun:_dl_catch_error
+   ...
+   fun:__libc_dlopen_mode
+   fun:pthread_cancel_init
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=36199
+   glibc_4
+   Memcheck:Addr4
+   fun:_Unwind_IteratePhdrCallback
+   fun:dl_iterate_phdr
+   fun:_Unwind_Find_FDE
+   obj:/*lib*/libgcc_s*
+   obj:/*lib*/libgcc_s*
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=36199
+   glibc_5
+   Memcheck:Addr4
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr1
+   ...
+   obj:*libgcc_s.so.1*
+   ...
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Addr4
+   ...
+   obj:/usr/lib/dri/i965_dri.so
+   ...
+   fun:glXCreateContext
+   fun:X11DRV_WineGL_InitOpenglInfo
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   fun:__wine_get_wgl_driver
+   fun:wined3d_adapter_init
+   fun:wined3d_init
+   fun:wined3d_create
+   fun:ddraw_init
+   fun:DDRAW_Create
+   fun:DirectDrawCreate
+   fun:create_directdraw
+   fun:test_media_streams
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:glXSwapBuffers
+   fun:glxdrv_wglSwapBuffers
+   fun:wglSwapBuffers
+   fun:SwapBuffers
+   fun:test_message_window
+   fun:func_opengl
+   fun:run_test
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Param
+   ioctl(generic)
+   ...
+   obj:/usr/lib/libdrm_intel.so.1.0.0
+   ...
+   fun:glXChooseVisual
+   fun:X11DRV_WineGL_InitOpenglInfo
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   ...
+}
+{
+   libgcrypt1
+   Memcheck:Cond
+   fun:_gcry_mpi_print
+   fun:gcry_mpi_print
+}
+{
+   libtasn_1
+   Memcheck:Addr4
+   fun:asn1_der_coding
+   ...
+   fun:InitializeSecurityContextA
+   fun:test_communication
+   fun:func_schannel
+}
+{
+   libxml1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:xmlNewNs
+   fun:xmlStaticCopyNode
+   fun:scan_source_dir
+   fun:main
+}
+{
+   ntlm_auth_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:debug_init.part.0
+   fun:setup_logging
+   fun:main
+}
+{
+   ntlm_auth_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   ...
+   fun:talloc_stackframe_internal
+   fun:main
+}
+{
+   ntlm_auth_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   fun:talloc_strdup
+   fun:debug_set_logfile
+   fun:set_logfile
+   fun:popt_common_callback
+   fun:invokeCallbacksPRE
+   fun:invokeCallbacksPRE
+   fun:poptGetContext
+   fun:main
+}
+{
+   ntlm_auth_leaks
+   Memcheck:Leak
+   ...
+   fun:poptGetNextOpt
+   fun:main
+}
+{
+   ntlm_auth_leaks
+   Memcheck:Leak
+   ...
+   obj:*ntlm_auth*
+}
+{
+   nvidia_d3drm_leak_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:RtlAllocateHeap
+   obj:*
+   ...
+   obj:*
+   fun:func_d3drm
+   fun:main
+}
+{
+   opengl_opengl_nvidia
+   Memcheck:Cond
+   ...
+   obj:*nvidia*
+   ...
+   fun:glCopyPixels
+   fun:test_destroy_read
+   fun:func_opengl
+   fun:run_test
+   fun:main
+}
+{
+   rpcrt4_ndr_marshal_bug_36706
+   Memcheck:Addr1
+   ...
+   obj:*libgcc_s.so.1*
+   ...
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   rpcrt4_ndr_marshal_bug_36706
+   Memcheck:Addr4
+   ...
+   obj:*libgcc_s.so.1*
+   ...
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   rpcrt4_ndr_marshal_bug_36706
+   Memcheck:Jump
+   ...
+   obj:*libgcc_s.so.1*
+   ...
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+}
+{
+   twain_32_test_dsm_sane_useless_stack
+   Memcheck:Leak
+   ...
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   user32_class_x
+   Memcheck:Addr2
+   fun:segv_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:get_error_code
+   fun:segv_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:get_trap_code
+   fun:segv_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:init_handler
+   fun:quit_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:init_handler
+   fun:segv_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:quit_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:setup_exception_record
+   fun:segv_handler
+   obj:/*/libpthread-2.*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr4
+   fun:__x86.get_pc_thunk.bx
+   obj:/*/libpthread-2.*.so
+}
+{
+   valgrind_bug_264785_1_urlmon_url
+   Memcheck:Jump
+   fun:DllMain
+   fun:__wine_spec_dll_entry
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_detach
+   fun:LdrShutdownProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   valgrind_bug_264785_2_urlmon_url
+   Memcheck:Jump
+   obj:*/dlls/cryptnet/cryptnet.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_detach
+   fun:LdrShutdownProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   valgrind_bug_264785_3_urlmon_url
+   Memcheck:Addr4
+   fun:abort_thread
+   fun:quit_handler
+   obj:/*lib*/libpthread-2.*.so
+}
+{
+   # These leaks are (probably) caused by https://bugs.kde.org/show_bug.cgi?id=264785
+   valgrind_crypt_leak_1
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:CRYPT_EncodeEnsureSpace
+   fun:CRYPT_AsnEncodeSequence
+   fun:CRYPT_EncodeDataContentInfoHeader
+   fun:CDataEncodeMsg_Update
+   fun:CryptMsgUpdate
+   fun:test_data_msg_update
+   fun:test_data_msg
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   # These leaks are (probably) caused by https://bugs.kde.org/show_bug.cgi?id=264785
+   valgrind_crypt_leak_2
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:CDataEncodeMsg_Open
+   fun:CryptMsgOpenToEncode
+   fun:test_data_msg_update
+   fun:test_data_msg
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
+   # These leaks are (probably) caused by https://bugs.kde.org/show_bug.cgi?id=264785
+   valgrind_crypt_leak_3
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:init_oid_info
+   fun:crypt_oid_init
+   fun:DllMain
+   fun:__wine_spec_dll_entry
+   obj:*/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:process_attach
+   fun:attach_process_dlls
+   obj:*/libwine.so.1.0
+}
+{
+   # These leaks are (probably) caused by https://bugs.kde.org/show_bug.cgi?id=264785
+   valgrind_crypt_leak_4
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:CryptMemAlloc
+   fun:init_oid_info
+   fun:crypt_oid_init
+   fun:DllMain
+   fun:__wine_spec_dll_entry
+   obj:*/ntdll.dll.so
+   fun:MODULE_InitDLL
+   fun:process_attach
+   fun:process_attach
+   fun:attach_process_dlls
+   obj:*/libwine.so.1.0
+}
+{
+   wine_bug_20549
+   Memcheck:Leak
+   fun:malloc
+   ...
+   fun:SECUR32_initSchannelSP
+}
+{
+   wine_secur32_ignore_fork_helper_leak
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:fork_helper
+   fun:SECUR32_initNTLMSP
+   fun:SECUR32_initializeProviders
+}
+{
+   winhttp_notification_bug_36613
+   Memcheck:Addr1
+   ...
+   obj:/*lib*/libnss_dns*.so
+   ...
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   winhttp_notification_bug_36613
+   Memcheck:Addr2
+   ...
+   obj:/*lib*/libnss_dns*.so
+   ...
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   winhttp_notification_bug_36613
+   Memcheck:Jump
+   ...
+   obj:/*lib*/libnss_dns*.so
+   ...
+   fun:_dl_fini
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:*/dlls/kernel32/kernel32.dll.so
+}
+{
+   winmm_test_wave
+   Memcheck:Addr2
+   fun:init_handler
+   fun:quit_handler
+   obj:/*/libpthread-2.*.so
+}

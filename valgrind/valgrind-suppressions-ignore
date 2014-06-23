@@ -1,0 +1,1284 @@
+# Intentional/wontfix
+{
+   advpack_install_intentional_1
+   Memcheck:Free
+   fun:notify_realloc
+   fun:RtlReAllocateHeap
+   fun:parse_buffer
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:install_init
+   fun:RunSetupCommandW
+   fun:RunSetupCommandA
+   fun:test_RunSetupCommand
+   fun:func_install
+   fun:run_test
+   fun:main
+}
+{
+   advpack_install_intentional_2
+   Memcheck:Addr4
+   ...
+   fun:test_RunSetupCommand
+   fun:func_install
+   fun:run_test
+   fun:main
+}
+{
+   advpack_install_intentional_3
+   Memcheck:Addr1
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:RunSetupCommandA
+   fun:test_RunSetupCommand
+   fun:func_install
+   fun:run_test
+   fun:main
+}
+{
+   advpack_install_RSC_FLAG_INF_1
+   Memcheck:Free
+   fun:RtlReAllocateHeap
+   fun:parse_buffer
+   fun:SetupOpenInfFileW
+   fun:install_init
+   fun:RunSetupCommandW
+   fun:RunSetupCommandA
+   fun:func_install
+   ...
+}
+{
+   advpack_install_RSC_FLAG_INF_2
+   Memcheck:Addr1
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:RunSetupCommandA
+   fun:func_install
+   ...
+}
+{
+   advpack_install_RSC_FLAG_INF_3
+   Memcheck:Addr4
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:RunSetupCommandA
+   fun:func_install
+   ...
+}
+{
+   advpack_install_RSC_FLAG_INF_4
+   Memcheck:Addr4
+   ...
+   fun:RtlFreeHeap
+   fun:RtlFreeUnicodeString
+   fun:RunSetupCommandA
+   fun:func_install
+   ...
+}
+{
+   atl_ax_invalid
+   Memcheck:Cond
+   fun:USER_SetWindowPos
+   fun:SetWindowPos
+   fun:activate_inplace
+   fun:OleObject_DoVerb
+   fun:AtlAxAttachControl
+   fun:func_atl_ax
+   fun:run_test
+   fun:main
+}
+{
+   bug_23358_user32_dib_exception_handler
+   Memcheck:Addr4
+   fun:StretchDIBits
+   fun:BITMAP_Load
+   fun:LoadImageW
+   fun:LoadImageA
+   fun:test_LoadImageFile
+   fun:test_LoadImage
+   fun:func_cursoricon
+   fun:run_test
+   fun:main
+}
+{
+   bug_26043
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:GetSecurityInfo
+   fun:test_GetSecurityInfo
+   ...
+}
+{
+   bug_26098
+   Memcheck:Leak
+   ...
+   fun:CryptAcquireContextW
+   ...
+}
+{
+   bug_36112_3
+   Memcheck:Param
+   prctl(arg3)
+   fun:prctl
+   fun:server_init_process
+   fun:thread_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36112_4
+   Memcheck:Param
+   prctl(arg4)
+   fun:prctl
+   fun:server_init_process
+   fun:thread_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36112_5
+   Memcheck:Param
+   prctl(arg5)
+   fun:prctl
+   fun:server_init_process
+   fun:thread_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36130_1
+   Memcheck:Addr2
+   fun:GlobalLock
+   fun:HGLOBALStreamImpl_Read
+   fun:func_hglobalstream
+   ...
+}
+{
+   bug_36130_2
+   Memcheck:Addr4
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:func_hglobalstream
+   ...
+}
+{
+   bug_36130_3
+   Memcheck:Addr4
+   fun:GlobalReAlloc
+   fun:HGLOBALStreamImpl_SetSize
+   fun:HGLOBALStreamImpl_Write
+   fun:func_hglobalstream
+   ...
+}
+{
+   bug_36150_1
+   Memcheck:Leak
+   ...
+   fun:AutomationObject_GetIDsOfNames
+   fun:get_dispid
+   fun:test_dispid
+   fun:func_automation
+   fun:run_test
+   fun:main
+}
+{
+   bug_36284_intentional
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:SnmpUtilOidCpy
+   obj:*
+   fun:testInit
+   fun:func_main
+   fun:run_test
+   fun:main
+}
+{
+   bug_36288_1
+   Memcheck:Addr1
+   fun:strlen
+   fun:lstrlenA
+   fun:threadFunc1
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_36409_2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:RtlAllocateHeap
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   fun:CoCreateInstance
+   fun:func_netcfgx
+   fun:run_test
+   fun:main
+}
+{
+   comctl32_addstring_intentional_bad_handle
+   Memcheck:Addr2
+   fun:RtlImageNtHeader
+   fun:RtlImageDirectoryEntryToData
+   fun:find_entry
+   fun:LdrFindResource_U
+   fun:find_resourceW
+   fun:FindResourceExW
+   fun:FindResourceW
+   fun:TOOLBAR_AddStringW
+   fun:TOOLBAR_AddStringA
+   fun:ToolbarWindowProc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_CallProcAtoW
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageA
+   fun:test_add_string
+   ...
+}
+{
+   comctl32_bug_26045
+   Memcheck:Addr4
+   fun:is_valid
+   ...
+   fun:func_imagelist
+   fun:run_test
+   fun:main
+}
+{
+   # invalid dates used on purpose in comctl32/tests/monthcal.c's test_today()
+   comctl32_tests_monthcal__test_today
+   Memcheck:Cond
+   fun:CompareFileTime
+   fun:MONTHCAL_CompareSystemTime
+   fun:MONTHCAL_CompareMonths
+   ...
+   fun:test_today
+   fun:func_monthcal
+   fun:run_test
+   fun:main
+}
+{
+   crypt32_cert_STATUS_ACCESS_VIOLATION
+   Memcheck:Addr1
+   fun:CRYPT_AsnDecodeSequence
+   fun:CRYPT_AsnDecodeCertSignedContent
+   fun:CryptDecodeObjectEx
+   fun:CryptVerifyCertificateSignatureEx
+   fun:testCertSigs
+   fun:func_cert
+   fun:main
+}
+{
+   crypt32_encoded_expected_fail1
+   Memcheck:Addr4
+   fun:CRYPT_AsnEncodeIssuingDistPoint
+   fun:CryptEncodeObjectEx
+   fun:test_encodeCRLIssuingDistPoint
+   fun:func_encode
+   fun:run_test
+   fun:main
+}
+{
+   crypt32_encoded_expected_fail2
+   Memcheck:Leak
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:CRYPT_DecodeEnsureSpace
+   fun:CRYPT_AsnDecodePKCSSignerInfo
+   fun:CryptDecodeObjectEx
+   fun:test_decodePKCSSignerInfo
+   fun:func_encode
+   fun:run_test
+   fun:main
+}
+{
+   crypt32_encoded_expected_fail3
+   Memcheck:Leak
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:CRYPT_DecodeEnsureSpace
+   fun:CRYPT_AsnDecodeCMSSignerInfo
+   fun:CryptDecodeObjectEx
+   fun:test_decodeCMSSignerInfo
+   fun:func_encode
+   fun:run_test
+   fun:main
+}
+{
+   dplayx_com_dplobby_invalid_riid
+   Memcheck:Cond
+   fun:dplobby_destroy
+   ...
+   fun:test_COM_dplobby
+   fun:func_dplayx
+   fun:run_test
+   fun:main
+}
+{
+   expected_12345678_ptr_user32_tests_class
+   Memcheck:Addr2
+   fun:RtlImageNtHeader
+   fun:RtlImageDirectoryEntryToData
+   fun:find_entry
+   fun:LdrFindResource_U
+   ...
+   fun:WIN_CreateWindowEx
+   fun:CreateWindowExA
+   fun:check_instance_
+   fun:test_instances
+   fun:func_class
+   fun:run_test
+   fun:main
+}
+{
+   expected_advapi32_tests_crypt_badparams
+   Memcheck:Addr4
+   ...
+   fun:test_incorrect_api_usage
+   fun:func_crypt
+   fun:run_test
+   fun:main
+}
+{
+   expected_advapi32_tests_crypt_see_wine_bug_20918
+   Memcheck:Addr4
+   fun:*
+   fun:test_incorrect_api_usage
+   fun:func_crypt
+   fun:run_test
+   fun:main
+}
+{
+   expected_bad_pointer_wininet_tests_http_2
+   Memcheck:Addr1
+   fun:convert_accept_types
+   ...
+   fun:func_http
+   fun:run_test
+   fun:main
+}
+{
+   expected_bad_pointer_wininet_tests_http
+   Memcheck:Addr1
+   fun:HttpOpenRequestA
+   fun:test_bogus_accept_types_array
+   fun:func_http
+   fun:run_test
+   fun:main
+}
+{
+   expected_crypt32_tests_crypt_see_wine_bug_20984
+   Memcheck:Leak
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:new_object
+   fun:new_key
+   fun:import_public_key
+   fun:import_key
+   fun:RSAENH_CPImportKey
+   fun:CryptImportKey
+   fun:CRYPT_ImportRsaPublicKeyInfoEx
+   fun:CryptImportPublicKeyInfoEx
+   fun:CryptImportPublicKeyInfo
+   fun:CDecodeSignedMsg_VerifySignatureWithKey
+   fun:CDecodeSignedMsg_VerifySignature
+   fun:CDecodeMsg_Control
+   fun:CryptMsgControl
+   fun:CryptVerifyDetachedMessageSignature
+   fun:test_verify_detached_message_signature
+}
+{
+   expected_double_free_wintrust_tests_crypt
+   Memcheck:Addr4
+   fun:CryptCATAdminReleaseContext
+   ...
+   fun:func_crypt
+   fun:run_test
+   fun:main
+}
+{
+   # Expected failures, the address is deliberately invalid, to show that the function traps such invalid addresses.
+   crypt32_cert_expected_fail1
+   Memcheck:Addr1
+   fun:CRYPT_AsnDecodeSequence
+   fun:CRYPT_AsnDecodeCertSignedContent
+   fun:CryptDecodeObjectEx
+   fun:CryptVerifyCertificateSignatureEx
+   ...
+   fun:testCertSigs
+   fun:func_cert
+   fun:run_test
+   fun:main
+}
+# wine's kernel32/tests/heap.c does lots of crazy stuff, suppress that whole file:
+{
+   expected_heap_tests
+   Memcheck:Addr1
+   ...
+   fun:func_heap
+}
+{
+   expected_heap_tests
+   Memcheck:Addr2
+   ...
+   fun:func_heap
+}
+{
+   expected_heap_tests
+   Memcheck:Cond
+   ...
+   fun:func_heap
+}
+{
+   expected_heap_tests
+   Memcheck:Free
+   ...
+   fun:func_heap
+}
+{
+   expected_use_after_free_user32_tests_dialog
+   Memcheck:Addr4
+   fun:DIALOG_CreateIndirect
+   fun:DialogBoxParamA
+   fun:test_DialogBoxParamA
+   fun:func_dialog
+   fun:run_test
+   fun:main
+}
+{
+   expected_wininet_tests_http_test_bogus_accept_types_array
+   Memcheck:Addr1
+   fun:HttpOpenRequestA
+   fun:test_bogus_accept_types_array
+   fun:func_http
+   fun:run_test
+   fun:main
+}
+{
+   gdiplus_image_intentional_invalid_read
+   Memcheck:Addr4
+   fun:GdipDisposeImage
+   fun:test_dispose
+   fun:func_image
+   fun:run_test
+   fun:main
+}
+{
+   gdiplus_test_brush_invalid_parameter
+   Memcheck:Addr4
+   fun:memcpy
+   fun:GdipGetPathGradientBlend
+   fun:test_pathgradientblend
+   fun:func_brush
+   fun:run_test
+   fun:main
+}
+{
+   gdiplus_test_image_dispose
+   Memcheck:Addr4
+   fun:free_image_data
+   fun:GdipDisposeImage
+   fun:test_dispose
+   fun:func_image
+   fun:run_test
+   fun:main
+}
+{
+   ignore_cocreateinstance_possible_leaks
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:COMPOBJ_DllList_Add
+   fun:apartment_getclassobject
+   fun:get_inproc_class_object
+   fun:CoGetClassObject
+   ...
+}
+{
+   ignore_ole32_test_expected_bad_access2
+   Memcheck:Addr4
+   fun:GlobalReAlloc
+   ...
+   fun:test_freed_hglobal
+   fun:func_hglobalstream
+   fun:run_test
+   fun:main
+}
+{
+   ignore_rsaenh_test_expected_bad_access
+   Memcheck:Addr4
+   fun:CryptReleaseContext
+   fun:clean_up_base_environment
+}
+{
+   ignore_wine_msxml3_expected_null
+   Memcheck:Addr1
+   ...
+   fun:lstrlenA
+   fun:test_mxwriter_startendelement_batch
+   fun:test_mxwriter_startendelement
+   fun:func_saxreader
+   fun:run_test
+   fun:main
+}
+{
+   imm32_invalid2
+   Memcheck:Addr4
+   fun:get_imc_data
+   ...
+   fun:func_imm32
+   fun:run_test
+   fun:main
+}
+{
+   imm32_invalid3
+   Memcheck:Addr2
+   ...
+   fun:test_ImmDestroyIMCC
+   fun:func_imm32
+   fun:run_test
+   fun:main
+}
+{
+   imm32_test_destroy_locked_imcc
+   Memcheck:Addr2
+   ...
+   fun:func_imm32
+   fun:run_test
+   fun:main
+}
+{
+   imm_invalid_1
+   Memcheck:Addr4
+   fun:get_imc_data
+   ...
+   fun:test_InvalidIMC
+   fun:func_imm32
+   fun:run_test
+   fun:main
+}
+{
+   # intentionally frees an invalid pointer.
+   # It would be nice if that were in a different
+   # function, so we could suppress it specifically,
+   # and not other possible warnings in the heap tests.
+   suppress_wine_dlls_kernel32_tests__test_heap_invalid_free
+   Memcheck:Free
+   fun:notify_free
+   fun:RtlFreeHeap
+   fun:HeapFree
+   fun:GlobalFree
+   fun:test_heap
+   fun:func_heap
+   fun:run_test
+   fun:main
+}
+{
+   intentionally_incorrect
+   Memcheck:Addr4
+   ...
+   fun:test_incorrect_api_usage
+   ...
+}
+{
+   intentionally_incorrect
+   Memcheck:Leak
+   ...
+   fun:test_incorrect_api_usage
+   ...
+}
+{
+   # Lots of little invalid things going on in this test
+   suppress_wine_dlls_kernel32_tests_test_heap
+   Memcheck:Addr2
+   ...
+   fun:test_heap
+   fun:func_heap
+   fun:run_test
+   fun:main
+
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=36783
+   kernel32_thread_invalid_writes
+   Memcheck:Addr4
+   fun:test_SetThreadContext
+   fun:func_thread
+   fun:run_test
+   fun:main
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=26121
+   msacm_invalid_read
+   Memcheck:Addr4
+   fun:MSACM_GetObj
+   fun:MSACM_GetDriver
+   fun:acmDriverClose
+   fun:DriverEnumProc
+   fun:acmDriverEnum
+   ...
+   fun:func_msacm
+   fun:run_test
+   fun:main
+}
+{
+   msvcrt_malloc_possible1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:MSVCRT_malloc
+   obj:*
+}
+{
+   msvcrt_malloc_possible2
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:MSVCRT_realloc
+   obj:*
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=26111
+   ntdll_info_invalid_read
+   Memcheck:Addr1
+   fun:virtual_check_buffer_for_write
+   fun:NtReadVirtualMemory
+   fun:test_readvirtualmemory
+   fun:func_info
+   fun:run_test
+   fun:main
+}
+{
+   ntdll_info_test_illegal_local_access
+   Memcheck:Addr1
+   fun:virtual_check_buffer_for_write
+   fun:NtReadVirtualMemory
+   fun:func_info
+   fun:main
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=26103
+   opengl32_test_deletecontext_double_free
+   Memcheck:Addr4
+   fun:wglDeleteContext
+   ...
+   fun:func_opengl
+   fun:run_test
+   fun:main
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=26103
+   opengl32_test_deletecontext
+   Memcheck:Cond
+   fun:flush_gl_drawable
+   fun:X11DRV_ExtEscape
+   fun:xrenderdrv_ExtEscape
+   fun:ExtEscape
+   fun:X11DRV_wglFinish
+   fun:wine_glFinish
+   ...
+   fun:func_opengl
+   fun:run_test
+   fun:main
+}
+{
+   pdh_bug_26102
+   Memcheck:Addr4
+   fun:PdhCloseQuery
+   ...
+   fun:func_pdh
+   fun:run_test
+   fun:main
+}
+{
+   rsaenh_cryptcreatehash_leak2
+   Memcheck:Leak
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   obj:*
+   obj:*
+   fun:CryptCreateHash
+   fun:test_hashes
+   fun:func_rsaenh
+   fun:run_test
+   fun:main
+}
+{
+   rsaenh_cryptcreatehash_leak
+   Memcheck:Leak
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:HeapAlloc
+   fun:GlobalAlloc
+   fun:LocalAlloc
+   fun:CryptCreateHash
+   fun:test_hashes
+   fun:func_rsaenh
+   fun:run_test
+   fun:main
+}
+{
+   rsaenh_cryptdestroyhash
+   Memcheck:Addr4
+   fun:CryptDestroyHash
+   fun:test_hashes
+   fun:func_rsaenh
+   fun:run_test
+   fun:main
+}
+{
+   # https://bugs.winehq.org/show_bug.cgi?id=26098#c1
+   rsaenh_crypthashdata
+   Memcheck:Addr4
+   fun:CryptHashData
+   fun:test_hashes
+   fun:func_rsaenh
+   fun:run_test
+   fun:main
+}
+{
+   secur32_schannel_communication_invalid_token
+   Memcheck:Value4
+   fun:schan_InitializeSecurityContextW
+   fun:schan_InitializeSecurityContextA
+   fun:InitializeSecurityContextA
+   fun:test_communication
+   fun:func_schannel
+   fun:run_test
+   fun:main
+}
+{
+   # See bug 26109
+   ignore_ole32_test_expected_bad_access
+   Memcheck:Addr2
+   fun:GlobalLock
+   fun:HGLOBALStreamImpl_Read
+   fun:test_freed_hglobal
+   fun:func_hglobalstream
+   fun:run_test
+   fun:main
+}
+{
+   services_services_invalid_addr4
+   Memcheck:Addr4
+   ...
+   fun:NDRCContextBinding
+   fun:svcctl_QueryServiceStatusEx
+   fun:QueryServiceStatusEx
+   fun:QueryServiceStatus
+   fun:test_no_stop
+   fun:test_runner
+   fun:func_service
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid10
+   Memcheck:Addr4
+   ...
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid11
+   Memcheck:Addr4
+   fun:HEAP_FindFreeBlock
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid12
+   Memcheck:Addr4
+   fun:validate_block_pointer
+   fun:RtlFreeHeap
+   fun:RtlFreeUnicodeString
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid13
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:wine_nt_to_unix_file_name
+   fun:nt_to_unix_file_name_attr
+   fun:FILE_CreateFile
+   fun:NtCreateFile
+   fun:CreateFileW
+   fun:CreateFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid14
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:add_section
+   fun:add_section_from_token
+   fun:section_name_state
+   fun:parse_buffer
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid15
+   Memcheck:Addr4
+   fun:list_remove
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid16
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:free_inf_file
+   fun:SetupCloseInfFile
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid17
+   Memcheck:Addr4
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:free_inf_file
+   fun:SetupCloseInfFile
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid18
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_ShrinkBlock
+   fun:RtlReAllocateHeap
+   fun:parse_buffer
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid19
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:grow_array
+   fun:add_section
+   fun:add_section_from_token
+   fun:section_name_state
+   fun:parse_buffer
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid1
+   Memcheck:Free
+   fun:RtlReAllocateHeap
+   fun:parse_buffer
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid20
+   Memcheck:Addr4
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid21
+   Memcheck:Addr4
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid22
+   Memcheck:Addr4
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:RtlFreeUnicodeString
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid23
+   Memcheck:Addr4
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:RtlFreeUnicodeString
+   fun:CreateFileW
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid24
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:RtlFreeAnsiString
+   fun:FILE_CreateFile
+   fun:NtCreateFile
+   fun:CreateFileW
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid25
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:RtlDosPathNameToNtPathName_U
+   fun:CreateFileW
+   fun:CreateFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid26
+   Memcheck:Addr4
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:RtlGetFullPathName_U
+   fun:GetFullPathNameW
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid2
+   Memcheck:Addr1
+   fun:RtlAllocateHeap
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid3
+   Memcheck:Addr1
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid4
+   Memcheck:Addr1
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:free_inf_file
+   fun:SetupCloseInfFile
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid5
+   Memcheck:Addr1
+   fun:HEAP_MakeInUseBlockFree
+   fun:RtlFreeHeap
+   fun:RtlFreeUnicodeString
+   fun:CreateFileW
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid6
+   Memcheck:Addr4
+   fun:HEAP_CreateFreeBlock
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:RtlDosPathNameToNtPathName_U
+   fun:CreateFileW
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid7
+   Memcheck:Addr4
+   fun:HEAP_ShrinkBlock
+   fun:RtlAllocateHeap
+   fun:grow_array
+   fun:add_section
+   fun:add_section_from_token
+   fun:section_name_state
+   fun:parse_buffer
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_key_names
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid8
+   Memcheck:Free
+   fun:notify_realloc
+   fun:RtlReAllocateHeap
+   fun:parse_buffer
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   setupapi_test_parser_invalid9
+   Memcheck:Addr1
+   ...
+   fun:parse_file
+   fun:SetupOpenInfFileW
+   fun:SetupOpenInfFileA
+   fun:test_file_contents
+   fun:test_invalid_files
+   fun:func_parser
+   fun:run_test
+   fun:main
+}
+{
+   # This one is for a jump to zero done intentionally by the crypt32 tests
+   suppress_wine_dlls_crypt32_tests__test_data_msg_O0
+   Memcheck:Jump
+   obj:*
+   fun:CryptMsgUpdate
+   ...
+   fun:test_data_msg
+}
+{
+   # This one is for a jump to zero done intentionally by the crypt32 tests
+   suppress_wine_dlls_crypt32_tests__test_data_msg_O2
+   Memcheck:Addr4
+   fun:__wine_call_from_32_regs
+   fun:CryptMsgUpdate
+   fun:test_data_msg
+}
+{
+   suppress_wine_dlls_kernel32_IsBadReadPtr
+   Memcheck:Addr1
+   fun:IsBadReadPtr
+}
+{
+   suppress_wine_dlls_kernel32__IsBadWritePtr
+   Memcheck:Addr1
+   fun:IsBadWritePtr
+}
+{
+   suppress_wine_dlls_kernel32_tests__CreateThread_basic_badaccess
+   Memcheck:Addr1
+   ...
+   fun:lstrlenA
+   fun:test_CreateThread_basic
+}
+{
+   suppress_wine_dlls_kernel32_tests__doCrash
+   Memcheck:Addr1
+   fun:doCrash
+}
+{
+   # This leak is expected - wine doesn't have a reliable way to free the default provider on exit.
+   wine_bug_20679
+   Memcheck:Leak
+   ...
+   fun:CRYPT_GetDefaultProvider
+}
+{
+   wine_bug_20548_ConnectNamedPipe
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:server_ioctl_file
+   fun:NtFsControlFile
+}
+{
+   wine_bug_20548_ReadFile
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:NtReadFile
+}
+{
+   wine_bug_20548_WriteFile
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:NtWriteFile
+}
+{
+   wine_bug_20548_WS_shutdown
+   Memcheck:Leak
+   ...
+   fun:RtlAllocateHeap
+   fun:WS2_register_async_shutdown
+   fun:WS_shutdown
+}
+{
+   wmiutils_path_invalid_gettext_addr2
+   Memcheck:Addr2
+   fun:strcpyW
+   fun:build_path
+   fun:path_GetText
+   fun:test_IWbemPath_GetText
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   wmiutils_path_invalid_gettext_cond
+   Memcheck:Cond
+   fun:strcpyW
+   fun:build_path
+   fun:path_GetText
+   fun:test_IWbemPath_GetText
+   fun:func_path
+   fun:run_test
+   fun:main
+}

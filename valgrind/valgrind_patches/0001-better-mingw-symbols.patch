@@ -1,0 +1,145 @@
+From ff094d85d5383918c9052602573cfbd6c76049d7 Mon Sep 17 00:00:00 2001
+From: Austin English <austinenglish@gmail.com>
+Date: Thu, 22 May 2014 00:15:47 -0700
+Subject: [PATCH 1/2] better mingw symbols
+
+---
+ coregrind/m_debuginfo/debuginfo.c | 20 +++++++++++---
+ coregrind/m_debuginfo/readpdb.c   | 55 +++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 69 insertions(+), 6 deletions(-)
+
+diff --git a/coregrind/m_debuginfo/debuginfo.c b/coregrind/m_debuginfo/debuginfo.c
+index 6373044..593d52b 100644
+--- a/coregrind/m_debuginfo/debuginfo.c
++++ b/coregrind/m_debuginfo/debuginfo.c
+@@ -1175,9 +1175,21 @@ void VG_(di_notify_pdb_debuginfo)( Int fd_obj, Addr avma_obj,
+    if (sr_isError(sres)) {
+       VG_(message)(Vg_UserMsg, "Warning: Missing or un-stat-able %s\n",
+                                pdbname);
+-   if (VG_(clo_verbosity) > 0)
+-      VG_(message)(Vg_UserMsg, "LOAD_PDB_DEBUGINFO: missing: %s\n", pdbname);
+-      goto out;
++      if (VG_(clo_verbosity) > 0)
++          VG_(message)(Vg_UserMsg, "LOAD_PDB_DEBUGINFO: missing: %s\n", pdbname);
++
++      ML_(dinfo_free)(pdbname);
++      pdbname = ML_(dinfo_zalloc)("di.debuginfo.lpd1", sizeof(exename));
++      VG_(strcpy)(pdbname, exename);
++      sres = VG_(stat)(pdbname, &stat_buf);
++
++       if (sr_isError(sres)) {
++           if (VG_(clo_verbosity) > 0)
++              VG_(message)(Vg_UserMsg, "Warning: Missing or un-stat-able %s\n",
++                                       pdbname);
++          VG_(message)(Vg_UserMsg, "LOAD_PDB_DEBUGINFO: missing: %s\n", pdbname);
++          goto out;
++       }
+    }
+    pdb_mtime = stat_buf.mtime;
+ 
+@@ -1255,7 +1267,7 @@ void VG_(di_notify_pdb_debuginfo)( Int fd_obj, Addr avma_obj,
+                                pdbimage, n_pdbimage, pdbname, pdb_mtime );
+      // JRS fixme: take notice of return value from read_pdb_debug_info,
+      // and handle failure
+-     vg_assert(di->have_dinfo); // fails if PDB read failed
++     //vg_assert(di->have_dinfo); // fails if PDB read failed
+      VG_(am_munmap_valgrind)( (Addr)pdbimage, n_pdbimage );
+      VG_(close)(fd_pdbimage);
+ 
+diff --git a/coregrind/m_debuginfo/readpdb.c b/coregrind/m_debuginfo/readpdb.c
+index 3824a33..82538bf 100644
+--- a/coregrind/m_debuginfo/readpdb.c
++++ b/coregrind/m_debuginfo/readpdb.c
+@@ -54,7 +54,8 @@
+ #include "priv_d3basics.h"
+ #include "priv_storage.h"
+ #include "priv_readpdb.h"          // self
+-
++#include "priv_readdwarf3.h"
++#include "priv_readdwarf.h"
+ 
+ /*------------------------------------------------------------*/
+ /*---                                                      ---*/
+@@ -2194,9 +2195,23 @@ Bool ML_(read_pdb_debug_info)(
+    IMAGE_NT_HEADERS*     ntheaders_avma;
+    IMAGE_SECTION_HEADER* sectp_avma;
+    IMAGE_SECTION_HEADER* pe_sechdr_avma;
++   Char*    str_table;
++
++   UChar* debug_info_img = NULL;
++   UChar* debug_abbv_img = NULL;
++   UChar* debug_line_img = NULL;
++   UChar* debug_str_img = NULL;
++   UChar* debug_ranges_img = NULL;
++   UChar* debug_loc_img = NULL;
++   SizeT debug_info_sz = 0;
++   SizeT debug_abbv_sz = 0;
++   SizeT debug_line_sz = 0;
++   SizeT debug_str_sz = 0;
++   SizeT debug_ranges_sz = 0;
++   SizeT debug_loc_sz = 0;
+ 
+    if (VG_(clo_verbosity) > 1)
+-       VG_(message)(Vg_UserMsg, "Processing PDB file %s\n", pdbname );
++       VG_(message)(Vg_UserMsg, "Processing PDB file %s size %u\n", pdbname, (unsigned)n_pdbimage);
+ 
+    dos_avma = (IMAGE_DOS_HEADER *)obj_avma;
+    if (dos_avma->e_magic != IMAGE_DOS_SIGNATURE)
+@@ -2225,11 +2240,24 @@ Bool ML_(read_pdb_debug_info)(
+         + OFFSET_OF(IMAGE_NT_HEADERS, OptionalHeader)
+         + ntheaders_avma->FileHeader.SizeOfOptionalHeader;
+ 
++        str_table = (Char*)pdbimage + ntheaders_avma->FileHeader.PointerToSymbolTable +
++                                 18 * ntheaders_avma->FileHeader.NumberOfSymbols;
++   if (VG_(clo_verbosity) > 1)
++         VG_(message)(Vg_UserMsg, "==> PointerToSymbolTable=%d NumberOfSymbols=%d STR Size=%d\n",
++                      ntheaders_avma->FileHeader.PointerToSymbolTable, ntheaders_avma->FileHeader.NumberOfSymbols,
++                      *(long*)str_table);
++
+    /* Iterate over PE headers and fill our section mapping table. */
+    for ( i = 0;
+          i < ntheaders_avma->FileHeader.NumberOfSections;
+          i++, pe_seg_avma += sizeof(IMAGE_SECTION_HEADER) ) {
++      Char *long_name;
+       pe_sechdr_avma = (IMAGE_SECTION_HEADER *)pe_seg_avma;
++      long_name = pe_sechdr_avma->Name;
++      if (pe_sechdr_avma->Name[0] == '/') {
++          int offset = VG_(strtoll10)(&pe_sechdr_avma->Name[1], NULL);
++          long_name = &str_table[offset];
++      }
+ 
+       if (VG_(clo_verbosity) > 1) {
+          /* Copy name, it can be 8 chars and not NUL-terminated */
+@@ -2242,6 +2270,29 @@ Bool ML_(read_pdb_debug_info)(
+                       pe_sechdr_avma->VirtualAddress);
+       }
+ 
++#define FIND(sec_name, size, img) do { \
++        if (!VG_(strcmp)(long_name, sec_name)) { \
++            img = (char*)pdbimage + pe_sechdr_avma->PointerToRawData; \
++            size = pe_sechdr_avma->Misc.VirtualSize> 0 && \
++                   pe_sechdr_avma->Misc.VirtualSize < pe_sechdr_avma->SizeOfRawData ? pe_sechdr_avma->Misc.VirtualSize \
++                                                                                    : pe_sechdr_avma->SizeOfRawData; \
++            /*size = pe_sechdr_avma->SizeOfRawData;*/ \
++         VG_(message)(Vg_UserMsg, " Section %s(" sec_name ") offset=%u size=%u\n", long_name, pe_sechdr_avma->PointerToRawData, size); \
++        } \
++    } while (0)
++
++    FIND(".debug_line", debug_line_sz, debug_line_img);
++    FIND(".debug_info", debug_info_sz, debug_info_img);
++    FIND(".debug_abbrev", debug_abbv_sz, debug_abbv_img);
++    FIND(".debug_str", debug_str_sz, debug_str_img);
++    FIND(".debug_ranges", debug_ranges_sz, debug_ranges_img);
++    FIND(".debug_loc", debug_loc_sz, debug_loc_img);
++    if (debug_info_img && debug_info_sz > 0 && 0) {
++        int i;
++        for (i = 0; i < 256; i++)
++            VG_(message)(Vg_UserMsg, "%d (%c)\n", debug_info_img[i], debug_info_img[i] >= 0x20 && debug_info_img[i] <= 0x7f ? debug_info_img[i] : '?');
++    }
++
+       if (pe_sechdr_avma->Characteristics & IMAGE_SCN_MEM_DISCARDABLE)
+          continue;
+ 
+-- 
+1.9.0
+

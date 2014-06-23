@@ -1,0 +1,27 @@
+From ed5d44fd5df018764316c61fb39d8563e6d15d20 Mon Sep 17 00:00:00 2001
+From: Austin English <austinenglish@gmail.com>
+Date: Thu, 22 May 2014 00:16:11 -0700
+Subject: [PATCH 2/2] fix grep/strings paths
+
+---
+ coregrind/m_debuginfo/readpdb.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/coregrind/m_debuginfo/readpdb.c b/coregrind/m_debuginfo/readpdb.c
+index 82538bf..9ce5d4e 100644
+--- a/coregrind/m_debuginfo/readpdb.c
++++ b/coregrind/m_debuginfo/readpdb.c
+@@ -2482,8 +2482,8 @@ HChar* ML_(find_name_of_pdb_file)( HChar* pename )
+       sh -c "strings (pename) | egrep '\.pdb|\.PDB' > (tmpname)"
+    */
+    const HChar* sh      = "/bin/sh";
+-   const HChar* strings = "/usr/bin/strings";
+-   const HChar* egrep   = "/usr/bin/egrep";
++   const HChar* strings = "strings";
++   const HChar* egrep   = "grep -E";
+ 
+    /* (sh) -c "(strings) (pename) | (egrep) 'pdb' > (tmpname) */
+    Int cmdlen = VG_(strlen)(strings) + VG_(strlen)(pename)
+-- 
+1.9.0
+
