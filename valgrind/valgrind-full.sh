@@ -32,7 +32,7 @@ export WINE="$WINESRC/wine"
 WINESERVER="$WINESRC/server/wineserver"
 
 # Choose which version of valgrind you want to use:
-WINETEST_WRAPPER=/opt/valgrind/bin/valgrind
+export WINETEST_WRAPPER=/opt/valgrind/bin/valgrind
 #WINETEST_WRAPPER=valgrind
 
 # disable BSTR cache
