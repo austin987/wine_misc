@@ -2988,3 +2988,24 @@
    fun:ClassFactory_CreateInstance
    fun:CoCreateInstance
 }
+{
+   ieframe_intshcut
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/*
+   ...
+}
+{
+   mshtml_test_activex
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:msvcrt_heap_realloc
+   fun:MSVCRT_realloc
+   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/*
+}

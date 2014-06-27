@@ -645,6 +645,13 @@
 {
    user32_class_x
    Memcheck:Addr2
+   fun:init_handler
+   fun:segv_handler
+   obj:/*/libpthread-2*.so
+}
+{
+   user32_class_x
+   Memcheck:Addr2
    fun:segv_handler
    obj:/*/libpthread-2.*.so
 }

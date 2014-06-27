@@ -24,7 +24,7 @@
    fun:MMDRV_Init
    fun:MMDRV_InitSingleType
    fun:MMDRV_GetNum
-    fun:midiOutGetNumDevs
+   fun:midiOutGetNumDevs
    fun:DEVENUM_CreateSpecialCategories
    fun:DEVENUM_ICreateDevEnum_CreateClassEnumerator
    fun:test_devenum
@@ -1024,6 +1024,19 @@
    fun:func_dde
    fun:run_test
    fun:main
+}
+{
+   bug_28741
+   Memcheck:Cond
+   ...
+   fun:RtlTimeToTimeFields
+   fun:FileTimeToSystemTime
+   fun:MONTHCAL_CalculateDayOfWeek
+   fun:MONTHCAL_GetMonth
+   fun:MONTHCAL_GetPrevMonth
+   fun:MONTHCAL_HitTest
+   fun:MONTHCAL_WindowProc
+   ...
 }
 {
    bug_28745
@@ -4104,36 +4117,6 @@
    ...
 }
 {
-   bug_36240_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:malloc
-   ...
-   fun:preprocess_shader
-   ...
-   fun:func_asm
-   ...
-}
-{
-   bug_36240_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:d3dcompiler_alloc
-   fun:set_rel_reg
-   fun:asmshader_parse
-   fun:parse_asm_shader
-   fun:SlAssembleShader
-   fun:assemble_shader
-   fun:D3DAssemble
-   fun:exec_tests
-   fun:vs_3_0_test
-   fun:func_asm
-   fun:run_test
-   fun:main
-}
-{
    bug_36241_1
    Memcheck:Leak
    match-leak-kinds: definite
@@ -6837,21 +6820,6 @@
    ...
 }
 {
-   bug_36350
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:RtlAllocateHeap
-   fun:set_rel_reg.isra.2.part.3
-   fun:asmshader_parse
-   fun:parse_asm_shader
-   fun:SlAssembleShader
-   fun:D3DAssemble
-   fun:exec_tests
-   fun:vs_3_0_test
-   fun:func_asm
-   ...
-}
-{
    bug_36352_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -8576,6 +8544,19 @@
    fun:main
 }
 {
+   bug_36586_7
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:add_message_
+   fun:test_hotkey
+   fun:func_msg
+   fun:run_test
+   fun:main
+}
+{
    bug_36587
    Memcheck:Param
    write(buf)
@@ -9337,6 +9318,23 @@
    ...
 }
 {
+   bug_36636
+   Memcheck:Param
+   writev(vector[...])
+   fun:writev
+   fun:send_request
+   fun:wine_server_call
+   fun:put_message_in_queue
+   fun:send_inter_thread_message
+   fun:send_message
+   fun:SendMessageTimeoutW
+   fun:SHAppBarMessage
+   fun:test_setpos
+   fun:func_appbar
+   fun:run_test
+   fun:main
+}
+{
    bug_36638
    Memcheck:Leak
    match-leak-kinds: definite
@@ -9733,6 +9731,100 @@
    obj:*
    fun:test_Frame
    fun:func_d3drm
+   fun:run_test
+   fun:main
+}
+{
+   bug_36794
+   Memcheck:Addr4
+   fun:EDIT_WM_KillFocus
+   fun:EditWndProc_common
+   fun:EditWndProcA
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:CallWindowProcA
+   fun:CallWindowProcT
+   fun:EditLblWndProcT
+   fun:EditLblWndProcA
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:CallWindowProcA
+   fun:editbox_subclass_proc
+   obj:*/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_CallProcWtoA
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+}
+{
+   bug_36809_1
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_scripttrack
+   fun:func_dmscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_36809_2
+   Memcheck:Cond
+   fun:bcmp
+   fun:test_scripttrack
+   fun:func_dmscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_36809_3
+   Memcheck:Cond
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:wine_dbgstr_guid
+   fun:test_scripttrack
+   fun:func_dmscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_36809_4
+   Memcheck:Cond
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:wine_dbgstr_guid
+   fun:test_scripttrack
+   fun:func_dmscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_36809_5
+   Memcheck:Value4
+   fun:_itoa_word
+   fun:vfprintf
+   fun:vsprintf
+   fun:sprintf
+   fun:wine_dbgstr_guid
+   fun:test_scripttrack
+   fun:func_dmscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_36810
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:strdupWtoA
+   fun:DocumentPropertiesA
+   fun:test_DocumentProperties
+   fun:func_info
    fun:run_test
    fun:main
 }
