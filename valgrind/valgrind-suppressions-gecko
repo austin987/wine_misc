@@ -329,8 +329,8 @@
    fun:CreateRemoteThread
    fun:CreateThread
    fun:_beginthreadex
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/nspr4.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/nspr4.dll
 }
 {
    gecko_mshtml_activex_x
@@ -395,26 +395,26 @@
 {
    gecko_x
    Memcheck:Addr4
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
 }
 {
    gecko_x
@@ -560,7 +560,7 @@
    fun:notify_alloc
    fun:RtlAllocateHeap
    fun:MSVCRT_malloc
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/*.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/*.dll
    ...
 }
 {
@@ -570,7 +570,7 @@
    fun:notify_alloc
    fun:RtlAllocateHeap
    fun:MSVCRT_malloc
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/mozalloc.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozalloc.dll
    obj:*
 }
 {
@@ -580,9 +580,9 @@
    fun:notify_alloc
    fun:RtlAllocateHeap
    fun:MSVCRT_malloc
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/mozalloc.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozalloc.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
    fun:call_thread_func
    obj:*/dlls/ntdll/ntdll.dll.so
    fun:start_thread
@@ -610,9 +610,9 @@
    fun:call_window_proc
    fun:WINPROC_call_window
    fun:DispatchMessageW
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
 }
 {
    gecko_x
@@ -621,15 +621,15 @@
    fun:notify_alloc
    fun:RtlReAllocateHeap
    fun:MSVCRT_realloc
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozjs.dll
 }
 {
    gecko_x
@@ -652,8 +652,8 @@
    fun:doc_insert_script
    fun:run_insert_script
    fun:nsRunnable_Run
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
    fun:nsDocumentObserver_AttemptToExecuteScript
 }
 {
@@ -1091,8 +1091,8 @@
    fun:doc_insert_script
    fun:run_insert_script
    fun:nsRunnable_Run
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
 }
 {
    gecko_x
@@ -1116,8 +1116,8 @@
    fun:bind_event_scripts
    fun:run_end_load
    fun:nsRunnable_Run
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
 }
 {
    gecko_x
@@ -1426,8 +1426,8 @@
    fun:IShellLink_Constructor
    fun:IDefClF_fnCreateInstance
    fun:CoCreateInstance
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
    fun:load_gecko
    fun:create_nscontainer
    fun:HTMLDocument_Create
@@ -1774,9 +1774,9 @@
    fun:call_window_proc
    fun:WINPROC_call_window
    fun:DispatchMessageW
-   obj:*-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*-valgrind/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
+   obj:*-valgrind/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*-valgrind/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*-valgrind/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
 }
 {
    todo_gecko_warnings_r_us2
@@ -2996,7 +2996,7 @@
    fun:RtlAllocateHeap
    fun:msvcrt_heap_alloc
    fun:MSVCRT_malloc
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/*
+   obj:*/drive_c/windows/system32/gecko/*
    ...
 }
 {
@@ -3007,5 +3007,244 @@
    fun:RtlReAllocateHeap
    fun:msvcrt_heap_realloc
    fun:MSVCRT_realloc
-   obj:/home/austin/.wine-valgrind/drive_c/windows/system32/gecko/*
+   obj:*/drive_c/windows/system32/gecko/*
+   ...
+}
+{
+   urlmon_test_url
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozalloc.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   mshtml_test_dom
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/mozalloc.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/xul.dll
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Addr4
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:init_xpcom
+   fun:load_gecko
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:msvcrt_heap_realloc
+   fun:MSVCRT_realloc
+   obj:*
+   ...
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*
+   ...
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Cond
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   fun:init_nscontainer
+   fun:create_nscontainer
+   fun:HTMLDocument_Create
+   fun:ClassFactory_CreateInstance
+   fun:CoCreateInstance
+   fun:create_mime_object
+   fun:create_object
+   fun:report_data
+   fun:InternetProtocolSink_ReportData
+   fun:ProtocolSinkHandler_ReportData
+   fun:report_data_proc
+   fun:process_tasks
+   fun:notif_wnd_proc
+   obj:/home/austin/wine-valgrind/dlls/user32/user32.dll.so
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*
+   obj:*
+   obj:*
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Addr4
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Addr4
+   obj:*
+   obj:*
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Value4
+   obj:*
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Cond
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/home/austin/wine-valgrind/dlls/user32/user32.dll.so
+   fun:call_window_proc
+   fun:WINPROC_call_window
+   fun:DispatchMessageW
+   fun:IEWinMain
+   fun:wWinMain
+   fun:wmain
+   fun:__wine_spec_exe_wentry
+   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+   fun:start_process
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Cond
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   ieframe_test_ie_x
+   Memcheck:Cond
+   fun:__pthread_enable_asynccancel
+   obj:*/libpthread-2.*.so
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+
+{
+   ieframe_test_ie_x
+   Memcheck:Cond
+   fun:__pthread_enable_asynccancel
+   obj:*/libpthread-2.*.so
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   mshtml_test_activex
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*/drive_c/windows/system32/gecko/*/wine_gecko/*
+   ...
 }

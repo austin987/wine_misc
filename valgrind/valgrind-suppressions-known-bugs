@@ -8966,7 +8966,7 @@
    fun:clone
 }
 {
-   bug_36614
+   bug_36614_1
    Memcheck:Leak
    match-leak-kinds: definite
    ...
@@ -8980,32 +8980,30 @@
    fun:RPCRT4_process_packet
    fun:RPCRT4_worker_thread
    fun:worker_thread_proc
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:call_thread_func
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:start_thread
    fun:start_thread
    fun:clone
 }
 {
-   bug_36615
+   bug_36614_2
    Memcheck:Leak
-   ...
-   fun:RtlReAllocateHeap
-   fun:HeapReAlloc
-   fun:GlobalReAlloc
-   fun:HGLOBALStreamImpl_SetSize
-   fun:HGLOBALStreamImpl_Write
-   fun:PersistHistory_SaveHistory
-   fun:test_save_history
-   fun:OleCommandTarget_Exec
-   fun:notify_travellog_update
-   fun:set_current_mon
-   fun:navigate_proc
-   fun:hidden_proc
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   ...
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:dispatch_rpc
+   fun:process_request_packet
+   fun:RPCRT4_process_packet
+   fun:RPCRT4_worker_thread
+   fun:worker_thread_proc
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:*/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
 }
 {
    bug_36619_1
@@ -9734,30 +9732,7 @@
    fun:run_test
    fun:main
 }
-{
-   bug_36794
-   Memcheck:Addr4
-   fun:EDIT_WM_KillFocus
-   fun:EditWndProc_common
-   fun:EditWndProcA
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:CallWindowProcA
-   fun:CallWindowProcT
-   fun:EditLblWndProcT
-   fun:EditLblWndProcA
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:CallWindowProcA
-   fun:editbox_subclass_proc
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:WINPROC_CallProcWtoA
-   fun:WINPROC_call_window
-   fun:call_window_proc
-   fun:send_message
-   fun:SendMessageW
-}
+
 {
    bug_36809_1
    Memcheck:Cond
