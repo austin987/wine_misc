@@ -1990,18 +1990,6 @@
    fun:main
 }
 {
-   bug_36128
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:WINECON_CreateKeyName
-   fun:WINECON_RegLoad
-   fun:WINECON_Init
-   fun:WinMain
-   fun:main
-}
-{
    bug_36129_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -4535,27 +4523,6 @@
    fun:main
 }
 {
-   bug_36262_1
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:create_directinput_instance
-   fun:DirectInputCreateEx
-   fun:DirectInputCreateA
-   fun:test_DirectInputJoyConfig8
-   fun:func_dinput
-   ...
-}
-{
-   bug_36262_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:func_dinput
-   ...
-}
-{
    bug_36263_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -5911,18 +5878,6 @@
    fun:CoCreateInstance
    fun:test_inmemorystore
    fun:func_propstore
-   fun:run_test
-   fun:main
-}
-{
-   bug_36314
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:nt_get_mapped_file_name
-   fun:test_GetMappedFileName
-   fun:func_psapi_main
    fun:run_test
    fun:main
 }
