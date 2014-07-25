@@ -1261,6 +1261,22 @@
    fun:WS_shutdown
 }
 {
+   wine_bug_36601
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:heap_alloc_zero
+   fun:get_server
+   fun:HTTP_HttpOpenRequestW
+   fun:HttpOpenRequestW
+   fun:HttpOpenRequestA
+   fun:*
+   fun:func_internet
+   fun:run_test
+   fun:main
+}
+{
    wmiutils_path_invalid_gettext_addr2
    Memcheck:Addr2
    fun:strcpyW

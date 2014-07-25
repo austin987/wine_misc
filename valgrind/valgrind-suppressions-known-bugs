@@ -8709,35 +8709,6 @@
    fun:main
 }
 {
-   bug_36601_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:heap_alloc
-   fun:InternetGetConnectedStateExA
-   fun:test_InternetGetConnectedStateExA
-   fun:func_internet
-   fun:run_test
-   fun:main
-}
-{
-   bug_36601_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:heap_alloc_zero
-   fun:get_server
-   fun:HTTP_HttpOpenRequestW
-   fun:HttpOpenRequestW
-   fun:HttpOpenRequestA
-   fun:*
-   fun:func_internet
-   fun:run_test
-   fun:main
-}
-{
    bug_36607_1
    Memcheck:Leak
    match-leak-kinds: definite
