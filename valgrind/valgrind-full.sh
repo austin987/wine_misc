@@ -96,6 +96,9 @@ sh winetricks nocrashdialog heapcheck $virtual_desktop
 #    wget http://downloads.sourceforge.net/project/wine/Wine%20Gecko/${gecko_version}/wine_gecko-${gecko_version}-x86-unstripped.tar.bz2
 #fi
 
+# FIXME: automate building, get upstream:
+tar xJf $HOME/gecko_dbg.tar.xz -C $WINEPREFIX
+
 #cd $WINEPREFIX/drive_c/windows/system32/gecko/${gecko_version}
 #rm -rf wine_gecko
 #tar -xjvf $WINESRC/wine_gecko-${gecko_version}-x86-unstripped.tar.bz2
