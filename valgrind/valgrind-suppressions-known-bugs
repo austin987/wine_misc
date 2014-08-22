@@ -220,91 +220,6 @@
    fun:func_class
 }
 {
-   bug_26101_1
-   Memcheck:Leak
-   ...
-   fun:OleSetClipboard
-   ...
-}
-{
-   bug_26101_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   ...
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:get_facbuf_for_iid
-   fun:marshal_object
-   fun:start_apartment_remote_unknown
-   fun:RPC_StartRemoting
-   fun:StdMarshalImpl_MarshalInterface
-   fun:CoMarshalInterface
-   fun:set_src_dataobject
-   fun:OleSetClipboard
-   ...
-}
-{
-   bug_26101_3
-   Memcheck:Value4
-   fun:wcstombs_sbcs
-   fun:wine_cp_wcstombs
-   fun:RtlUnicodeToMultiByteN
-   fun:WINPROC_CallProcWtoA
-   fun:WINPROC_call_window
-   fun:call_window_proc
-   fun:send_message
-   fun:SendMessageW
-   fun:test_EM_FINDWORDBREAK_A
-   fun:func_editor
-   fun:run_test
-   fun:main
-}
-{
-   bug_26101_4
-   Memcheck:Cond
-   fun:strlenW
-   fun:WINPROC_CallProcWtoA
-   fun:WINPROC_call_window
-   fun:call_window_proc
-   fun:send_message
-   fun:SendMessageW
-   fun:test_EM_FINDWORDBREAK_A
-   fun:func_editor
-   fun:run_test
-   fun:main
-}
-{
-   bug_26101_5
-   Memcheck:Cond
-   ...
-   fun:ME_WordBreakProc
-   fun:ME_CallWordBreakProc
-   fun:ME_MoveCursorWords
-   fun:ME_ArrowKey
-   fun:ME_KeyDown
-   fun:ME_HandleMessage
-   fun:RichEditWndProc_common
-   fun:RichEditWndProcA
-   ...
-}
-{
-   bug_26101_5
-   Memcheck:Value4
-   ...
-   fun:ME_WordBreakProc
-   fun:ME_CallWordBreakProc
-   fun:ME_MoveCursorWords
-   fun:ME_ArrowKey
-   fun:ME_KeyDown
-   fun:ME_HandleMessage
-   fun:RichEditWndProc_common
-   fun:RichEditWndProcA
-   ...
-}
-{
    bug_26108_1
    Memcheck:Cond
    fun:StorageImpl_CreateDirEntry
@@ -9713,6 +9628,36 @@
    fun:wine_dbgstr_guid
    fun:test_scripttrack
    fun:func_dmscript
+   fun:run_test
+   fun:main
+}
+{
+   bug_37159_1
+   Memcheck:Value4
+   fun:wcstombs_sbcs
+   fun:wine_cp_wcstombs
+   fun:RtlUnicodeToMultiByteN
+   fun:WINPROC_CallProcWtoA
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:test_EM_FINDWORDBREAK_A
+   fun:func_editor
+   fun:run_test
+   fun:main
+}
+{
+   bug_37159_2
+   Memcheck:Cond
+   fun:strlenW
+   fun:WINPROC_CallProcWtoA
+   fun:WINPROC_call_window
+   fun:call_window_proc
+   fun:send_message
+   fun:SendMessageW
+   fun:test_EM_FINDWORDBREAK_A
+   fun:func_editor
    fun:run_test
    fun:main
 }
