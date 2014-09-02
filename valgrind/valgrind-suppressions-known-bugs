@@ -4052,62 +4052,6 @@
    fun:main
 }
 {
-   bug_36242_1
-   Memcheck:Value4
-   ...
-   fun:ID3DXFontImpl_GetGlyphData
-   fun:test_ID3DXFont
-   fun:func_core
-   ...
-}
-{
-   bug_36242_2
-   Memcheck:Cond
-   ...
-   fun:ID3DXFontImpl_GetGlyphData
-   fun:test_ID3DXFont
-   fun:func_core
-   ...
-}
-{
-   bug_36242_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/*lib*/libdrm_intel.so.*
-   ...
-   fun:d3d9_device_DrawPrimitiveUP
-   fun:d3dx9_sprite_Flush
-   fun:test_ID3DXSprite
-   fun:func_core
-   ...
-}
-{
-   bug_36242_4
-   Memcheck:Leak
-   match-leak-kinds: definite
-   obj:/*lib*/libdrm_intel.so.*
-   ...
-   fun:D3DXRenderToSurface_EndScene
-   fun:check_ID3DXRenderToSurface
-   fun:test_ID3DXRenderToSurface
-   fun:func_core
-   ...
-}
-{
-   bug_36242_5
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   obj:/*lib*/libdrm_intel.so.*
-   ...
-   fun:D3DXRenderToSurface_EndScene
-   fun:check_ID3DXRenderToSurface
-   fun:test_ID3DXRenderToSurface
-   fun:func_core
-   ...
-}
-{
    bug_36243_1
    Memcheck:Leak
    ...
@@ -7852,30 +7796,6 @@
    fun:test_media_streams
 }
 {
-   bug_36557
-   Memcheck:Addr4
-   fun:update_travellog
-   fun:ClOleCommandTarget_Exec
-   fun:notify_travellog_update
-   fun:set_current_mon
-   fun:navigate_proc
-   fun:hidden_proc
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:WINPROC_call_window
-   fun:DispatchMessageW
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/xul.dll
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:WINPROC_call_window
-}
-{
    bug_36558_1
    Memcheck:Leak
    match-leak-kinds: definite
@@ -9658,6 +9578,19 @@
    fun:SendMessageW
    fun:test_EM_FINDWORDBREAK_A
    fun:func_editor
+   fun:run_test
+   fun:main
+}
+{
+   bug_37220
+   Memcheck:Addr4
+   fun:memcpy
+   fun:copy_pixels
+   fun:D3DXLoadSurfaceFromMemory
+   fun:D3DXLoadSurfaceFromSurface
+   fun:D3DXRenderToSurface_EndScene
+   fun:test_ID3DXRenderToSurface
+   fun:func_core
    fun:run_test
    fun:main
 }
