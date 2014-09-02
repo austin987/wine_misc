@@ -4052,46 +4052,6 @@
    fun:main
 }
 {
-   bug_36243_1
-   Memcheck:Leak
-   ...
-   fun:func_mesh
-   ...
-}
-{
-   bug_36243_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   obj:/*lib*/dri/i965_dri.so
-   ...
-   fun:context_apply_fbo_state
-   fun:context_apply_clear_state
-   fun:device_clear_render_targets
-   fun:wined3d_cs_exec_clear
-   fun:wined3d_cs_st_submit
-   fun:wined3d_cs_emit_clear
-   fun:wined3d_device_clear
-   fun:wined3d_device_init_3d
-   fun:device_init
-   ...
-}
-{
-   bug_36243_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   obj:/*lib*/dri/i965_dri.so
-   ...
-   fun:context_create
-   fun:wined3d_swapchain_create
-   fun:d3d9_swapchain_create
-   fun:device_parent_create_swapchain
-   fun:wined3d_device_init_3d
-   fun:device_init
-   ...
-}
-{
    bug_36244_1
    Memcheck:Addr4
    fun:point_filter_argb_pixels
