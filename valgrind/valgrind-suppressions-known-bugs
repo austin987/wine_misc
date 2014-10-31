@@ -5928,35 +5928,6 @@
    fun:main
 }
 {
-   bug_36323_1
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:OLEClipbrd_Initialize
-   fun:OleInitialize
-   fun:ME_MakeEditor
-   fun:CreateTextServices
-   fun:func_txtsrv
-   fun:run_test
-   fun:main
-}
-{
-   bug_36323_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   ...
-   fun:ME_MakeEditor
-   fun:CreateTextServices
-   ...
-   fun:func_txtsrv
-   fun:run_test
-   fun:main
-}
-{
    bug_36324
    Memcheck:Leak
    ...
