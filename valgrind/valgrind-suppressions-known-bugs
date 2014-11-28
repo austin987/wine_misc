@@ -1106,8 +1106,7 @@
    fun:CreateDirectoryA
    fun:test_CreateDirectoryA
    fun:func_security
-   fun:run_test
-   fun:main
+   ...
 }
 {
    bug_36095_1
@@ -4018,38 +4017,6 @@
    fun:crypt_oid_init
    fun:DllMain
    ...
-}
-{
-   bug_36241_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:test_PrintDlgExW
-   fun:func_printdlg
-   fun:run_test
-   fun:main
-}
-{
-   bug_36241_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:test_PrintDlgExW
-   fun:func_printdlg
-   fun:run_test
-   fun:main
-}
-{
-   bug_36241_3
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:func_printdlg
-   fun:run_test
-   fun:main
 }
 {
    bug_36244_1
