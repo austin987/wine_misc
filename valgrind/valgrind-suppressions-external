@@ -276,6 +276,44 @@
    fun:clone
 }
 {
+   dbus_4
+   Memcheck:Jump
+   ...
+   obj:/usr/lib/libdbus-1.so.*
+   ...
+   fun:__run_exit_handlers
+   fun:exit
+   fun:NtTerminateProcess
+   fun:RtlExitUserProcess
+   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+}
+{
+   dbus_5
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:dbus_thread
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   dbus_6
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:dbus_thread
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
    ddrawex/tests/surface
    Memcheck:Addr4
    obj:/tmp/.gl*
@@ -328,6 +366,28 @@
    fun:build_suffixes
    fun:g_hash_table_foreach
    fun:main
+}
+{
+   glib3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   obj:/usr/lib64/libglib-2.0.so.*
+   fun:g_option_context_parse
+   obj:/usr/bin/update-desktop-database
+   ...
+}
+{
+   glib4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   fun:g_slice_alloc
+   fun:g_ptr_array_sized_new
+   obj:/usr/bin/update-mime-database
+   ...
 }
 {
    glibc_1
