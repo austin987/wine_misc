@@ -8333,27 +8333,6 @@
    fun:main
 }
 {
-   bug_36594_1
-   Memcheck:Cond
-   fun:winetest_vok
-   fun:winetest_ok
-   fun:compare_metadata
-   fun:test_metadata_IFD
-   fun:func_metadata
-   fun:run_test
-   fun:main
-}
-{
-   bug_36594_2
-   Memcheck:Cond
-   fun:winetest_vok
-   fun:winetest_ok
-   fun:test_metadata_png
-   fun:func_metadata
-   fun:run_test
-   fun:main
-}
-{
    bug_36597_1
    Memcheck:Leak
    match-leak-kinds: definite
