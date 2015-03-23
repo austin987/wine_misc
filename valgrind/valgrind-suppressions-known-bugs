@@ -1930,79 +1930,6 @@
    ...
 }
 {
-   bug_36133_1
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   ...
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:decode_image_wic
-   ...
-   fun:GdipLoadImageFromStream
-   fun:load_image
-   fun:test_tiff_palette
-   fun:func_image
-   fun:run_test
-   fun:main
-}
-{
-   bug_36133_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:ungif_alloc
-   fun:MakeMapObject
-   fun:DGifGetImageDesc
-   fun:DGifSlurp
-   fun:GifDecoder_Initialize
-   fun:decode_image_wic
-   fun:decode_image_gif
-   fun:GdipImageSelectActiveFrame
-   fun:test_gif_properties
-   fun:func_image
-   fun:run_test
-   fun:main
-}
-{
-   bug_36133_3
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:ungif_alloc
-   fun:MakeMapObject
-   fun:DGifGetImageDesc
-   fun:DGifSlurp
-   fun:GifDecoder_Initialize
-   fun:decode_image_wic
-   fun:decode_image_gif
-   fun:GdipLoadImageFromStream
-   fun:load_image
-   fun:test_gif_properties
-   fun:func_image
-   fun:run_test
-   fun:main
-}
-{
-   bug_36133_4
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:GdipAlloc
-   fun:GdipCreateBitmapFromScan0
-   fun:GdipGetImageThumbnail
-   fun:test_image_format
-   fun:func_image
-   fun:run_test
-   fun:main
-}
-{
    bug_36134_1
    Memcheck:Addr4
    ...
@@ -5423,19 +5350,6 @@
    fun:test_xmlelem_collection
    fun:func_xmldoc
    ...
-}
-{
-   bug_36305
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:run_localgroupgetinfo_tests
-   fun:func_access
-   fun:run_test
-   fun:main
 }
 {
    bug_36306
