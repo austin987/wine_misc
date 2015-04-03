@@ -3097,62 +3097,6 @@
    ...
 }
 {
-   bug_36190_1
-   Memcheck:Cond
-   fun:update_layout
-   fun:IFileDialog2_fnSetFileNameLabel
-   fun:IFileSaveDialog_fnSetFileNameLabel
-   fun:test_basics
-   fun:func_itemdlg
-   fun:run_test
-   fun:main
-}
-{
-   bug_36190_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:OLEClipbrd_Initialize
-   fun:OleInitialize
-   ...
-   fun:func_itemdlg
-   ...
-}
-{
-   bug_36190_3
-   Memcheck:Param
-   write(buf)
-   fun:__write_nocancel
-   ...
-   fun:wine_server_call
-   fun:set_window_pos
-   fun:USER_SetWindowPos
-   fun:EndDeferWindowPos
-   fun:update_layout
-   fun:IFileDialog2_fnSetFileNameLabel
-   fun:IFileOpenDialog_fnSetFileNameLabel
-   fun:test_basics
-   fun:func_itemdlg
-   fun:run_test
-   fun:main
-}
-{
-   bug_36190_4
-   Memcheck:Cond
-   ...
-   fun:MonitorFromRect
-   fun:MonitorFromWindow
-   fun:WINPOS_GetMinMaxInfo
-   fun:WINPOS_HandleWindowPosChanging
-   fun:DEFWND_DefWinProc
-   fun:DefWindowProcW
-   fun:ctrl_container_wndproc
-   ...
-}
-{
    bug_36191_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -9103,23 +9047,6 @@
    fun:udisks2_add_device
    fun:udisks2_add_devices
    fun:dbus_thread
-}
-{
-   bug_36656
-   Memcheck:Param
-   write(buf)
-   fun:__write_nocancel
-   fun:send_request
-   fun:wine_server_call
-   fun:set_window_pos
-   fun:USER_SetWindowPos
-   fun:EndDeferWindowPos
-   fun:update_layout
-   fun:IFileDialog2_fnSetOkButtonLabel
-   fun:test_basics
-   fun:func_itemdlg
-   fun:run_test
-   fun:main
 }
 {
    bug_36657
