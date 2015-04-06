@@ -9211,64 +9211,6 @@
    fun:run_test
    fun:main
 }
-
-{
-   bug_36809_1
-   Memcheck:Cond
-   fun:winetest_vok
-   fun:winetest_ok
-   fun:test_scripttrack
-   fun:func_dmscript
-   fun:run_test
-   fun:main
-}
-{
-   bug_36809_2
-   Memcheck:Cond
-   fun:bcmp
-   fun:test_scripttrack
-   fun:func_dmscript
-   fun:run_test
-   fun:main
-}
-{
-   bug_36809_3
-   Memcheck:Cond
-   fun:vfprintf
-   fun:vsprintf
-   fun:sprintf
-   fun:wine_dbgstr_guid
-   fun:test_scripttrack
-   fun:func_dmscript
-   fun:run_test
-   fun:main
-}
-{
-   bug_36809_4
-   Memcheck:Cond
-   fun:_itoa_word
-   fun:vfprintf
-   fun:vsprintf
-   fun:sprintf
-   fun:wine_dbgstr_guid
-   fun:test_scripttrack
-   fun:func_dmscript
-   fun:run_test
-   fun:main
-}
-{
-   bug_36809_5
-   Memcheck:Value4
-   fun:_itoa_word
-   fun:vfprintf
-   fun:vsprintf
-   fun:sprintf
-   fun:wine_dbgstr_guid
-   fun:test_scripttrack
-   fun:func_dmscript
-   fun:run_test
-   fun:main
-}
 {
    bug_37159_1
    Memcheck:Value4
