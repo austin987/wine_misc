@@ -1030,24 +1030,6 @@
    fun:main
 }
 {
-   bug_28769_1
-   Memcheck:Addr1
-   fun:bcmp
-   fun:foldermanager_GetFolder
-   fun:test_knownFolders
-   fun:func_shellpath
-   fun:main
-}
-{
-   bug_28769_2
-   Memcheck:Free
-   fun:RtlFreeHeap
-   fun:foldermanager_Release
-   fun:test_knownFolders
-   fun:func_shellpath
-   fun:main
-}
-{
    bug_28824
    Memcheck:Cond
    fun:__mktime_internal
