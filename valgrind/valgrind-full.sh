@@ -97,7 +97,7 @@ sh winetricks nocrashdialog heapcheck $virtual_desktop
 #fi
 
 # FIXME: automate building, get upstream:
-tar xJf $HOME/gecko_dbg.tar.xz -C $WINEPREFIX
+#tar xJf $HOME/gecko_dbg.tar.xz -C $WINEPREFIX
 
 #cd $WINEPREFIX/drive_c/windows/system32/gecko/${gecko_version}
 #rm -rf wine_gecko
