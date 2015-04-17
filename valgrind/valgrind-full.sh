@@ -38,10 +38,17 @@ export WINETEST_WRAPPER=/opt/valgrind/bin/valgrind
 # disable BSTR cache
 export OANOCACHE=1 
 
-while [[ $# > 0 ]]
+fatal_warnings=""
+rebuild_wine=0
+skip_crashes=0
+skip_failures=0
+skip_slow=0
+suppress_known=""
+virtual_desktop=""
+
+while [ ! -z "$1" ]
 do
 arg="$1"
-
 case $arg in
     --fatal-warnings) fatal_warnings="--error-exitcode=1" ; shift ;;
     --rebuild) rebuild_wine=1 ; shift ;;
