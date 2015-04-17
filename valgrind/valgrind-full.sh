@@ -127,6 +127,9 @@ touch dlls/mshtml/tests/events.ok # https://bugs.winehq.org/show_bug.cgi?id=3715
 touch dlls/msvcrt/tests/string.ok # valgrind wontfix: https://bugs.winehq.org/show_bug.cgi?id=36165
 touch dlls/opengl32/tests/opengl.ok # hangs on intel i965
 
+# wine bugs:
+touch dlls/tests/winmm/mci.ok # wine/gstreamer (hangs on debian desktop with gstreamer installed)
+
 if [ $skip_crashes -eq 1 ]
 then
     touch dlls/crypt32/tests/msg.ok # crashes https://bugs.winehq.org/show_bug.cgi?id=36200
