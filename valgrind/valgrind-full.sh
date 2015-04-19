@@ -135,7 +135,7 @@ touch dlls/msvcrt/tests/string.ok # valgrind wontfix: https://bugs.winehq.org/sh
 touch dlls/opengl32/tests/opengl.ok # hangs on intel i965
 
 # wine bugs:
-touch dlls/tests/winmm/mci.ok # wine/gstreamer (hangs on debian desktop with gstreamer installed)
+touch dlls/winmm/tests/mci.ok # wine/gstreamer (hangs on debian desktop with gstreamer installed)
 
 if [ $skip_crashes -eq 1 ]
 then
