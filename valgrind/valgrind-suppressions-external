@@ -480,7 +480,7 @@
    obj:*/dlls/kernel32/kernel32.dll.so
 }
 {
-   <insert_a_suppression_name_here>
+   libgcc_1
    Memcheck:Addr1
    ...
    obj:*libgcc_s.so.1*
@@ -489,10 +489,124 @@
    fun:exit
    fun:NtTerminateProcess
    fun:RtlExitUserProcess
-   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+   obj:*/dlls/kernel32/kernel32.dll.so
 }
 {
-   <insert_a_suppression_name_here>
+   libgcc_2
+   Memcheck:Cond
+   fun:_Unwind_Find_registered_FDE
+   fun:_Unwind_Find_FDE
+   obj:*/libgcc_s.so.1
+   obj:*/libgcc_s.so.1
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:__do_cancel
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   libgcc_3
+   Memcheck:Value4
+   obj:*/libgcc_s.so.1
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:__do_cancel
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:*/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   libgcc_4
+   Memcheck:Cond
+   fun:_Unwind_IteratePhdrCallback
+   fun:dl_iterate_phdr
+   fun:_Unwind_Find_FDE
+   obj:/lib/i386-linux-gnu/libgcc_s.so.1
+   obj:/lib/i386-linux-gnu/libgcc_s.so.1
+   fun:_Unwind_ForcedUnwind
+   fun:_Unwind_ForcedUnwind
+   fun:__pthread_unwind
+   fun:__do_cancel
+   fun:pthread_exit
+   fun:terminate_thread
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*
+   fun:start_thread
+   fun:clone
+}
+{
+   libgobject_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:g_type_create_instance
+   fun:gst_mini_object_new
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/usr/lib/i386-linux-gnu/gstreamer-0.10/libgstavi.so
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/lib/i386-linux-gnu/libglib-2.0.so.0.4200.1
+   obj:/lib/i386-linux-gnu/libglib-2.0.so.0.4200.1
+   fun:start_thread
+   fun:clone
+}
+{
+   libgstreamer_1
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   fun:g_slice_alloc
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   fun:gst_tag_list_new
+   fun:gst_riff_parse_info
+   obj:/usr/lib/i386-linux-gnu/gstreamer-0.10/libgstavi.so
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/lib/i386-linux-gnu/libglib-2.0.so.0.4200.1
+   obj:/lib/i386-linux-gnu/libglib-2.0.so.0.4200.1
+   fun:start_thread
+   fun:clone
+}
+{
+   libgstreamer_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   fun:g_slice_alloc
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   fun:gst_structure_id_new
+   ...
+}
+{
+   libgstreamer_3
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:g_malloc
+   fun:g_slice_alloc
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   fun:gst_tag_list_new
+   obj:/usr/lib/i386-linux-gnu/gstreamer-0.10/libgstavi.so
+   obj:/usr/lib/i386-linux-gnu/gstreamer-0.10/libgstavi.so
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/usr/lib/i386-linux-gnu/libgstreamer-0.10.so.0.30.0
+   obj:/lib/i386-linux-gnu/libglib-2.0.so.0.4200.1
+   obj:/lib/i386-linux-gnu/libglib-2.0.so.0.4200.1
+   fun:start_thread
+   fun:clone
+}
+{
+   mesa_1
    Memcheck:Addr4
    ...
    obj:/usr/lib/dri/i965_dri.so
@@ -513,7 +627,21 @@
    fun:test_media_streams
 }
 {
-   <insert_a_suppression_name_here>
+   mesa_2
+   Memcheck:Param
+   ioctl(generic)
+   ...
+   obj:/usr/lib/libdrm_intel.so.1.0.0
+   ...
+   fun:glXChooseVisual
+   fun:X11DRV_WineGL_InitOpenglInfo
+   fun:has_opengl
+   fun:get_glx_driver
+   fun:X11DRV_wine_get_wgl_driver
+   ...
+}
+{
+   nvidia_1
    Memcheck:Cond
    ...
    obj:*nvidia*
@@ -526,20 +654,6 @@
    fun:func_opengl
    fun:run_test
    fun:main
-}
-{
-   <insert_a_suppression_name_here>
-   Memcheck:Param
-   ioctl(generic)
-   ...
-   obj:/usr/lib/libdrm_intel.so.1.0.0
-   ...
-   fun:glXChooseVisual
-   fun:X11DRV_WineGL_InitOpenglInfo
-   fun:has_opengl
-   fun:get_glx_driver
-   fun:X11DRV_wine_get_wgl_driver
-   ...
 }
 {
    libgcrypt1
@@ -924,4 +1038,36 @@
    fun:init_handler
    fun:quit_handler
    obj:/*/libpthread-2.*.so
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   obj:*libnvidia-glcore.so.*
+   ...
+   fun:context_bind_fbo
+   fun:context_apply_fbo_entry
+   fun:context_apply_fbo_state
+   fun:context_apply_fbo_state_blit
+   fun:swapchain_blit
+   fun:swapchain_gl_present
+   fun:wined3d_cs_exec_present
+   fun:wined3d_cs_st_submit
+   fun:wined3d_cs_emit_present
+   fun:wined3d_swapchain_present
+   fun:wined3d_device_present
+   fun:d3d9_device_Present
+   fun:test_occlusion_query_states
+}
+{
+   dxdiagn_provider_nvidia
+   Memcheck:Param
+   write(buf)
+   fun:__write_nocancel
+   fun:_IO_file_write@@GLIBC_2.1
+   fun:new_do_write
+   fun:_IO_do_write@@GLIBC_2.1
+   fun:_IO_file_sync@@GLIBC_2.1
+   fun:fflush
+   obj:*libnvidia-glcore.so.*
+   ...
 }

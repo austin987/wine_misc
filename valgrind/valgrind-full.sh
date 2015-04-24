@@ -140,6 +140,7 @@ touch dlls/winmm/tests/mci.ok # wine/gstreamer (hangs on debian desktop with gst
 if [ $skip_crashes -eq 1 ]
 then
     touch dlls/crypt32/tests/msg.ok # crashes https://bugs.winehq.org/show_bug.cgi?id=36200
+    touch dlls/d2d1/tests/d2d1.ok # crashes https://bugs.winehq.org/show_bug.cgi?id=38481
     touch dlls/d3d8/tests/device.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=28800
     touch dlls/d3dx9_36/tests/mesh.ok # test crashes on intel/nvidia https://bugs.winehq.org/show_bug.cgi?id=28810
     touch dlls/d3dx9_36/tests/texture.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=36386
@@ -148,6 +149,7 @@ then
     touch dlls/ddrawex/tests/surface.ok # valgrind segfaults on nvidia https://bugs.winehq.org/show_bug.cgi?id=36689 / https://bugs.kde.org/show_bug.cgi?id=335907
     touch dlls/dxdiagn/tests/container.ok # crashes https://bugs.winehq.org/show_bug.cgi?id=36276
     touch dlls/dxgi/tests/device.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=36626
+    touch dlls/kernel32/tests/debugger.ok # intentional
     touch dlls/ntdll/tests/exception.ok # https://bugs.winehq.org/show_bug.cgi?id=28735
     touch dlls/shlwapi/tests/path.ok # crashes with gcc-4.9.0/valgrind https://bugs.winehq.org/show_bug.cgi?id=36651
 fi
@@ -182,7 +184,8 @@ then
     touch dlls/user32/tests/winstation.ok # https://bugs.winehq.org/show_bug.cgi?id=36676 / https://bugs.winehq.org/show_bug.cgi?id=36587
     touch dlls/winhttp/tests/winhttp.ok # https://bugs.winehq.org/show_bug.cgi?id=36599 winhttp.c:879: Test failed: failed to receive response 12152
     touch dlls/wininet/tests/http.ok # https://bugs.winehq.org/show_bug.cgi?id=36637 
-    touch dlls/ws2_32/tests/sock.ok # https://bugs.winehq.org/show_bug.cgi?id=36681 sock.c:2270: Test failed: Expected 10047, received 10043    touch programs/cmd/tests/batch.ok # https://bugs.winehq.org/show_bug.cgi?id=36163                        
+    touch dlls/ws2_32/tests/sock.ok # https://bugs.winehq.org/show_bug.cgi?id=36681 sock.c:2270: Test failed: Expected 10047, received 10043
+    touch programs/cmd/tests/batch.ok # https://bugs.winehq.org/show_bug.cgi?id=36163
     touch programs/xcopy/tests/xcopy.ok # https://bugs.winehq.org/show_bug.cgi?id=36172
 fi
 

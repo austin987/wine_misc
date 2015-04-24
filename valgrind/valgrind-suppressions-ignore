@@ -1298,3 +1298,138 @@
    fun:run_test
    fun:main
 }
+
+{
+   bug_36095_1
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:init_load_order
+   fun:get_load_order
+   fun:load_dll
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:__wine_kernel_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36095_2
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlCreateUnicodeString
+   fun:alloc_module
+   fun:load_builtin_callback
+   fun:wine_dll_set_callback
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36095_3
+   Memcheck:Leak
+   match-leak-kinds: possible
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlAnsiStringToUnicodeString
+   fun:RtlCreateUnicodeStringFromAsciiz
+   fun:init_load_order
+   fun:get_load_order
+   fun:load_dll
+   fun:LdrLoadDll
+   fun:load_library
+   fun:LoadLibraryExW
+   fun:__wine_kernel_init
+   fun:__wine_process_init
+   fun:wine_init
+   fun:main
+}
+{
+   bug_36095_4
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   fun:RtlCreateUnicodeString
+   fun:alloc_module
+   fun:load_builtin_callback
+   fun:__wine_dll_register
+   fun:__wine_spec_init
+   fun:call_init.part.0
+   fun:_dl_init
+   fun:dl_open_worker
+   fun:_dl_catch_error
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.1
+   fun:wine_dlopen
+   fun:dlopen_dll
+   fun:wine_dll_load
+   fun:load_builtin_dll
+}
+{
+   useless_stack
+   Memcheck:Addr4
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Value4
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlReAllocateHeap
+   fun:msvcrt_heap_realloc
+   fun:MSVCRT_realloc
+   obj:*
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
