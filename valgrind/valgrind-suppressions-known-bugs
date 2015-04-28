@@ -9260,24 +9260,6 @@
    fun:main
 }
 {
-   bug_38442
-   Memcheck:Cond
-   obj:*libnvidia-glcore.so.*
-   fun:shader_glsl_load_constants
-   fun:context_apply_draw_state
-   fun:draw_primitive
-   fun:wined3d_cs_exec_draw
-   fun:wined3d_cs_st_submit
-   fun:wined3d_cs_emit_draw
-   fun:wined3d_device_draw_primitive
-   fun:d3d10_device_Draw
-   fun:ID3D10Device_Draw
-   fun:test_texture
-   fun:func_device
-   fun:run_test
-   fun:main
-}
-{
    bug_38443_1
    Memcheck:Addr2
    fun:wine_dbgstr_guid
