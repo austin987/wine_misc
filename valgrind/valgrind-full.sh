@@ -132,10 +132,10 @@ touch dlls/kernel32/tests/thread.ok # valgrind crash https://bugs.winehq.org/sho
 touch dlls/kernel32/tests/virtual.ok # valgrind assertion failure after https://bugs.winehq.org/show_bug.cgi?id=28816: valgrind: m_debuginfo/debuginfo.c:1261 (vgPlain_di_notify_pdb_debuginfo): Assertion 'di && !di->fsm.have_rx_map && !di->fsm.have_rw_map' failed.
 touch dlls/mshtml/tests/events.ok # https://bugs.winehq.org/show_bug.cgi?id=37157 hangs under valgrind
 touch dlls/msvcrt/tests/string.ok # valgrind wontfix: https://bugs.winehq.org/show_bug.cgi?id=36165
-touch dlls/opengl32/tests/opengl.ok # hangs on intel i965
+touch dlls/opengl32/tests/opengl.ok # https://bugs.winehq.org/show_bug.cgi?id=38533
 
 # wine bugs:
-touch dlls/winmm/tests/mci.ok # wine/gstreamer (hangs on debian desktop with gstreamer installed)
+touch dlls/winmm/tests/mci.ok # https://bugs.winehq.org/show_bug.cgi?id=30557
 
 if [ $skip_crashes -eq 1 ]
 then
