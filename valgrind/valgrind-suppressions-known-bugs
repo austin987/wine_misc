@@ -9526,35 +9526,6 @@
    fun:main
 }
 {
-   bug_38454_1
-   Memcheck:Param
-   write(buf)
-   obj:*/libpthread*.so
-   fun:NtWriteFile
-   fun:WriteFile
-   fun:_hwrite
-   fun:mmioDosIOProc
-   fun:send_message
-   fun:MMIO_Flush
-   fun:mmioSeek
-   fun:mmioCreateChunk
-   fun:create_wav_file
-   fun:test_PlaySound
-   fun:func_wave
-   fun:run_test
-   fun:main
-}
-{
-   bug_38454_2
-   Memcheck:Cond
-   fun:mmioAscend
-   fun:create_wav_file
-   fun:test_PlaySound
-   fun:func_wave
-   fun:run_test
-   fun:main
-}
-{
    bug_38456_1
    Memcheck:Cond
    fun:bcmp
