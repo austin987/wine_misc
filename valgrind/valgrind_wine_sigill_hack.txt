@@ -1,0 +1,20 @@
+diff --git a/dlls/ntdll/signal_i386.c b/dlls/ntdll/signal_i386.c
+index 5c3aa819..8b8e625 100644
+--- a/dlls/ntdll/signal_i386.c
++++ b/dlls/ntdll/signal_i386.c
+@@ -2055,6 +2055,15 @@ static void segv_handler( int signal, siginfo_t *siginfo, void *sigcontext )
+         return;
+     }
+ 
++    if (!get_trap_code(context) &&
++        siginfo->si_addr == (void *)EIP_sig(context) &&
++        *(char *)EIP_sig(context) == 0x36)
++    {
++        FIXME("---> working around Valgrind SIGILL exception\n");
++        EIP_sig(context)++;
++        return;
++    }
++
+     /* check for page fault inside the thread stack */
+     if (get_trap_code(context) == TRAP_x86_PAGEFLT &&
+         (char *)siginfo->si_addr >= (char *)NtCurrentTeb()->DeallocationStack &&
