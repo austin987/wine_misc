@@ -1071,3 +1071,14 @@
    obj:*libnvidia-glcore.so.*
    ...
 }
+{
+   i965_drm_intel_bo_gem_export_to_prime
+   Memcheck:Param
+   ioctl(generic)
+   fun:ioctl
+   fun:drmIoctl
+   fun:drmPrimeHandleToFD
+   fun:drm_intel_bo_gem_export_to_prime
+   obj:/usr/lib/dri/i965_dri.so
+   ...
+}

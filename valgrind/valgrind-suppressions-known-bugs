@@ -3765,91 +3765,6 @@
    ...
 }
 {
-   bug_36244_1
-   Memcheck:Addr4
-   fun:point_filter_argb_pixels
-   fun:D3DXLoadSurfaceFromMemory
-   fun:D3DXLoadSurfaceFromFileInMemory
-   fun:D3DXLoadSurfaceFromResourceA
-   fun:test_D3DXLoadSurface
-   fun:func_surface
-   ...
-}
-{
-   bug_36244_2
-   Memcheck:Leak
-   ...
-   fun:func_surface
-   ...
-}
-{
-   bug_36244_3
-   Memcheck:Addr4
-   fun:point_filter_argb_pixels
-   fun:D3DXLoadSurfaceFromMemory
-   fun:D3DXLoadSurfaceFromFileInMemory
-   fun:D3DXLoadSurfaceFromResourceA
-   fun:func_surface
-   ...
-}
-{
-   bug_36245_1
-   Memcheck:Addr4
-   fun:point_filter_argb_pixels
-   fun:D3DXLoadSurfaceFromMemory
-   fun:D3DXLoadSurfaceFromFileInMemory
-   fun:D3DXCreateTextureFromFileInMemoryEx
-   fun:D3DXCreateTextureFromResourceExA
-   fun:D3DXCreateTextureFromResourceA
-   fun:test_D3DXCreateTexture
-   fun:func_texture
-   ...
-}
-{
-   bug_36245_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:D3DXGetImageInfoFromFileInMemory
-   fun:D3DXCreateTextureFromFileInMemoryEx
-   fun:D3DXCreateTextureFromResourceExA
-   fun:D3DXCreateTextureFromResourceA
-   fun:test_D3DXCreateTexture
-   fun:func_texture
-   ...
-}
-{
-   bug_36245_3
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:RtlAllocateHeap
-   fun:Direct3DCreate9
-   fun:func_texture
-   ...
-}
-{
-   bug_36245_4
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:wined3d_create
-   fun:d3d9_init
-   fun:Direct3DCreate9
-   fun:func_texture
-   ...
-}
-{
-   bug_36246
-   Memcheck:Leak
-   ...
-   fun:func_xfile
-   ...
-}
-{
    bug_36248_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -4028,29 +3943,6 @@
    fun:CoCreateInstance
    fun:test_devenum
    fun:func_devenum
-   fun:run_test
-   fun:main
-}
-{
-   bug_36261_1
-   Memcheck:Addr4
-   fun:d3d_device_inner_Release
-   ...
-   fun:run_test
-   fun:main
-}
-{
-   bug_36261_2
-   Memcheck:Addr4
-   fun:memcpy
-   fun:wined3d_device_set_ps_consts_f
-   fun:wined3d_stateblock_apply
-   fun:ddraw_set_cooperative_level
-   fun:ddraw7_SetCooperativeLevel
-   fun:ddraw_destroy
-   fun:ddraw4_Release
-   fun:test_surface_interface_mismatch
-   fun:func_ddraw4
    fun:run_test
    fun:main
 }
@@ -5826,75 +5718,6 @@
    fun:main
 }
 {
-   bug_36339_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:calloc
-   ...
-   fun:glXChooseVisual
-   fun:X11DRV_WineGL_InitOpenglInfo
-   fun:has_opengl
-   fun:get_glx_driver
-   fun:X11DRV_wine_get_wgl_driver
-   fun:__wine_get_wgl_driver
-   fun:wined3d_adapter_init
-   fun:wined3d_init
-   fun:wined3d_create
-   ...
-}
-{
-   bug_36339_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:calloc
-   ...
-   fun:glXChooseVisual
-   fun:has_opengl
-   fun:get_glx_driver
-   fun:X11DRV_wine_get_wgl_driver
-   fun:__wine_get_wgl_driver
-   fun:wined3d_adapter_init.constprop.18
-   fun:wined3d_init
-   fun:wined3d_create
-   ...
-}
-{
-   bug_36339_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:calloc
-   ...
-   fun:glXChooseVisual
-   fun:X11DRV_WineGL_InitOpenglInfo
-   fun:has_opengl
-   fun:get_glx_driver
-   fun:X11DRV_wine_get_wgl_driver
-   fun:__wine_get_wgl_driver
-   fun:wined3d_adapter_init
-   fun:wined3d_init
-   fun:wined3d_create
-   ...
-}
-{
-   bug_36339_4
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:malloc
-   ...
-   fun:create_glxcontext.isra.0
-   fun:X11DRV_wglCreateContextAttribsARB
-   fun:wglCreateContextAttribsARB
-   fun:wined3d_adapter_init.constprop.18
-   fun:wined3d_init
-   fun:wined3d_create
-   fun:ddraw_init
-   fun:DDRAW_Create
-   fun:DirectDrawCreate
-   fun:func_d3d
-   fun:run_test
-   fun:main
-}
-{
    bug_36340_1
    Memcheck:Cond
    fun:GetRegionData
@@ -6378,21 +6201,6 @@
    fun:main
 }
 {
-   bug_36353
-   Memcheck:Leak
-   ...
-   obj:/*lib*/libdrm_intel.so.*
-   ...
-   fun:wined3d_surface_map
-   fun:d3d9_surface_LockRect
-   fun:D3DXLoadSurfaceFromMemory
-   fun:D3DXLoadSurfaceFromSurface
-   fun:D3DXRenderToSurface_EndScene
-   fun:check_ID3DXRenderToSurface
-   fun:func_core
-   ...
-}
-{
    bug_36354
    Memcheck:Leak
    match-leak-kinds: definite
@@ -6739,35 +6547,6 @@
    obj:*
    obj:*
    obj:*
-}
-{
-   bug_36379_1
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:wined3d_device_set_light
-   fun:d3d_device7_SetLight
-   fun:d3d_device7_SetLight_FPUSetup
-   fun:LightTest
-   fun:func_d3d
-   ...
-   fun:main
-}
-{
-   bug_36379_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:wined3d_device_set_light
-   fun:wined3d_device_set_light_enable
-   fun:d3d_device7_LightEnable
-   fun:d3d_device7_LightEnable_FPUSetup
-   fun:LightTest
-   fun:func_d3d
-   ...
-   fun:main
 }
 {
    bug_36380
@@ -8911,19 +8690,6 @@
    fun:main
 }
 {
-   bug_36659
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:DDRAW_Create
-   fun:DirectDrawCreate
-   fun:CapsTest
-   fun:func_d3d
-   fun:run_test
-   fun:main
-}
-{
    bug_36662_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -8958,19 +8724,6 @@
    fun:WSASend
    fun:test_send
    fun:func_sock
-   fun:run_test
-   fun:main
-}
-{
-   bug_36669
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:DDRAW_Create
-   fun:DirectDrawCreate
-   fun:D3D1_createObjects
-   fun:func_visual
    fun:run_test
    fun:main
 }
@@ -9090,19 +8843,6 @@
    fun:SendMessageW
    fun:test_EM_FINDWORDBREAK_A
    fun:func_editor
-   fun:run_test
-   fun:main
-}
-{
-   bug_37220
-   Memcheck:Addr4
-   fun:memcpy
-   fun:copy_pixels
-   fun:D3DXLoadSurfaceFromMemory
-   fun:D3DXLoadSurfaceFromSurface
-   fun:D3DXRenderToSurface_EndScene
-   fun:test_ID3DXRenderToSurface
-   fun:func_core
    fun:run_test
    fun:main
 }
