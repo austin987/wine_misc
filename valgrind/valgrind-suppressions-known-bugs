@@ -9182,27 +9182,6 @@
    fun:URLMoniker_BindToObject
 }
 {
-   bug_38453
-   Memcheck:Cond
-   fun:Global_InStrRev
-   fun:invoke_builtin
-   fun:DispatchEx_InvokeEx
-   fun:IDispatchEx_InvokeEx
-   fun:disp_call
-   fun:do_icall
-   fun:interp_icall
-   fun:exec_script
-   fun:exec_global_code
-   fun:VBScriptParse_ParseScriptText
-   fun:IActiveScriptParse32_ParseScriptText
-   fun:parse_script
-   fun:run_from_res
-   fun:run_tests
-   fun:func_run
-   fun:run_test
-   fun:main
-}
-{
    bug_38456_1
    Memcheck:Cond
    fun:bcmp
