@@ -35,10 +35,13 @@ WINESERVER="$WINESRC/server/wineserver"
 export WINETEST_WRAPPER=/opt/valgrind/bin/valgrind
 #WINETEST_WRAPPER=valgrind
 
+gecko_version="2.36"
+
 # disable BSTR cache
 export OANOCACHE=1 
 
 fatal_warnings=""
+gecko_pdb=0
 rebuild_wine=0
 skip_crashes=0
 skip_failures=0
@@ -51,6 +54,7 @@ do
 arg="$1"
 case $arg in
     --fatal-warnings) fatal_warnings="--error-exitcode=1" ; shift ;;
+    --gecko-pdb) gecko_pdb=1 ; shift ;;
     --rebuild) rebuild_wine=1 ; shift ;;
     --skip-crashes) skip_crashes=1 ; shift ;;
     --skip-failures) skip_failures=1 ; shift ;;
@@ -96,20 +100,32 @@ fi
 # Only enable a virtual desktop if specified on the command line:
 sh winetricks nocrashdialog heapcheck $virtual_desktop
 
-# Debug dlls don't work right now (https://bugs.winehq.org/show_bug.cgi?id=36463 )
-#gecko_version="2.24"
+# Mingw built debug dlls don't work right now (https://bugs.winehq.org/show_bug.cgi?id=36463 )
+# Aside from that, valgrind doesn't support mingw built binaries well (https://bugs.kde.org/show_bug.cgi?id=211031)
 #if test ! -f wine_gecko-${gecko_version}-x86-unstripped.tar.bz2
 #then
 #    wget http://downloads.sourceforge.net/project/wine/Wine%20Gecko/${gecko_version}/wine_gecko-${gecko_version}-x86-unstripped.tar.bz2
 #fi
 
-# FIXME: automate building, get upstream:
-#tar xJf $HOME/gecko_dbg.tar.xz -C $WINEPREFIX
+if [ $gecko_pdb -eq 1 ]
+then
+    if test ! -f wine_gecko-${gecko_version}-x86-dbg-msvc-pdb.tar.bz2
+    then
+        wget http://downloads.sourceforge.net/project/wine/Wine%20Gecko/${gecko_version}/wine_gecko-${gecko_version}-x86-dbg-msvc-pdb.tar.bz2
+    fi
 
-#cd $WINEPREFIX/drive_c/windows/system32/gecko/${gecko_version}
-#rm -rf wine_gecko
-#tar -xjvf $WINESRC/wine_gecko-${gecko_version}-x86-unstripped.tar.bz2
-#cd $WINESRC
+    if test ! -f wine_gecko-${gecko_version}-x86-dbg-msvc.tar.bz2
+    then
+        wget http://downloads.sourceforge.net/project/wine/Wine%20Gecko/${gecko_version}/wine_gecko-${gecko_version}-x86-dbg-msvc.tar.bz2
+    fi
+
+    tar xjmvf $WINESRC/wine_gecko-${gecko_version}-x86-dbg-msvc-pdb.tar.bz2 -C $WINEPREFIX/drive_c
+
+    cd $WINEPREFIX/drive_c/windows/system32/gecko/${gecko_version}
+    rm -rf wine_gecko
+    tar xjmvf $WINESRC/wine_gecko-${gecko_version}-x86-dbg-msvc.tar.bz2
+    cd $WINESRC
+fi
 
 # make sure our settings took effect:
 $WINESERVER -w
@@ -136,6 +152,14 @@ touch dlls/opengl32/tests/opengl.ok # https://bugs.winehq.org/show_bug.cgi?id=38
 
 # wine bugs:
 touch dlls/winmm/tests/mci.ok # https://bugs.winehq.org/show_bug.cgi?id=30557
+
+# wine hangs with pdb debug builds in dlls/ieframe/tests/ie.c (https://bugs.winehq.org/show_bug.cgi?id=38604)
+# and (sometimes) in dlls/atl100/tests/atl.c (https://bugs.winehq.org/show_bug.cgi?id=38594)
+if [ $gecko_pdb -eq 1 ]
+then
+    touch dlls/atl100/tests/atl.ok
+    touch dlls/ieframe/tests/ie.ok
+fi
 
 if [ $skip_crashes -eq 1 ]
 then
