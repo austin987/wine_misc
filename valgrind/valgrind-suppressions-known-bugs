@@ -9240,23 +9240,3 @@
    fun:run_test
    fun:main
 }
-{
-   bug_38593
-   Memcheck:Param
-   writev(vector[...])
-   ...
-   obj:/usr/lib/libxcb.so.*
-   obj:/usr/lib/libxcb.so.*
-   fun:xcb_writev
-   fun:_XSend
-   fun:_XFlush
-   fun:XFlush
-   fun:create_whole_window
-   fun:X11DRV_create_win_data
-   fun:X11DRV_WindowPosChanging
-   fun:set_window_pos
-   fun:WIN_CreateWindowEx
-   fun:CreateWindowExW
-   ...
-}
-
