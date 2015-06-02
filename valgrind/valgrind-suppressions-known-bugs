@@ -9216,17 +9216,6 @@
    obj:*/libs/wine/libwine.so.1.0
 }
 {
-   bug_38462
-   Memcheck:Cond
-   fun:VARIANT_ValidateType
-   fun:VariantClear
-   fun:test_exec_script
-   fun:test_create_element
-   fun:func_activex
-   fun:run_test
-   fun:main
-}
-{
    bug_38464
    Memcheck:Leak
    match-leak-kinds: possible
