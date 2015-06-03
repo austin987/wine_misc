@@ -822,12 +822,10 @@
    fun:BlockChainStream_Flush
    fun:StorageImpl_Flush
    ...
-   fun:StgStreamImpl_Write
    fun:PropertyStorage_WritePropertyToStream
    fun:PropertyStorage_PropertiesWriter
    fun:dictionary_enumerate
    ...
-   fun:IPropertyStorage_fnCommit
    fun:test_ReadAndWriteProperties
    ...
    fun:func_intshcut
@@ -9226,6 +9224,175 @@
    fun:InitializeCriticalSection
    fun:test_async_HttpSendRequestEx
    fun:func_http
+   fun:run_test
+   fun:main
+}
+{
+   bug_38670
+   Memcheck:Cond
+   fun:winetest_vok
+   fun:winetest_ok
+   fun:test_reg_query_info
+   fun:func_registry
+   fun:run_test
+   fun:main
+}
+{
+   bug_38671
+   Memcheck:Param
+   writev(vector[...])
+   obj:*/libc-2.*.so
+   fun:send_request
+   fun:wine_server_call
+   fun:FILE_CreateFile
+   fun:NtCreateFile
+   fun:CreateDirectoryW
+   fun:CreateDirectoryA
+   fun:test_CreateDirectoryA
+   fun:func_security
+   fun:run_test
+   fun:main
+}
+{
+   bug_38672
+   Memcheck:Param
+   writev(vector[...])
+   fun:__writev_nocancel
+   obj:*/libxcb.so.*
+   obj:*/libxcb.so.*
+   fun:xcb_writev
+   fun:_XSend
+   ...
+}
+{
+   bug_38673
+   Memcheck:Param
+   writev(vector[...])
+   obj:/usr/lib/libc-2.21.so
+   fun:send_request
+   fun:wine_server_call
+   fun:server_select
+   fun:NtWaitForMultipleObjects
+   fun:NtWaitForSingleObject
+   fun:server_ioctl_file
+   fun:NtFsControlFile
+   fun:ConnectNamedPipe
+   fun:listen_thread
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:call_thread_func
+   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   fun:start_thread
+   fun:start_thread
+   fun:clone
+}
+{
+   bug_38674
+   Memcheck:Param
+   writev(vector[...])
+   obj:/usr/lib/libc-2.21.so
+   fun:send_request
+   fun:wine_server_call
+   fun:wine_server_call_err
+   fun:WriteConsoleInputW
+   fun:WriteConsoleInputA
+   fun:test_WriteConsoleInputA
+   fun:func_console
+   fun:run_test
+   fun:main
+}
+{
+   bug_38675
+   Memcheck:Param
+   writev(vector[...])
+   fun:__writev_nocancel
+   fun:send_request
+   fun:wine_server_call
+   fun:server_select
+   fun:NtWaitForMultipleObjects
+   fun:NtWaitForSingleObject
+   fun:server_ioctl_file
+   fun:NtDeviceIoControlFile
+   fun:DeviceIoControl
+   fun:get_mountmgr_drive_type
+   fun:GetDriveTypeW
+   fun:GetDriveTypeA
+   fun:test_GetDriveTypeA
+   fun:func_drive
+   fun:run_test
+   fun:main
+}
+{
+   bug_38676
+   Memcheck:Addr1
+   fun:getmntent_r
+   fun:getmntent
+   fun:parse_mount_entries
+   fun:get_default_drive_device
+   fun:get_dos_device
+   fun:wine_nt_to_unix_file_name
+   fun:nt_to_unix_file_name_attr
+   fun:FILE_CreateFile
+   fun:NtCreateFile
+   fun:CreateFileW
+   fun:CreateFileA
+   fun:test_CreateFileA
+   fun:func_file
+   fun:run_test
+   fun:main
+}
+{
+   bug_38677_1
+   Memcheck:Addr2
+   fun:lstrcpynW
+   fun:GetShortPathNameW
+   fun:GetShortPathNameA
+   fun:test_PathNameA
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   bug_38677_2
+   Memcheck:Addr2
+   ...
+   fun:RtlGetFullPathName_U
+   fun:RtlDosPathNameToNtPathName_U
+   fun:FindFirstFileExW
+   fun:FindFirstFileW
+   fun:GetShortPathNameW
+   fun:GetShortPathNameA
+   fun:test_PathNameA
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   bug_38678
+   Memcheck:Cond
+   fun:RtlIsNameLegalDOS8Dot3
+   fun:CheckNameLegalDOS8Dot3W
+   ...
+   fun:test_CheckNameLegalDOS8Dot3
+   fun:func_path
+   fun:run_test
+   fun:main
+}
+{
+   bug_38679
+   Memcheck:Addr1
+   fun:getmntent_r
+   fun:getmntent
+   fun:parse_mount_entries
+   fun:get_default_drive_device
+   fun:get_dos_device
+   fun:wine_nt_to_unix_file_name
+   fun:nt_to_unix_file_name_attr
+   fun:FILE_CreateFile
+   fun:NtOpenFile
+   fun:GetVolumeInformationW
+   fun:GetVolumeInformationA
+   fun:test_GetVolumeInformationA
+   fun:func_volume
    fun:run_test
    fun:main
 }
