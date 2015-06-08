@@ -1082,3 +1082,27 @@
    obj:/usr/lib/dri/i965_dri.so
    ...
 }
+{
+   i965_d3d8_visual_fog_test
+   Memcheck:Cond
+   fun:bcmp
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   obj:/usr/lib/dri/i965_dri.so
+   fun:glClear
+   fun:device_clear_render_targets
+   fun:wined3d_cs_exec_clear
+   fun:wined3d_cs_st_submit
+   fun:wined3d_cs_emit_clear
+   fun:wined3d_device_clear
+   fun:d3d8_device_Clear
+   fun:test_fog_interpolation
+   fun:func_visual
+}
