@@ -1865,108 +1865,6 @@
    fun:main
 }
 {
-   bug_36135_1
-   Memcheck:Cond
-   fun:order_rect
-   fun:ExtTextOutW
-   fun:ExtTextOutA
-   fun:MF_Play_MetaExtTextOut
-   fun:PlayMetaFileRecord
-   fun:PlayMetaFile
-   fun:DataCache_Draw
-   ...
-   fun:test_data_cache
-   fun:func_ole2
-   fun:run_test
-   fun:main
-}
-{
-   bug_36135_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:DataObject_DAdvise
-   fun:setup_sink
-   fun:DataCache_OnRun
-   fun:test_data_cache
-   fun:func_ole2
-   fun:run_test
-   fun:main
-}
-{
-   bug_36135_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:DefaultHandler_Construct
-   fun:OleCreateEmbeddingHelper
-   fun:OleCreateDefaultHandler
-   fun:test_default_handler
-   fun:func_ole2
-   fun:run_test
-   fun:main
-}
-{
-   bug_36135_4
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:DataObject_DAdvise
-   fun:setup_sink
-   fun:DataCache_OnRun
-   fun:test_data_cache
-   fun:func_ole2
-   fun:run_test
-   fun:main
-}
-{
-   bug_36135_5
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:DataCache_Construct
-   fun:CreateDataCache
-   fun:DefaultHandler_Construct
-   fun:OleCreateEmbeddingHelper
-   fun:OleCreateDefaultHandler
-   fun:test_default_handler
-   fun:func_ole2
-   fun:run_test
-   fun:main
-}
-{
-   bug_36135_6
-   Memcheck:Cond
-   fun:ExtTextOutW
-   fun:ExtTextOutA
-   fun:PlayMetaFileRecord
-   fun:PlayMetaFile
-   fun:DataCache_Draw
-   fun:test_data_cache
-   fun:func_ole2
-   fun:run_test
-   fun:main
-}
-{
-   bug_36135_7
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   ...
-   fun:OleCreateEmbeddingHelper
-   fun:OleCreateDefaultHandler
-   fun:func_ole2
-   ...
-}
-{
    bug_36136_1
    Memcheck:Leak
    match-leak-kinds: definite
@@ -9257,8 +9155,7 @@
    bug_38672
    Memcheck:Param
    writev(vector[...])
-   fun:__writev_nocancel
-   obj:*/libxcb.so.*
+   ...
    obj:*/libxcb.so.*
    fun:xcb_writev
    fun:_XSend
@@ -9315,11 +9212,7 @@
    fun:DeviceIoControl
    fun:get_mountmgr_drive_type
    fun:GetDriveTypeW
-   fun:GetDriveTypeA
-   fun:test_GetDriveTypeA
-   fun:func_drive
-   fun:run_test
-   fun:main
+   ...
 }
 {
    bug_38676
@@ -9332,13 +9225,7 @@
    fun:wine_nt_to_unix_file_name
    fun:nt_to_unix_file_name_attr
    fun:FILE_CreateFile
-   fun:NtCreateFile
-   fun:CreateFileW
-   fun:CreateFileA
-   fun:test_CreateFileA
-   fun:func_file
-   fun:run_test
-   fun:main
+   ...
 }
 {
    bug_38677_1
@@ -9378,21 +9265,32 @@
    fun:main
 }
 {
-   bug_38679
-   Memcheck:Addr1
-   fun:getmntent_r
-   fun:getmntent
-   fun:parse_mount_entries
-   fun:get_default_drive_device
-   fun:get_dos_device
-   fun:wine_nt_to_unix_file_name
-   fun:nt_to_unix_file_name_attr
-   fun:FILE_CreateFile
-   fun:NtOpenFile
-   fun:GetVolumeInformationW
-   fun:GetVolumeInformationA
-   fun:test_GetVolumeInformationA
-   fun:func_volume
+   bug_38685
+   Memcheck:Addr2
+   fun:check_gamma_ramps
+   fun:SetDeviceGammaRamp
+   fun:wined3d_swapchain_set_gamma_ramp
+   fun:swapchain_cleanup
+   fun:wined3d_swapchain_decref
+   fun:wined3d_device_uninit_3d
+   fun:d3d9_device_Release
+   fun:test_user_memory_getdc
+   fun:func_d3d9ex
    fun:run_test
    fun:main
 }
+{
+   bug_38716
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:DefaultHandler_Construct
+   fun:OleCreateEmbeddingHelper
+   fun:OleCreateDefaultHandler
+   fun:test_default_handler
+   fun:func_ole2
+   fun:run_test
+   fun:main
+}
+
