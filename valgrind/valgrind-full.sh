@@ -36,6 +36,7 @@ export WINETEST_WRAPPER=/opt/valgrind/bin/valgrind
 #WINETEST_WRAPPER=valgrind
 
 gecko_version="2.36"
+wine_version=$(git describe)
 
 # disable BSTR cache
 export OANOCACHE=1 
@@ -51,6 +52,10 @@ skip_failures=0
 skip_slow=0
 suppress_known=""
 virtual_desktop=""
+
+mkdir -p ${WINESRC}/logs
+echo "started with: $0 $@" > ${WINESRC}/logs/${wine_version}.log
+git log -n 1 >> ${WINESRC}/logs/${wine_version}.log
 
 while [ ! -z "$1" ]
 do
@@ -83,8 +88,6 @@ then
     $WINESERVER -k || true
 fi
 rm -rf $WINEPREFIX
-
-mkdir -p logs
 
 # Build a fresh wine, if desired/needed:
 if test ! -f Makefile || test "$rebuild_wine" = "1"
@@ -219,14 +222,6 @@ if [ $skip_slow -eq 1 ]
 then
     touch dlls/kernel32/tests/debugger.ok # https://bugs.winehq.org/show_bug.cgi?id=36672
 fi
-
-# FIXME: should we use date or id from git log?
-DATE=`date +%F-%H.%M`
-
-# diagnostics about what ran:
-echo "started with: $0 $@" > logs/$DATE.log
-# Get info about what commit we're testing:
-git log -n 1 >> logs/$DATE.log
 
 # Finally run the tests:
 export VALGRIND_OPTS="-q --trace-children=yes --track-origins=yes --gen-suppressions=all --suppressions=$WINESRC/tools/valgrind/valgrind-suppressions-external --suppressions=$WINESRC/tools/valgrind/valgrind-suppressions-ignore $suppress_known $fatal_warnings --leak-check=full --num-callers=20  --workaround-gcc296-bugs=yes --vex-iropt-register-updates=allregs-at-mem-access"
