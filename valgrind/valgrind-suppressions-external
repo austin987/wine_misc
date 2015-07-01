@@ -12,9 +12,9 @@
    fun:timer_callback_wrapper
    fun:queue_timer_expire
    fun:timer_queue_thread_proc
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:call_thread_func
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:start_thread
    fun:start_thread
    fun:clone
@@ -285,7 +285,7 @@
    fun:exit
    fun:NtTerminateProcess
    fun:RtlExitUserProcess
-   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+   obj:*/dlls/kernel32/kernel32.dll.so
 }
 {
    dbus_5
@@ -293,9 +293,9 @@
    match-leak-kinds: definite
    ...
    fun:dbus_thread
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:call_thread_func
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:start_thread
    fun:start_thread
    fun:clone
@@ -306,9 +306,9 @@
    match-leak-kinds: possible
    ...
    fun:dbus_thread
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:call_thread_func
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    fun:start_thread
    fun:start_thread
    fun:clone
@@ -538,7 +538,7 @@
    fun:__do_cancel
    fun:pthread_exit
    fun:terminate_thread
-   obj:/home/austin/wine-valgrind/dlls/ntdll/ntdll.dll.so
+   obj:*/dlls/ntdll/ntdll.dll.so
    obj:*
    fun:start_thread
    fun:clone
@@ -791,7 +791,7 @@
    fun:exit
    fun:NtTerminateProcess
    fun:RtlExitUserProcess
-   obj:/home/austin/wine-valgrind/dlls/kernel32/kernel32.dll.so
+   obj:*/dlls/kernel32/kernel32.dll.so
 }
 {
    twain_32_test_dsm_sane_useless_stack
@@ -1105,4 +1105,10 @@
    fun:d3d8_device_Clear
    fun:test_fog_interpolation
    fun:func_visual
+}
+{
+   crypt32_msg
+   Memcheck:Addr1
+   fun:segv_handler
+   obj:/*lib*/libpthread-2.*.so
 }
