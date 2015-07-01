@@ -40,6 +40,9 @@ gecko_version="2.36"
 # disable BSTR cache
 export OANOCACHE=1 
 
+# reduce spam:
+export WINEDEBUG=-all
+
 fatal_warnings=""
 gecko_pdb=0
 rebuild_wine=0
