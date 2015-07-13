@@ -228,7 +228,7 @@ export VALGRIND_OPTS="-q --trace-children=yes --track-origins=yes --gen-suppress
 export WINETEST_TIMEOUT=600
 export WINE_HEAP_TAIL_REDZONE=32
 
-time make -k test >> logs/$DATE.log 2>&1 || true
+time make -k test >> ${WINESRC}/logs/${wine_version}.log 2>&1 || true
 
 # Kill off winemine and any stragglers
 $WINESERVER -k || true
