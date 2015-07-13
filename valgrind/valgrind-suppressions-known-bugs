@@ -3703,46 +3703,6 @@
    fun:clone
 }
 {
-   bug_36265_1
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:CoCreateInstance
-   ...
-   fun:func_dmband
-   fun:run_test
-   fun:main
-}
-{
-   bug_36265_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:CoCreateInstance
-   fun:test_COM_bandtrack
-   fun:func_dmband
-   fun:run_test
-   fun:main
-}
-{
-   bug_36265_3
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:CoCreateInstance
-   fun:func_dmband
-   fun:run_test
-   fun:main
-}
-{
    bug_36266_1
    Memcheck:Leak
    ...
@@ -3813,33 +3773,6 @@
    fun:main
 }
 {
-   bug_36270_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:CoCreateInstance
-   fun:test_COM_track
-   fun:func_dmcompos
-   fun:run_test
-   fun:main
-}
-{
-   bug_36270_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:CoCreateInstance
-   fun:func_dmcompos
-   fun:run_test
-   fun:main
-}
-{
    bug_36272_1
    Memcheck:Leak
    match-leak-kinds: definite
@@ -3874,7 +3807,7 @@
    ...
 }
 {
-   bug_36273_4
+   bug_36272_4
    Memcheck:Leak
    match-leak-kinds: definite
    fun:notify_alloc
@@ -3883,20 +3816,6 @@
    fun:test_InitAudio
    fun:func_performance
    ...
-}
-{
-   bug_36273
-   Memcheck:Leak
-   ...
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:CoCreateInstance
-   ...
-   fun:func_dmstyle
-   fun:run_test
-   fun:main
 }
 {
    bug_36274_1
@@ -9024,15 +8943,6 @@
    fun:RtlAllocateHeap
    fun:test_fragmentsize
    fun:func_wave
-   fun:run_test
-   fun:main
-}
-{
-   bug_38848
-   Memcheck:Cond
-   ...
-   fun:test_track
-   fun:func_dmime
    fun:run_test
    fun:main
 }
