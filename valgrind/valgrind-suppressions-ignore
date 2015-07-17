@@ -1433,3 +1433,28 @@
    fun:start_thread
    fun:clone
 }
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:msvcrt_heap_alloc
+   fun:MSVCRT_malloc
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Cond
+   obj:*
+}
+{
+   # https://bugzilla.redhat.com/show_bug.cgi?id=1241533
+   bash_set_default_locale
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:xmalloc
+   fun:set_default_locale
+   fun:main
+}
