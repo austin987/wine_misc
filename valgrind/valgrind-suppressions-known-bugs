@@ -543,7 +543,6 @@
    bug_26119
    Memcheck:Param
    writev(vector[...])
-   fun:writev
    ...
    fun:send_request
    fun:wine_server_call
@@ -8961,5 +8960,38 @@
    fun:WCMD_process_commands
    fun:wmain
    ...
+}
+{
+   bug_38911
+   Memcheck:Cond
+   fun:ddraw_surface_create
+   fun:ddraw1_CreateSurface
+   fun:ddrawstreamsample_create
+   fun:DirectDrawMediaStreamImpl_IDirectDrawMediaStream_CreateSample
+   fun:IDirectDrawMediaStream_CreateSample
+   fun:test_media_streams
+   ...
+}
+{
+   bug_38912
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:alloc_bstr
+   fun:SysAllocStringLen
+   fun:pre_process_uri
+   fun:CreateUri
+   fun:create_uri
+   fun:nsIOService_NewURI
+   obj:*
+}
+{
+   bug_38915
+   Memcheck:Cond
+   fun:test_GetSystemTimes
+   fun:func_time
+   fun:run_test
+   fun:main
 }
 
