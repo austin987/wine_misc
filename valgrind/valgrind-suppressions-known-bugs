@@ -2284,22 +2284,6 @@
    ...
 }
 {
-   bug_36163
-   Memcheck:Cond
-   fun:real_length
-   fun:wine_compare_string
-   fun:CompareStringEx
-   fun:CompareStringW
-   fun:WCMD_setshow_default
-   fun:WCMD_execute
-   fun:WCMD_process_commands
-   fun:WCMD_batch
-   fun:WCMD_run_program
-   fun:WCMD_execute
-   fun:WCMD_process_commands
-   ...
-}
-{
    bug_36166_1
    Memcheck:Leak
    match-leak-kinds: possible
