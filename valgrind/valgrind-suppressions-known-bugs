@@ -3991,20 +3991,6 @@
    fun:main
 }
 {
-   bug_36279
-   Memcheck:Addr4
-   fun:memcpy
-   fun:copy_bitmapinfo
-   fun:select_pattern_brush
-   fun:pattern_brush
-   fun:dibdrv_PatBlt
-   fun:PatBlt
-   fun:test_palette_brush
-   fun:func_brush
-   fun:run_test
-   fun:main
-}
-{
    bug_36280
    Memcheck:Leak
    ...
