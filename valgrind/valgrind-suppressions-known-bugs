@@ -8462,23 +8462,6 @@
    fun:URLMoniker_BindToObject
 }
 {
-   bug_38456_1
-   Memcheck:Cond
-   fun:bcmp
-   fun:test_add
-   fun:func_reg
-   fun:run_test
-   fun:main
-}
-{
-   bug_38456_2
-   Memcheck:Cond
-   fun:test_add
-   fun:func_reg
-   fun:run_test
-   fun:main
-}
-{
    bug_38457
    Memcheck:Leak
    match-leak-kinds: definite
