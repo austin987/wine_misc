@@ -56,6 +56,9 @@ virtual_desktop=""
 mkdir -p ${WINESRC}/logs
 echo "started with: $0 $@" > ${WINESRC}/logs/${wine_version}.log
 git log -n 1 >> ${WINESRC}/logs/${wine_version}.log
+# Valgrind only reports major version info (or -SVN, but no rev #):
+# https://bugs.kde.org/show_bug.cgi?id=352395
+echo "Using $(${WINETEST_WRAPPER} --version)" > ${WINESRC}/logs/${wine_version}.log
 
 while [ ! -z "$1" ]
 do
