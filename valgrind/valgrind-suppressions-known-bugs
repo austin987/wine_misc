@@ -4383,17 +4383,6 @@
    fun:clone
 }
 {
-   bug_36300
-   Memcheck:Addr1
-   fun:update_position
-   fun:libxmlStartElementNS
-   ...
-   fun:isaxxmlreader_parse
-   ...
-   fun:test_saxreader
-   ...
-}
-{
    bug_36301_1
    Memcheck:Addr1
    ...
@@ -7125,17 +7114,6 @@
    fun:main
 }
 {
-   bug_36589
-   Memcheck:Addr2
-   fun:_ItemizeInternal
-   fun:ScriptItemizeOpenType
-   fun:_test_items_ok
-   fun:test_ScriptItemize
-   fun:func_usp10
-   fun:run_test
-   fun:main
-}
-{
    bug_36597_1
    Memcheck:Leak
    match-leak-kinds: definite
@@ -8556,16 +8534,6 @@
    fun:func_security
    fun:run_test
    fun:main
-}
-{
-   bug_38672
-   Memcheck:Param
-   writev(vector[...])
-   ...
-   obj:*/libxcb.so.*
-   fun:xcb_writev
-   fun:_XSend
-   ...
 }
 {
    bug_38673
