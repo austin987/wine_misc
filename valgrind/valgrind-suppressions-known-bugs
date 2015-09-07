@@ -2283,22 +2283,6 @@
    ...
 }
 {
-   bug_36163
-   Memcheck:Cond
-   fun:real_length
-   fun:wine_compare_string
-   fun:CompareStringEx
-   fun:CompareStringW
-   fun:WCMD_setshow_default
-   fun:WCMD_execute
-   fun:WCMD_process_commands
-   fun:WCMD_batch
-   fun:WCMD_run_program
-   fun:WCMD_execute
-   fun:WCMD_process_commands
-   ...
-}
-{
    bug_36166_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -4006,20 +3990,6 @@
    fun:main
 }
 {
-   bug_36279
-   Memcheck:Addr4
-   fun:memcpy
-   fun:copy_bitmapinfo
-   fun:select_pattern_brush
-   fun:pattern_brush
-   fun:dibdrv_PatBlt
-   fun:PatBlt
-   fun:test_palette_brush
-   fun:func_brush
-   fun:run_test
-   fun:main
-}
-{
    bug_36280
    Memcheck:Leak
    ...
@@ -4396,17 +4366,6 @@
    fun:start_thread
    fun:start_thread
    fun:clone
-}
-{
-   bug_36300
-   Memcheck:Addr1
-   fun:update_position
-   fun:libxmlStartElementNS
-   ...
-   fun:isaxxmlreader_parse
-   ...
-   fun:test_saxreader
-   ...
 }
 {
    bug_36301_1
@@ -7140,17 +7099,6 @@
    fun:main
 }
 {
-   bug_36589
-   Memcheck:Addr2
-   fun:_ItemizeInternal
-   fun:ScriptItemizeOpenType
-   fun:_test_items_ok
-   fun:test_ScriptItemize
-   fun:func_usp10
-   fun:run_test
-   fun:main
-}
-{
    bug_36597_1
    Memcheck:Leak
    match-leak-kinds: definite
@@ -8499,23 +8447,6 @@
    fun:URLMoniker_BindToObject
 }
 {
-   bug_38456_1
-   Memcheck:Cond
-   fun:bcmp
-   fun:test_add
-   fun:func_reg
-   fun:run_test
-   fun:main
-}
-{
-   bug_38456_2
-   Memcheck:Cond
-   fun:test_add
-   fun:func_reg
-   fun:run_test
-   fun:main
-}
-{
    bug_38457
    Memcheck:Leak
    match-leak-kinds: definite
@@ -8571,16 +8502,6 @@
    fun:func_security
    fun:run_test
    fun:main
-}
-{
-   bug_38672
-   Memcheck:Param
-   writev(vector[...])
-   ...
-   obj:*/libxcb.so.*
-   fun:xcb_writev
-   fun:_XSend
-   ...
 }
 {
    bug_38673
