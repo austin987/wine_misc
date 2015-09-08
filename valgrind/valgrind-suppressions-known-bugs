@@ -8907,12 +8907,3 @@
    fun:nsIOService_NewURI
    obj:*
 }
-{
-   bug_38915
-   Memcheck:Cond
-   fun:test_GetSystemTimes
-   fun:func_time
-   fun:run_test
-   fun:main
-}
-
