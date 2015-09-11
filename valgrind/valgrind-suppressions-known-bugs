@@ -547,7 +547,6 @@
    fun:send_request
    fun:wine_server_call
    ...
-   fun:NtWaitForMultipleObjects
    fun:NtWaitForSingleObject
    fun:server_ioctl_file
    fun:NtFsControlFile
@@ -4021,10 +4020,7 @@
    ...
    fun:RPCRT4_SendWithAuth
    fun:RPCRT4_Send
-   fun:process_request_packet
    ...
-   fun:RPCRT4_worker_thread
-   fun:worker_thread_proc
    obj:*/dlls/ntdll/ntdll.dll.so
    fun:call_thread_func
    obj:*/dlls/ntdll/ntdll.dll.so
@@ -8547,7 +8543,7 @@
    fun:send_request
    fun:wine_server_call
    fun:server_select
-   fun:NtWaitForMultipleObjects
+   ...
    fun:NtWaitForSingleObject
    fun:server_ioctl_file
    fun:NtDeviceIoControlFile
