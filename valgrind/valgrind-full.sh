@@ -160,6 +160,7 @@ touch dlls/mshtml/tests/htmllocation.ok # FIXME: hangs
 touch dlls/msvcrt/tests/string.ok # valgrind wontfix: https://bugs.winehq.org/show_bug.cgi?id=36165
 touch dlls/ole32/tests/clipboard.ok # FIXME: hangs
 touch dlls/opengl32/tests/opengl.ok # https://bugs.winehq.org/show_bug.cgi?id=38533
+touch dlls/user32/tests/win.ok # https://bugzilla.redhat.com/show_bug.cgi?id=1248314
 
 # wine bugs:
 touch dlls/winmm/tests/mci.ok # https://bugs.winehq.org/show_bug.cgi?id=30557
@@ -184,8 +185,10 @@ then
     touch dlls/dxdiagn/tests/container.ok # crashes https://bugs.winehq.org/show_bug.cgi?id=36276
     touch dlls/dxgi/tests/device.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=36626
     touch dlls/kernel32/tests/debugger.ok # intentional
+    touch dlls/msxml3/tests/domdoc.ok # https://bugs.winehq.org/show_bug.cgi?id=39256
     touch dlls/ntdll/tests/exception.ok # https://bugs.winehq.org/show_bug.cgi?id=28735
     touch dlls/shlwapi/tests/path.ok # crashes with gcc-4.9.0/valgrind https://bugs.winehq.org/show_bug.cgi?id=36651
+    touch dlls/user32/tests/dde.ok # https://bugs.winehq.org/show_bug.cgi?id=39257
 fi
 
 if [ $skip_failures -eq 1 ]
