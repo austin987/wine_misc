@@ -8903,3 +8903,27 @@
    fun:nsIOService_NewURI
    obj:*
 }
+{
+   bug_39279
+   Memcheck:Param
+   ioctl(arg)
+   fun:ioctl
+   fun:CDROM_StopAudio
+   fun:CDROM_DeviceIoControl
+   fun:NtDeviceIoControlFile
+   fun:DeviceIoControl
+   fun:MCICDA_Stop
+   fun:MCICDA_Close
+   fun:MCICDA_DriverProc
+   fun:DRIVER_SendMessage
+   fun:SendDriverMessage
+   fun:MCI_SendCommandFrom32
+   fun:MCI_Close
+   fun:MCI_SendCommand
+   fun:mciSendCommandW
+   fun:mciSendCommandA
+   fun:test_openclose
+   fun:func_mcicda
+   fun:run_test
+   fun:main
+}
