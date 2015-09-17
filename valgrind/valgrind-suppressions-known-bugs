@@ -8592,17 +8592,6 @@
    fun:main
 }
 {
-   bug_38678
-   Memcheck:Cond
-   fun:RtlIsNameLegalDOS8Dot3
-   fun:CheckNameLegalDOS8Dot3W
-   ...
-   fun:test_CheckNameLegalDOS8Dot3
-   fun:func_path
-   fun:run_test
-   fun:main
-}
-{
    bug_38685
    Memcheck:Addr2
    fun:check_gamma_ramps
