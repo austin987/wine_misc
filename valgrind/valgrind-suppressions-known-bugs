@@ -3333,21 +3333,6 @@
    ...
 }
 {
-   bug_36237
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:LocalAlloc
-   fun:Alloc
-   fun:SetWindowSubclass
-   ...
-   fun:func_subclass
-   ...
-}
-{
    bug_36239
    Memcheck:Leak
    match-leak-kinds: possible
@@ -6300,20 +6285,6 @@
    fun:main
 }
 {
-   bug_36422
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:test_smart_tee_filter
-   fun:func_qcap
-   fun:run_test
-   fun:main
-}
-{
    bug_36424
    Memcheck:Leak
    match-leak-kinds: possible
@@ -6650,28 +6621,6 @@
    fun:RpcServerUseProtseqA
    fun:test_RpcServerUseProtseq
    fun:func_rpc_protseq
-   fun:run_test
-   fun:main
-}
-{
-   bug_36571_1
-   Memcheck:Addr1
-   fun:bcmp
-   fun:is_knownfolder
-   fun:foldermanager_GetFolder
-   fun:test_knownFolders
-   fun:func_shellpath
-   fun:run_test
-   fun:main
-}
-{
-   bug_36571_2
-   Memcheck:Free
-   fun:notify_free
-   fun:RtlFreeHeap
-   fun:foldermanager_Release
-   fun:test_knownFolders
-   fun:func_shellpath
    fun:run_test
    fun:main
 }
