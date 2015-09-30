@@ -557,21 +557,6 @@
    fun:clone
 }
 {
-   bug_26122
-   Memcheck:Value4
-   fun:mbstowcs_sbcs
-   fun:wine_cp_mbstowcs
-   fun:MultiByteToWideChar
-   fun:CompareStringA
-   fun:StrCmpNIA
-   fun:SHLWAPI_StrStrHelperA
-   fun:StrStrIA
-   fun:test_loadlibraryshim
-   fun:func_mscoree
-   fun:run_test
-   fun:main
-}
-{
    bug_26130_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -3979,19 +3964,6 @@
    ...
    fun:func_gamestatistics
    ...
-   fun:main
-}
-{
-   bug_36281
-   Memcheck:Addr4
-   fun:CreatePolyPolygonRgn
-   fun:PATH_PathToRegion
-   fun:PATH_FillPath
-   fun:nulldrv_FillPath
-   fun:FillPath
-   fun:test_path_state
-   fun:func_path
-   fun:run_test
    fun:main
 }
 {

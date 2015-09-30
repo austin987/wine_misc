@@ -180,14 +180,9 @@ then
     touch dlls/d3d8/tests/device.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=28800
     touch dlls/d3dx9_36/tests/mesh.ok # test fails on intel/nvidia https://bugs.winehq.org/show_bug.cgi?id=28810
     touch dlls/ddraw/tests/d3d.ok # test crashes on nvidia https://bugs.winehq.org/show_bug.cgi?id=36660
-    touch dlls/ddraw/tests/visual.ok # test crashes on i965 https://bugs.winehq.org/show_bug.cgi?id=36669
     touch dlls/ddrawex/tests/surface.ok # valgrind segfaults on nvidia https://bugs.winehq.org/show_bug.cgi?id=36689 / https://bugs.kde.org/show_bug.cgi?id=335907
-    touch dlls/dxdiagn/tests/container.ok # crashes https://bugs.winehq.org/show_bug.cgi?id=36276
-    touch dlls/dxgi/tests/device.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=36626
     touch dlls/kernel32/tests/debugger.ok # intentional
-    touch dlls/msxml3/tests/domdoc.ok # https://bugs.winehq.org/show_bug.cgi?id=39256
     touch dlls/ntdll/tests/exception.ok # https://bugs.winehq.org/show_bug.cgi?id=28735
-    touch dlls/shlwapi/tests/path.ok # crashes with gcc-4.9.0/valgrind https://bugs.winehq.org/show_bug.cgi?id=36651
     touch dlls/user32/tests/dde.ok # https://bugs.winehq.org/show_bug.cgi?id=39257
 fi
 
