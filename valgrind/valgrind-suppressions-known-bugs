@@ -8789,17 +8789,6 @@
    ...
 }
 {
-   bug_38911
-   Memcheck:Cond
-   fun:ddraw_surface_create
-   fun:ddraw1_CreateSurface
-   fun:ddrawstreamsample_create
-   fun:DirectDrawMediaStreamImpl_IDirectDrawMediaStream_CreateSample
-   fun:IDirectDrawMediaStream_CreateSample
-   fun:test_media_streams
-   ...
-}
-{
    bug_38912
    Memcheck:Leak
    match-leak-kinds: possible
