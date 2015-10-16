@@ -524,14 +524,6 @@
    fun:main
 }
 {
-   bug_26112
-   Memcheck:Cond
-   ...
-   fun:func_env
-   ...
-   fun:main
-}
-{
    bug_26116
    Memcheck:Leak
    ...
