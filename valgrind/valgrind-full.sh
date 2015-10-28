@@ -159,7 +159,6 @@ touch dlls/mshtml/tests/events.ok # https://bugs.winehq.org/show_bug.cgi?id=3715
 touch dlls/mshtml/tests/htmllocation.ok # FIXME: hangs
 touch dlls/msvcrt/tests/string.ok # valgrind wontfix: https://bugs.winehq.org/show_bug.cgi?id=36165
 touch dlls/ole32/tests/clipboard.ok # FIXME: hangs
-touch dlls/opengl32/tests/opengl.ok # https://bugs.winehq.org/show_bug.cgi?id=38533
 touch dlls/user32/tests/win.ok # https://bugzilla.redhat.com/show_bug.cgi?id=1248314
 
 # wine bugs:
