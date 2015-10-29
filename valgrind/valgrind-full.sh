@@ -155,10 +155,15 @@ touch dlls/ddraw/tests/ddraw7.ok # https://bugs.kde.org/show_bug.cgi?id=264785
 touch dlls/ddraw/tests/ddrawmodes.ok # test crashes https://bugs.winehq.org/show_bug.cgi?id=26130 / https://bugs.kde.org/show_bug.cgi?id=264785
 touch dlls/kernel32/tests/thread.ok # valgrind crash https://bugs.winehq.org/show_bug.cgi?id=28817 / https://bugs.kde.org/show_bug.cgi?id=335563
 touch dlls/kernel32/tests/virtual.ok # valgrind assertion failure after https://bugs.winehq.org/show_bug.cgi?id=28816: valgrind: m_debuginfo/debuginfo.c:1261 (vgPlain_di_notify_pdb_debuginfo): Assertion 'di && !di->fsm.have_rx_map && !di->fsm.have_rw_map' failed.
-touch dlls/mshtml/tests/events.ok # https://bugs.winehq.org/show_bug.cgi?id=37157 hangs under valgrind
-touch dlls/mshtml/tests/htmllocation.ok # FIXME: hangs
 touch dlls/msvcrt/tests/string.ok # valgrind wontfix: https://bugs.winehq.org/show_bug.cgi?id=36165
+
+# hanging bugs:
+touch dlls/ieframe/tests/ie.ok # FIXME: hangs
+touch dlls/mshtml/tests/events.ok # https://bugs.winehq.org/show_bug.cgi?id=37157 hangs under valgrind
+touch dlls/mshtml/tests/htmldoc.ok # FIXME: hangs
+touch dlls/mshtml/tests/htmllocation.ok # FIXME: hangs
 touch dlls/ole32/tests/clipboard.ok # FIXME: hangs
+touch dlls/ole32/tests/marshal.ok # FIXME: hangs
 touch dlls/user32/tests/win.ok # https://bugzilla.redhat.com/show_bug.cgi?id=1248314
 
 # wine bugs:
