@@ -6523,20 +6523,6 @@
    obj:*/drive_c/windows/system32/gecko/2.24/wine_gecko/nspr4.dll
 }
 {
-   bug_36560
-   Memcheck:Addr4
-   fun:D3DRMVectorSubtract
-   fun:load_mesh_data
-   ...
-   fun:load_data
-   fun:d3drm3_Load
-   fun:d3drm1_Load
-   fun:test_d3drm_load
-   fun:func_d3drm
-   fun:run_test
-   fun:main
-}
-{
    bug_36561
    Memcheck:Leak
    match-leak-kinds: definite
@@ -8005,30 +7991,6 @@
    fun:main
 }
 {
-   bug_36794
-   Memcheck:Addr4
-   fun:EDIT_WM_KillFocus
-   fun:EditWndProc_common
-   fun:EditWndProcA
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:CallWindowProcA
-   fun:CallWindowProcT
-   fun:EditLblWndProcT
-   fun:EditLblWndProcA
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:CallWindowProcA
-   fun:editbox_subclass_proc
-   obj:*/dlls/user32/user32.dll.so
-   fun:call_window_proc
-   fun:WINPROC_CallProcWtoA
-   fun:WINPROC_call_window
-   fun:call_window_proc
-   fun:send_message
-   fun:SendMessageW
-}
-{
    bug_37159_1
    Memcheck:Value4
    fun:wcstombs_sbcs
@@ -8815,6 +8777,20 @@
    fun:mciSendCommandA
    fun:test_openclose
    fun:func_mcicda
+   fun:run_test
+   fun:main
+}
+{
+   bug_39522
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:notify_alloc
+   fun:RtlAllocateHeap
+   fun:add_item
+   fun:IFileDialogCustomize_fnAddControlItem
+   fun:IFileDialogCustomize_AddControlItem
+   fun:test_customize
+   fun:func_itemdlg
    fun:run_test
    fun:main
 }
