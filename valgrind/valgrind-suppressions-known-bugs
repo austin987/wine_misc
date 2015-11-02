@@ -8441,32 +8441,6 @@
    ...
 }
 {
-   bug_38677_1
-   Memcheck:Addr2
-   fun:lstrcpynW
-   fun:GetShortPathNameW
-   fun:GetShortPathNameA
-   fun:test_PathNameA
-   fun:func_path
-   fun:run_test
-   fun:main
-}
-{
-   bug_38677_2
-   Memcheck:Addr2
-   ...
-   fun:RtlGetFullPathName_U
-   fun:RtlDosPathNameToNtPathName_U
-   fun:FindFirstFileExW
-   fun:FindFirstFileW
-   fun:GetShortPathNameW
-   fun:GetShortPathNameA
-   fun:test_PathNameA
-   fun:func_path
-   fun:run_test
-   fun:main
-}
-{
    bug_38685
    Memcheck:Addr2
    fun:check_gamma_ramps
