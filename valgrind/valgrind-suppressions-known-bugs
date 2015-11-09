@@ -6279,28 +6279,6 @@
    fun:main
 }
 {
-   bug_36427_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:func_scheduler
-   ...
-}
-{
-   bug_36427_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:test_Connect
-   fun:func_scheduler
-   fun:run_test
-   fun:main
-}
-{
    bug_36428
    Memcheck:Leak
    match-leak-kinds: possible
@@ -8107,19 +8085,6 @@
    fun:OLEClipbrd_Initialize
    fun:OleInitialize
    fun:func_itemdlg
-   fun:run_test
-   fun:main
-}
-{
-   bug_38444
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:heap_alloc
-   fun:heap_strdupW
-   fun:IDirectPlay8AddressImpl_AddComponent
-   ...
    fun:run_test
    fun:main
 }
