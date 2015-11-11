@@ -4122,14 +4122,6 @@
    ...
 }
 {
-   bug_36291
-   Memcheck:Leak
-   ...
-   fun:func_inputprocessor
-   fun:run_test
-   fun:main
-}
-{
    bug_36293
    Memcheck:Cond
    ...
@@ -7060,47 +7052,6 @@
    fun:main
 }
 {
-   bug_36607_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:create_stream_on_data
-   fun:test_readvaluechunk
-   fun:func_reader
-   fun:run_test
-   fun:main
-}
-{
-   bug_36607_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:CreateStreamOnHGlobal
-   fun:create_stream_on_data
-   fun:test_readvaluechunk
-   fun:func_reader
-   fun:run_test
-   fun:main
-}
-{
-   bug_36607_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:HeapAlloc
-   fun:GlobalAlloc
-   fun:create_stream_on_data
-   fun:test_readvaluechunk
-   fun:func_reader
-   fun:run_test
-   fun:main
-}
-{
    bug_36608
    Memcheck:Leak
    match-leak-kinds: definite
@@ -8203,45 +8154,6 @@
    fun:IShellDispatch_NameSpace
    fun:test_namespace
    fun:func_shelldispatch
-   fun:run_test
-   fun:main
-}
-{
-   bug_38450_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:SHCreateShellItemArrayFromIDLists
-   ...
-   fun:func_shlfolder
-   fun:run_test
-   fun:main
-}
-
-{
-   bug_38450_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:SHCreateShellItemArray
-   ...
-   fun:test_SHCreateShellItemArray
-   ...
-   fun:func_shlfolder
-   fun:run_test
-   fun:main
-}
-{
-   bug_38450_3
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:SHCreateShellItemArray
-   fun:test_ShellItemArrayEnumItems
-   fun:func_shlfolder
    fun:run_test
    fun:main
 }
