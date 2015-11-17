@@ -3951,14 +3951,6 @@
    fun:main
 }
 {
-   bug_36280
-   Memcheck:Leak
-   ...
-   fun:func_gamestatistics
-   ...
-   fun:main
-}
-{
    bug_36282
    Memcheck:Param
    write(buf)
@@ -6271,19 +6263,6 @@
    fun:main
 }
 {
-   bug_36428
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:func_dictionary
-   fun:run_test
-   fun:main
-}
-{
    bug_36429
    Memcheck:Leak
    match-leak-kinds: possible
@@ -8210,20 +8189,6 @@
    obj:*/dlls/ntdll/ntdll.dll.so
    fun:start_process
    obj:*/libs/wine/libwine.so.1.0
-}
-{
-   bug_38464
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:RtlInitializeCriticalSectionEx
-   fun:InitializeCriticalSectionEx
-   fun:InitializeCriticalSection
-   fun:test_async_HttpSendRequestEx
-   fun:func_http
-   fun:run_test
-   fun:main
 }
 {
    bug_38670
