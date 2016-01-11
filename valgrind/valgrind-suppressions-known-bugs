@@ -808,59 +808,6 @@
    fun:run_test
 }
 {
-   bug_28698_1
-   Memcheck:Cond
-   fun:winetest_vok
-   fun:winetest_ok
-   fun:test_ReadAndWriteProperties
-   ...
-   fun:func_intshcut
-   fun:run_test
-   fun:main
-}
-{
-   bug_28698_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:Process_URL
-   fun:wWinMain
-   fun:wmain
-   fun:__wine_spec_exe_wentry
-   obj:*/dlls/kernel32/kernel32.dll.so
-   fun:start_process
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:call_thread_func
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:start_process
-   obj:*/libs/wine/libwine.so.1.0
-}
-{
-   bug_28698_3
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:RtlAllocateHeap
-   fun:IMalloc_fnAlloc
-   fun:CoTaskMemAlloc
-   fun:get_profile_string
-   fun:PersistFile_Load
-   fun:Process_URL
-   fun:wWinMain
-   fun:wmain
-   fun:__wine_spec_exe_wentry
-   obj:*/dlls/kernel32/kernel32.dll.so
-   fun:start_process
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:call_thread_func
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:start_process
-   obj:*/libs/wine/libwine.so.1.0
-}
-{
    bug_28735_1
    Memcheck:Addr4
    ...
@@ -4178,13 +4125,6 @@
    ...
 }
 {
-   bug_36298
-   Memcheck:Leak
-   ...
-   fun:func_domdoc
-   ...
-}
-{
    bug_36299_1
    Memcheck:Leak
    match-leak-kinds: possible
@@ -4302,63 +4242,6 @@
    ...
    fun:_bstr_
    ...
-   fun:func_saxreader
-   ...
-}
-{
-   bug_36301_2
-   Memcheck:Leak
-   ...
-   fun:func_saxreader
-   ...
-}
-{
-   bug_36301_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:alloc_bstr
-   fun:SysAllocStringLen
-   fun:MSFT_ReadValue
-   fun:MSFT_DoFuncs
-   fun:MSFT_DoTypeInfo
-   fun:ITypeLib2_Constructor_MSFT
-   fun:TLB_ReadTypeLib
-   fun:LoadTypeLibEx
-   fun:LoadTypeLib
-   fun:LoadRegTypeLib
-   fun:get_typeinfo
-   fun:preprocess_dispex_data
-   fun:get_dispex_data
-   fun:DispatchEx_GetDispID
-   fun:test_obj_dispex
-   fun:test_saxreader_dispex
-   fun:func_saxreader
-   ...
-}
-{
-   bug_36301_4
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:alloc_bstr
-   fun:SysAllocStringLen
-   fun:MSFT_ReadValue
-   fun:MSFT_CustData
-   fun:ITypeLib2_Constructor_MSFT
-   fun:TLB_ReadTypeLib
-   fun:LoadTypeLibEx
-   fun:LoadTypeLib
-   fun:ITypeInfo_fnGetRefTypeInfo
-   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
-   fun:ITypeInfo_fnGetFuncDesc
-   fun:preprocess_dispex_data
-   fun:get_dispex_data
-   fun:DispatchEx_GetDispID
-   fun:test_obj_dispex
-   fun:test_saxreader_dispex
    fun:func_saxreader
    ...
 }
@@ -8133,16 +8016,6 @@
    fun:IShellDispatch_NameSpace
    fun:test_namespace
    fun:func_shelldispatch
-   fun:run_test
-   fun:main
-}
-{
-   bug_38451
-   Memcheck:Cond
-   fun:bcmp
-   fun:GetShellSecurityDescriptor
-   fun:test_GetShellSecurityDescriptor
-   fun:func_ordinal
    fun:run_test
    fun:main
 }
