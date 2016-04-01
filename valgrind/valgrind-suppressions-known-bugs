@@ -4125,118 +4125,6 @@
    ...
 }
 {
-   bug_36299_1
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:alloc_bstr
-   fun:SysAllocStringLen
-   fun:alloc_str_from_narrow
-   fun:_bstr_
-   fun:_test_open
-   fun:test_safe_httpreq
-   fun:func_httpreq
-   ...
-}
-{
-   bug_36299_2
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   fun:alloc_bstr
-   fun:SysAllocStringLen
-   fun:MSFT_ReadValue
-   fun:MSFT_CustData
-   fun:ITypeLib2_Constructor_MSFT
-   fun:TLB_ReadTypeLib
-   fun:LoadTypeLibEx
-   fun:LoadTypeLib
-   fun:ITypeInfo_fnGetRefTypeInfo
-   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
-   fun:ITypeInfoImpl_GetInternalDispatchFuncDesc
-   fun:ITypeInfo_fnGetFuncDesc
-   fun:preprocess_dispex_data
-   fun:get_dispex_data
-   fun:DispatchEx_GetDispID
-   fun:test_selection
-   fun:func_domdoc
-   ...
-}
-{
-   bug_36299_3
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:alloc_bstr
-   fun:SysAllocStringLen
-   fun:_bstr_
-   fun:_test_open
-   fun:func_httpreq
-   ...
-}
-{
-   bug_36299_4
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:RtlAllocateHeap
-   fun:CreateStreamOnHGlobal
-   fun:HGLOBALStreamImpl_Clone
-   fun:httprequest_get_responseStream.isra.1
-   fun:XMLHTTPRequest_get_responseStream
-   fun:func_httpreq
-   ...
-}
-{
-   bug_36299_5
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:RtlAllocateHeap
-   fun:apartment_getclassobject
-   fun:get_inproc_class_object
-   fun:CoGetClassObject
-   fun:CoCreateInstance
-   fun:create_xhr
-   fun:func_httpreq
-   ...
-}
-{
-   bug_36299_6
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:CreateStreamOnHGlobal
-   fun:HGLOBALStreamImpl_Clone
-   fun:httprequest_get_responseStream
-   fun:XMLHTTPRequest_get_responseStream
-   fun:test_XMLHTTP
-   fun:func_httpreq
-   fun:run_test
-   fun:main
-}
-{
-   bug_36299_7
-   Memcheck:Leak
-   match-leak-kinds: possible
-   fun:notify_alloc
-   fun:RtlAllocateHeap
-   fun:heap_alloc_zero
-   fun:create_netconn
-   fun:open_http_connection
-   fun:HTTP_HttpSendRequestW
-   fun:AsyncHttpSendRequestProc
-   fun:INTERNET_WorkerThreadFunc
-   fun:worker_thread_proc
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:call_thread_func
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:start_thread
-   fun:start_thread
-   fun:clone
-}
-{
    bug_36301_1
    Memcheck:Addr1
    ...
@@ -7765,19 +7653,6 @@
    fun:test_utils
    fun:test_provider_funcs
    fun:func_softpub
-   fun:run_test
-   fun:main
-}
-{
-   bug_36748
-   Memcheck:Leak
-   match-leak-kinds: possible
-   ...
-   fun:RtlAllocateHeap
-   obj:*
-   obj:*
-   fun:test_Frame
-   fun:func_d3drm
    fun:run_test
    fun:main
 }
