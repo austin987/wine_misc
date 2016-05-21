@@ -1377,6 +1377,21 @@
    fun:load_builtin_dll
 }
 {
+   bug_36127
+   Memcheck:Leak
+   match-leak-kinds: definite
+   ...
+   fun:RtlAllocateHeap
+   ...
+   fun:SafeArrayAllocData
+   fun:SAFEARRAY_Create
+   fun:SafeArrayCreate
+   fun:test_safearray
+   fun:func_safearray
+   fun:run_test
+   fun:main
+}
+{
    useless_stack
    Memcheck:Addr4
    obj:*
