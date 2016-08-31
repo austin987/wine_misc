@@ -5963,32 +5963,6 @@
    fun:run_test
    fun:main
 }
-{
-   bug_36421_1
-   Memcheck:Leak
-   match-leak-kinds: definite
-   fun:RtlAllocateHeap
-   fun:datainit_GetDataSource
-   ...
-   fun:func_database
-   fun:run_test
-   fun:main
-}
-{
-   bug_36421_2
-   Memcheck:Leak
-   match-leak-kinds: definite
-   ...
-   fun:RtlAllocateHeap
-   fun:heap_alloc
-   fun:create_db_init
-   fun:datainit_GetDataSource
-   fun:test_initializationstring
-   fun:func_database
-   fun:run_test
-   fun:main
-}
-{
    bug_36424
    Memcheck:Leak
    match-leak-kinds: possible
@@ -8091,32 +8065,6 @@
    fun:gfxPlatform::GetCMSMode
    fun:nsXPLookAndFeel::GetColorImpl
    fun:mozilla::LookAndFeel::GetColor
-}
-{
-   bug_38726
-   Memcheck:Cond
-   fun:QualityControlRender_DoQOS
-   fun:BaseRendererImpl_Receive
-   fun:BaseRenderer_Receive
-   fun:MemInputPin_Receive
-   fun:IMemInputPin_Receive
-   fun:MemInputPin_ReceiveMultiple
-   fun:IMemInputPin_ReceiveMultiple
-   fun:SinkMemInputPin_ReceiveMultiple
-   fun:IMemInputPin_ReceiveMultiple
-   fun:SinkMemInputPin_Receive
-   fun:IMemInputPin_Receive
-   fun:BaseOutputPinImpl_Deliver
-   fun:SmartTeeFilterInput_Receive
-   fun:MemInputPin_Receive
-   fun:IMemInputPin_Receive
-   fun:media_thread
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:call_thread_func
-   obj:*/dlls/ntdll/ntdll.dll.so
-   fun:start_thread
-   fun:start_thread
-   fun:clone
 }
 {
    bug_38727_1
