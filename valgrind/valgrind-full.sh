@@ -53,12 +53,12 @@ skip_slow=0
 suppress_known=""
 virtual_desktop=""
 
-mkdir -p ${WINESRC}/logs
-echo "started with: $0 $@" > ${WINESRC}/logs/${wine_version}.log
-git log -n 1 >> ${WINESRC}/logs/${wine_version}.log
+mkdir -p "${WINESRC}/logs"
+echo "started with: $0 $*" > "${WINESRC}/logs/${wine_version}.log"
+git log -n 1 >> "${WINESRC}/logs/${wine_version}.log"
 # Valgrind only reports major version info (or -SVN, but no rev #):
 # https://bugs.kde.org/show_bug.cgi?id=352395
-echo "Using $(${WINETEST_WRAPPER} --version)" >> ${WINESRC}/logs/${wine_version}.log
+echo "Using $(${WINETEST_WRAPPER} --version)" >> "${WINESRC}/logs/${wine_version}.log"
 
 while [ ! -z "$1" ]
 do
@@ -75,9 +75,9 @@ case $arg in
 esac
 done
 
-cd $WINESRC
+cd "$WINESRC"
 
-if test ! -f $WINESRC/configure 
+if test ! -f "$WINESRC/configure"
 then
     echo "couldn't find $WINESRC/configure"
     exit 1
@@ -86,11 +86,11 @@ fi
 # We grep error messages, so make them all English
 LANG=C
 
-if [ -f $WINESERVER ]
+if [ -f "$WINESERVER" ]
 then
-    $WINESERVER -k || true
+    "$WINESERVER" -k || true
 fi
-rm -rf $WINEPREFIX
+rm -rf "$WINEPREFIX"
 
 # Build a fresh wine, if desired/needed:
 if test ! -f Makefile || test "$rebuild_wine" = "1"
@@ -128,12 +128,12 @@ then
         wget http://downloads.sourceforge.net/project/wine/Wine%20Gecko/${gecko_version}/wine_gecko-${gecko_version}-x86-dbg-msvc.tar.bz2
     fi
 
-    tar xjmvf $WINESRC/wine_gecko-${gecko_version}-x86-dbg-msvc-pdb.tar.bz2 -C $WINEPREFIX/drive_c
+    tar xjmvf "$WINESRC/wine_gecko-${gecko_version}-x86-dbg-msvc-pdb.tar.bz2" -C "$WINEPREFIX/drive_c"
 
-    cd $WINEPREFIX/drive_c/windows/system32/gecko/${gecko_version}
+    cd "$WINEPREFIX/drive_c/windows/system32/gecko/${gecko_version}"
     rm -rf wine_gecko
-    tar xjmvf $WINESRC/wine_gecko-${gecko_version}-x86-dbg-msvc.tar.bz2
-    cd $WINESRC
+    tar xjmvf "$WINESRC/wine_gecko-${gecko_version}-x86-dbg-msvc.tar.bz2"
+    cd "$WINESRC"
 fi
 
 # make sure our settings took effect:
@@ -234,7 +234,7 @@ export VALGRIND_OPTS="-q --trace-children=yes --track-origins=yes --gen-suppress
 export WINETEST_TIMEOUT=600
 export WINE_HEAP_TAIL_REDZONE=32
 
-time make -k test >> ${WINESRC}/logs/${wine_version}.log 2>&1 || true
+time make -k test >> "${WINESRC}/logs/${wine_version}.log" 2>&1 || true
 
 # Kill off winemine and any stragglers
-$WINESERVER -k || true
+"$WINESERVER" -k || true
