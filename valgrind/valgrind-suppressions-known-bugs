@@ -5963,6 +5963,7 @@
    fun:run_test
    fun:main
 }
+{
    bug_36424
    Memcheck:Leak
    match-leak-kinds: possible
