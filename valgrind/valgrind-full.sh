@@ -71,6 +71,7 @@ while [ ! -z "$1" ]
 do
 arg="$1"
 case $arg in
+    # FIXME: Add an option to not skip any tests (move touch foo to a wrapper, check for variable, make no-op and log it)
     --fatal-warnings) fatal_warnings="--error-exitcode=1" ; shift ;;
     --gecko-pdb) gecko_pdb=1 ; shift ;;
     --rebuild) rebuild_wine=1 ; shift ;;
