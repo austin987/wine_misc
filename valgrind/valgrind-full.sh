@@ -80,6 +80,7 @@ case $arg in
     --skip-slow) skip_slow=1 ; shift ;;
     --suppress-known) suppress_known="--suppressions=$WINESRC/tools/valgrind/valgrind-suppressions-gecko --suppressions=$WINESRC/tools/valgrind/valgrind-suppressions-known-bugs" ; shift ;;
     --virtual-desktop|--vd) virtual_desktop="vd=1024x768" ; shift ;;
+    *) echo "invalid option $1 passed! FIXME: add usage()" ; exit 1 ;;
 esac
 done
 
